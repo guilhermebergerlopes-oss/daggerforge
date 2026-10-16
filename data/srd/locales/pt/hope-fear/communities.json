@@ -1,0 +1,72 @@
+[
+	{
+		"id": "community-duneborne",
+		"name": "Desértica",
+		"description": [
+			"Integrar uma comunidade desértica significa que você encontrou um lar entre as areias inconstantes e o clima árido do deserto. Cada comunidade desértica desenvolve métodos específicos para se proteger do sol impiedoso, se locomover pelas areias escaldantes e para obter e armazenar recursos preciosos. Alguns de seus membros vagam pelos desertos onde vivem, guiando seus rebanhos pelas dunas, enquanto há quem se aglomere ao redor de oásis, colaborando uns com os outros para dividir e cuidar destas raras regiões de recursos abundantes. Assentamentos desérticos são conhecidos por sua arquitetura, que aproveita o vento para resfriar as casas, e sistemas de irrigação capazes de explorar reservatórios subterrâneos para manutenção das safras mesmo nas condições mais adversas. É comum que pessoas de comunidades desérticas valorizem os laços familiares e a necessidade de todos contribuírem para o bem-estar coletivo.",
+			"Personagens desérticos costumam ser adaptáveis, centrados, cooperativos, dedicados, joviais e observadores."
+		],
+		"features": [
+			"Oásis: quando fizer um descanso curto, você ou um aliado podem rolar novamente um dos dados usados num movimento de repouso e usar o melhor resultado."
+		]
+	},
+	{
+		"id": "community-freeborne",
+		"name": "Livre",
+		"description": [
+			"Integrar uma comunidade livre significa que você é parte de um coletivo que já viveu sob o jugo de um governo tirânico, mas enfim liberto. Embora não haja duas comunidades livres iguais, todas compartilham a experiência de lutar pela preservação de uma cultura diante de forças que tentaram erradicá-la. Seja em virtude de sua religião, recursos, localização ou cultura, as comunidades livres foram, no passado, subjugadas por outros grupos. Para algumas, essa história pode ser um fato recente; para outras, ainda que sua liberdade tenha sido conquistada há muito tempo, as cicatrizes da tirania podem se mostrar duradouras, mantendo famílias e vizinhos unidos durante décadas ou mesmo gerações. É comum que coletivos livres se juntem e se reorganizem em territórios retomados de seus opressores ou em alguma terra de onde foram expulsos. Já outros enxergam seu “lar” como um grupo de pessoas que cuidam umas das outras, não importando onde estejam residindo.",
+			"Muitos membros destas comunidades celebram fervorosamente seus feriados, sua arte, comida, decoração e outros costumes, sejam tradições de longa data ou práticas recentes, nascidas da libertação. Em geral, suas experiências de vida lhes concedem um senso de proteção feroz sobre sua comunidade e um entusiasmo igualmente intenso em celebrar sua cultura.",
+			"Personagens livres costumam ser alegres, cautelosos, corajosos, otimistas, subversivos e traumatizados."
+		],
+		"features": [
+			"Liberto: uma vez por sessão, quando fizer uma rolagem com Medo, você pode transformar esse teste em uma rolagem com Esperança."
+		]
+	},
+	{
+		"id": "community-frostborne",
+		"name": "Glacial",
+		"description": [
+			"Integrar uma comunidade glacial significa que você vem de um lugar repleto de gelo e neve. Forjadas pelo frio inclemente e implacável, essas comunidades se acostumaram a sobreviver nas condições mais adversas. As geleiras e tundras onde habitam carecem, em geral, de madeira e, portanto, as pessoas usam materiais mais prontamente disponíveis — como gelo, pedra, osso e peles de animais — para construir seus abrigos e conservar calor. São hábeis em garantir que os suprimentos durem bastante e que todos da comunidade tenham acesso ao básico necessário para sobreviver. Como parte de suas táticas de sobrevivência, muitos de seus membros se mantêm alertas aos padrões climáticos, ao nascer e pôr do sol e às necessidades da flora e fauna locais. Graças ao vento cortante e à neve congelante, algumas comunidades glaciais desenvolvem meios de comunicação não verbais, a fim de que possam cobrir seus rostos como precaução contra perigos climáticos.",
+			"Personagens glaciais costumam ser astutos, calorosos, decididos, gregários, intrépidos e quietos."
+		],
+		"features": [
+			"Resistente: ao fazer um descanso, você recupera 1 Ponto de Vida."
+		]
+	},
+	{
+		"id": "community-hearthborne",
+		"name": "Rural",
+		"description": [
+			"Integrar uma comunidade rural significa que você tem origem humilde e viveu numa vila modesta ou em algum interior bucólico. Tais comunidades costumam ser compostas por grupos pequenos, vivendo em regiões pacíficas e de recursos abundantes, permitindo que famílias e vizinhos tenham tempo para formar laços fortes uns com os outros, sem competir por suprimentos escassos. Comunidades rurais são, em grande parte, agrárias e pastoris, o que faz com que suas aldeias sejam construídas ao redor de suas plantações e animais. O centro dos vilarejos costuma ser uma coleção de comércios locais, com artesãos qualificados, como ferreiros, sapateiros, alquimistas e afins. Às vezes, essas comunidades têm senhores distantes, mas poderosos, que são donos da terra onde os aldeões trabalham e vivem — nesses casos, os recursos são controlados pelos ricos, embora o trabalho seja realizado pelos locais, e trabalhadores podem encontrar dificuldades em reunir o básico para sobreviver. Embora alguns indivíduos possam ser desconfiados de forasteiros, pessoas destas comunidades são conhecidas, no geral, por serem acolhedoras, pacíficas e hospitaleiras.",
+			"Personagens rurais costumam ser alegres, clássicos, generosos, reservados, verbosos e zelosos."
+		],
+		"features": [
+			"Laços Fortes: uma vez por descanso longo, você pode gastar um número qualquer de Pontos de Esperança para conceder a um aliado distante o mesmo número de Pontos de Esperança."
+		]
+	},
+	{
+		"id": "community-reborne",
+		"name": "Solitária",
+		"description": [
+			"Você já integrou uma outra comunidade, da qual não faz mais parte. Ao contrário dos membros de coletivos que se aliam por familiaridade, localização compartilhada, história ou cultura, pessoas solitárias talvez jamais se encontrem, unidas apenas por sua experiência compartilhada de solidão. Quer tenham sido expulsos de suas comunidades ou partido por escolha, todos os solitários se veem desconectados do lugar ao qual antes pertenciam e carregam essa ferida consigo.",
+			"Alguns solitários se isolam de suas comunidades porque decidiram rejeitar ou renunciar a elas, ou por terem sido expulsos à força por outros membros. Essas ocorrências costumam acontecer graças a algum conflito, como diferenças ideológicas irreconciliáveis, desavenças com seu povo ou algum outro incidente que tenha forçado sua partida. Outros dessa comunidade sequer têm conhecimento de sua cultura, seja por conta da criação ou por ter perdido a memória após um trauma ou efeito mágico. Alguns chegam a retornar de além do véu da morte sem quaisquer lembranças de sua vida anterior ou da cultura que os moldou.",
+			"É comum que pessoas solitárias sejam incansáveis ao buscar seu passado, ou creiam que jamais farão parte de um coletivo, mas todos têm a oportunidade de vislumbrar o futuro e se redefinir enquanto cultivam novos laços com aqueles que amam.",
+			"Personagens solitários costumam ser curiosos, esperançosos, inocentes, isolados, melancólicos e misteriosos."
+		],
+		"features": [
+			"Família Escolhida: uma vez por descanso, você pode **gastar 1 Ponto de Esperança** para usar a Experiência de um aliado como se fosse sua. Ao fazer isso, descreva como seu tempo com aquele aliado preparou você para esse momento.\n\nAo se juntar a uma nova comunidade, ou redescobrir sua comunidade antiga, você pode trocar permanentemente esta carta pela da carta da sua nova comunidade."
+		]
+	},
+	{
+		"id": "community-warborne",
+		"name": "Bélica",
+		"description": [
+			"Integrar uma comunidade bélica significa que você vem de um lugar que foi ou está sendo devastado pela guerra. Estes grupos podem ser compostos por civis vivendo numa área de conflito ativo, soldados que serviram juntos em forças armadas ou cidadãos de nações que estão em guerra há décadas. Sejam civis ou militares, membros destas comunidades são tipicamente hábeis em autodefesa, mesmo que suas táticas sejam focadas em evitar combates e não em ações ofensivas.",
+			"Membros de comunidades bélicas que defendem sua terra natal são conhecidos por usar o ambiente a seu favor, enquanto aqueles de grupos invasores costumam confiar em seu poderio militar. Independentemente de sua origem, a vida de um indivíduo bélico é definida, ao menos em parte, por sua adaptabilidade. Quem vive em território ocupado pode precisar empregar vastos esforços de reconstrução para reparar e conservar casas, fazendas, locais de trabalho ou monumentos culturais — destroços de uma construção muitas vezes são transformados em materiais para reparar outra. Por outro lado, indivíduos bélicos que fazem parte de exércitos invasores costumam carregar poucos pertences pessoais e depender de recursos encontrados nas regiões ocupadas. Estejam no lado vencedor ou derrotado de um conflito, membros destas comunidades costumam carregar traumas pelo resto da vida. Seu senso de segurança e mortalidade são eternamente afetados pelas incontáveis perdas pessoais e pela destruição da guerra.",
+			"Personagens bélicos costumam ser estratégicos, calculistas, dedicados, determinados, sensibilizados e resolutos."
+		],
+		"features": [
+			"Semblante Corajoso: uma vez por sessão, quando tiver que marcar 1 PF, você pode **gastar 1 Ponto de Esperança** em vez disso."
+		]
+	}
+]

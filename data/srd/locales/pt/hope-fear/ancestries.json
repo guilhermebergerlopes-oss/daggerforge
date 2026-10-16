@@ -1,0 +1,73 @@
+[
+	{
+		"id": "ancestry-aetheris",
+		"name": "Ätheris",
+		"description": [
+			"Aetheris são humanoides facilmente reconhecíveis por suas asas e marcas sagradas, pois descendem de anjos das Graças Superiores. Aetheris costumam ter entre 1,5m e 2,1m de altura, e alguns também possuem membros alongados. Em geral, seus olhos, cabelos e pele têm cores vibrantes, embora possam apresentar tons terrosos e pastel. Muitas pessoas desta ancestralidade já nascem com marcas sagradas — como sigilos brilhantes ou padrões intrincados de linhas e símbolos —, mas todos os aetheris as desenvolvem conforme amadurecem. Esses símbolos mudam com a idade, no geral por causa de alguma profecia, revelação ou orientação divina das Graças Superiores.",
+			"Todos os aetheris possuem uma “aura exaltada”, que pode se manifestar tanto de maneira voluntária, caso seu poder seja invocado, quanto involuntariamente, como quando o aetheris é tomado por emoções intensas. Ao invocar essa radiância, seus olhos e corpo podem começar a brilhar, suas marcas podem se tornar mais proeminentes ou se modificar. Uma auréola também pode se manifestar sobre ou ao redor de sua cabeça — são halos luminosos individuais, tal qual uma impressão digital, e podem se assemelhar entre membros da mesma família. Talvez em virtude da herança angelical, aetheris costumam viver por 350 anos, mas mantêm a fagulha de juventude mesmo na velhice."
+		],
+		"features": [
+			"Aura Exaltada: uma vez por descanso longo, quando um aliado próximo fizer uma rolagem com Medo, você pode transformar o teste em uma rolagem com Esperança.",
+			"Asas Celestiais: você tem asas e pode voar. Uma vez por cena, enquanto estiver voando, você pode **gastar 1 Ponto de Esperança** em vez de marcar 1 Ponto de Armadura."
+		]
+	},
+	{
+		"id": "ancestry-earthkin",
+		"name": "Herdeiro da Terra",
+		"description": [
+			"Herdeiros da terra são humanoides cujo corpo é feito de carne e solo. Descendentes de elementais da terra, eles são compostos por alguma combinação de pedra, cristal, argila, terra, areia e carne. Alguns são majoritariamente feitos de carne e osso, tendo apenas uma característica terrosa, como cores e texturas rochosas na pele ou formações cristalinas adornando sua cabeça como se fossem cabelos. Outros são combinações, muitas vezes assimétricas, de músculos e minerais naturais. Outros ainda são feitos quase inteiramente de solo e rocha. Herdeiros da terra podem escolher moldar e decorar as partes minerais de seus corpos com gravuras entalhadas, incorporando pedras preciosas, metais, ou até mesmo plantando e cultivando folhagens ornamentais. Sua coloração é herdada da sua linhagem elemental, e mesmo aqueles que têm mais carne do que terra exibem tons que lembram mármore, pedras preciosas, areia, terra etc.",
+			"Estes herdeiros nascem como pequenos blocos de terra, como um pedregulho, uma bola de argila ou um aglomerado cristalino. Embora desenvolvam suas características humanoides de maneira rápida, herdeiros da terra envelhecem lentamente durante a maior parte dos seus 300 anos de vida. A altura média de um adulto varia de 1,5m a 2m, e o formato de seu corpo é influenciado pelo material principal do qual é feito. É comum que ferimentos causados a herdeiros da terra se assemelhem a fissuras em pedras; mesmo muito depois do dano inicial ter cicatrizado, as rachaduras seguem se fechando de forma vagarosa. Quando morrem, estes herdeiros elementais se desfazem em montes de terra."
+		],
+		"features": [
+			"Pele de Pedra: receba um bônus permanente de +1 em sua Armadura e nos limiares de dano durante a criação de personagem.",
+			"Imóvel: enquanto estiver em contato com o solo, você não pode ser erguido ou movido contra sua vontade."
+		]
+	},
+	{
+		"id": "ancestry-emberkin",
+		"name": "Herdeiro da Brasa",
+		"description": [
+			"Herdeiros da brasa são humanoides cujo corpo é feito de carne e fogo. Descendentes de elementais do fogo, eles podem manifestar sua herança ardente por meio de cabelos flamejantes, olhos como brasa, linhas luminosas que dançam em suas peles, fumaça que escapa de seus corpos ou um brilho que tremeluz por seus músculos, veias, órgãos ou pontas dos dedos. Todas essas características podem se alterar ou intensificar de acordo com suas emoções, e os aspectos de alguns indivíduos podem ser mais mutáveis do que os de outros. As colorações de suas peles e cabelos se assemelham aos tons do fogo: vermelho intenso, laranja, amarelo, carvão ou mesmo tons vivos de azul. Suas orelhas se curvam e afinam tal qual uma labareda e tendem a ser mornas, seja proposital ou naturalmente, com algumas de fato quentes ao toque.",
+			"Herdeiros da brasa bebês se parecem com pequenas bolas de fogo ou brasa e, uma vez que não possuem controle de sua temperatura, costumam ser postos em contenções à prova de fogo, como ovos de dragão, lareiras ou panelas. Suas características humanoides se desenvolvem ao longo da adolescência, até se solidificar em sua forma adulta. Herdeiros da brasa variam de 1,5m a 2,1m de altura e vivem cerca de 250 anos, com sua luz e calor diminuindo à medida que envelhecem. Quando morrem, brilham intensamente por um instante e então queimam até virarem cinzas."
+		],
+		"features": [
+			"Ignífugo: você tem imunidade a dano causado por fogo mágico ou mundano.",
+			"Ignição: marque 1 PF para envolver sua arma principal em chamas até o fim da cena. Enquanto a arma estiver em chamas, ela emite uma luz brilhante e suas rolagens de dano com ela aumentam em **+1d6**."
+		]
+	},
+	{
+		"id": "ancestry-gnome",
+		"name": "Gnomo",
+		"description": [
+			"Gnomos são humanoides tipicamente diminutos, com cabeça cônica e capazes de se teletransportar através de distâncias curtas. Apesar do gnomo médio ter cerca de 90cm de altura, seus braços proporcionalmente longos e mãos grandes lhe conferem um alcance estendido em comparação com seu tamanho. Em contraste, sua estrutura corporal quadrada gera um torso menor e pernas mais curtas. Além dessas características, gnomos são facilmente reconhecidos pelas orelhas levemente pontudas e olhos separados. A cabeça é grande, e a forma cônica varia entre famílias. Gnomos também herdam sua capacidade limitada de teleporte dos pais, com cada família exibindo seus dons ao desaparecer e reaparecer. Tais efeitos podem incluir pequenas nuvens de fumaça ou partículas de luz, ou eles podem simplesmente se desfazer no ar. Sabe-se que gnomos começam a agarrar e segurar objetos ainda muito jovens, e que suas mãos se mantêm hábeis ao longo de seus 200 anos de vida, mesmo depois do corpo ter sido afetado pela idade."
+		],
+		"features": [
+			"Dedos Ágeis: em testes de Acuidade, você pode gastar 2 Pontos de Esperança para rolar seu Dado de Esperança novamente.",
+			"Passo Cintilante: uma vez por cena, você pode se teletransportar para um ponto distante que consiga ver."
+		]
+	},
+	{
+		"id": "ancestry-skykin",
+		"name": "Herdeiro do Céu",
+		"description": [
+			"Herdeiros do céu são humanoides cujo corpo é feito de carne e ar. Descendentes de elementais do ar, eles têm pele que muda de cor e reflete os tons de cinza e azul do céu claro da manhã, ou os tons quentes de laranja e fúcsia do pôr do sol, ou o preto profundo e os roxos de uma noite repleta de estrelas. Em geral, sua pele é semitranslúcida, seus cabelos são esvoaçantes de fumaça fina ou de nuvens e podem ter pequenas brisas que agitam constantemente suas roupas. A intensidade dessas características aumenta ou diminui de acordo com as suas emoções. Herdeiros do céu têm altura média entre 1,7m e 2,1m, e alguns têm traços ou partes alongadas, como orelhas pontudas, pescoço, mãos, pés ou membros compridos.",
+			"Herdeiros do céu nascem como lufadas de ar ou nuvenzinhas, sendo frequentemente difíceis de ver ou tocar. Até crescerem e se tornarem mais sólidos, são contidos em frascos ou recipientes similares. Embora se tornem mais humanoides na adolescência, o corpo ser mantém flexível, e alguns adultos são capazes de ajustar sua forma ao longo da vida, embora seja demorado e trabalhoso. Herdeiros do céu vivem por volta de 300 anos e, quando dão seu último suspiro, desaparecem no ar."
+		],
+		"features": [
+			"Força dos Ventos: **marque 1 Ponto de Fadiga** para criar uma lufada de vento que carrega você ou um aliado muito próximo até um ponto em alcance muito distante. Além disso, você sempre consegue controlar a velocidade com que cai.",
+			"Olho da Tempestade: **gaste 2 Pontos de Esperança** para aumentar sua Evasão ou a de um aliado em alcance corpo a corpo em +1, o que dura até você sofrer dano grave ou utilizar esta habilidade novamente."
+		]
+	},
+	{
+		"id": "ancestry-tidekin",
+		"name": "Herdeiro da Maré",
+		"description": [
+			"Herdeiros da maré são humanoides cujo corpo é feito de carne e água. Descendentes de elementais da água, eles têm orelhas que se parecem com barbatanas e membranas entre os dedos. As cores de sua pele, cabelos e olhos refletem as muitas formas da água, com alguns exibindo tons intensos de ciano, verde e água-marinha, tal qual rios rasos e mares tropicais, enquanto outros têm os azuis escuros e roxos de oceanos mais profundos. Para alguns indivíduos, essas cores mudam por baixo da pele semitranslúcida, como se fossem ondas. Herdeiros da maré podem ter formações aquáticas que adornam sua cabeça no lugar dos cabelos, ou ondas inconstantes que se deslocam pelo corpo. Em vez de expressar emoções através de lágrimas, suas formações aquáticas mudam de acordo com seu estado emocional e eles podem, seja proposital ou acidentalmente, usar essas formações ou suas cores mutáveis como forma de comunicação não verbal.",
+			"Herdeiros da maré nascem como uma pequena quantidade de água, como uma poça ou uma esfera líquida. Quando crianças, são frequentemente mantidos em recipientes impermeáveis, como tigelas ou garrafas, e costumam ter aparência fluida durante toda a infância, até desenvolverem uma forma humanoide mais sólida por volta da adolescência. Herdeiros da maré adultos variam de 1,5m a 2m de altura, embora a forma geral de seus corpos seja influenciada pela fluidez da água, e possa mudar, com algum esforço, ao longo dos cerca de 300 anos de suas vidas. Quando os membros desta ancestralidade morrem, eles se dissolvem em água e se derramam no solo."
+		],
+		"features": [
+			"Anfíbio: você pode respirar e se mover normalmente sob a água.",
+			"Fonte da Vida: uma vez por descanso, quando tiver acesso a uma quantidade pequena de água, você pode **marcar 1 PF** para recuperar 1 PV seu ou de um aliado muito próximo."
+		]
+	}
+]

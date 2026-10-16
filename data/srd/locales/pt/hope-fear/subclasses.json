@@ -1,0 +1,252 @@
+{
+	"executioners-guild": {
+		"name": "Membro dos Executores",
+		"foundation": [
+			{
+				"name": "Primeiro Golpe",
+				"description": "Quando acertar um ataque pela primeira vez na cena, você causa o dobro de dano."
+			},
+			{
+				"name": "Emboscada",
+				"description": "Sua \"Marca da Morte\" usa d6 em vez de d4."
+			}
+		],
+		"spellcastTrait": "Agilidade",
+		"specialization": [
+			{
+				"name": "Golpe Mortal",
+				"description": "Ao causar dano grave a uma criatura, você pode **marcar 1 PF** para fazê-la marcar 1 Ponto de Vida adicional."
+			},
+			{
+				"name": "Evasão do Escorpião",
+				"description": "Você recebe um bônus de +2 na Evasão contra ataques feitos por uma criatura _Marcada de Morte_."
+			}
+		],
+		"mastery": [
+			{
+				"name": "Golpe Certeiro",
+				"description": "Uma vez por descanso longo, ao falhar em um ataque, você pode **gastar 1 Ponto de Esperança** para transformar o ataque em um sucesso."
+			},
+			{
+				"name": "Apunhalar",
+				"description": "Sua \"Marca da Morte\" usa d8 em vez de d6."
+			}
+		]
+	},
+	"poisoners-guild": {
+		"name": "Membro dos Veneficistas",
+		"foundation": [
+			{
+				"name": "Compostos Tóxicos",
+				"description": "**Marque 1 PF** para colocar **1d4+1** marcadores nesta carta. Quando acertar um ataque armado, você pode gastar um marcador para envenenar o alvo. Você conhece os seguintes venenos:\n• **Erva Sanguessuga:** Você causa **1d6** pontos de dano adicional neste ataque.\n• **Esporos de Cemitério:** O alvo também marca 1 PF.\n• **Pétala Espectral:** O alvo fica temporariamente _Vulnerável_.\n\nNo seu próximo descanso longo, marcadores não utilizados são perdidos."
+			}
+		],
+		"spellcastTrait": "Conhecimento",
+		"specialization": [
+			{
+				"name": "Compêndio de Venenos",
+				"description": "Você passa a conhecer estes venenos:\n• **Raiz-górgona:** O alvo fica temporariamente _Imobilizado_.\n• **Vinha da Meia-noite:** o alvo sofre desvantagem em testes de ataque até que ele marque 1 PF para se recuperar deste veneno."
+			},
+			{
+				"name": "Peçonha Dupla",
+				"description": "Ao usar um veneno que você conhece em um alvo _Marcado de Morte_, você pode gastar um marcador adicional para envenenar o alvo com o efeito de um segundo veneno que você conheça."
+			}
+		],
+		"mastery": [
+			{
+				"name": "Venomante",
+				"description": "Você passa a conhecer estes venenos:\n• **Espinha de Cadáver:** O alvo sofre desvantagem em testes de reação até o fim da cena.\n• **Folha do Medo:** Você causa dano adicional igual ao resultado do seu dado de Medo neste ataque.\n• **Semente da Praga:** O alvo sofre –3 em seus limiares de dano até o fim da cena. Este efeito não é cumulativo"
+			},
+			{
+				"name": "Bênção da Víbora",
+				"description": "Você é imune a venenos e outras toxinas."
+			}
+		]
+	},
+	"juggernaut": {
+		"name": "Juggernaut",
+		"foundation": [
+			{
+				"name": "Durão",
+				"description": "Você recebe um bônus permanente de +3 em seu limiar de dano grave."
+			},
+			{
+				"name": "Sobrecarga",
+				"description": "Ao acertar um ataque, você pode **gastar 1 Ponto de Esperança** para ou fazer o alvo marcar 1 Ponto de Fadiga ou arremessá-lo para um ponto em alcance próximo."
+			}
+		],
+		"specialization": [
+			{
+				"name": "Cercado",
+				"description": "Quando fizer um ataque armado em alcance corpo a corpo, você pode **gastar uma quantidade qualquer de Pontos de Esperança** para atingir um número de criaturas adicionais em alcance corpo a corpo equivalente aos pontos gastos."
+			},
+			{
+				"name": "Olho por Olho",
+				"description": "Uma vez por descanso, quando um adversário em alcance corpo a corpo fizer você marcar Pontos de Vida, você pode **marcar 1 Ponto de Fadiga** para forçá-lo a marcar a mesma quantidade de PV que você marcou."
+			}
+		],
+		"mastery": [
+			{
+				"name": "Ainda Não Terminei",
+				"description": "Quando sofre dano grave, você recebe 1 Ponto de Esperança ou recupera 1 Ponto de Fadiga."
+			},
+			{
+				"name": "Júbilo do Combate",
+				"description": "Quando rolar um sucesso crítico em um teste de ataque armado em alcance corpo a corpo, você recebe 1 Ponto de Esperança adicional, recupera 1 PF adicional e recebe um bônus de +1 na Proficiência para a rolagem de dano deste ataque."
+			}
+		]
+	},
+	"martial-artist": {
+		"name": "Artista Marcial",
+		"foundation": [
+			{
+				"name": "Postura Marcial",
+				"description": "Você é capaz de canalizar sua determinação interior para assumir posturas marciais que lhe concedem benefícios especiais em combate.\n\nEscolha duas posturas de 1º patamar na ficha de Posturas Marciais. Sempre que você subir de nível, escolha uma postura adicional de patamar igual ou inferior ao seu."
+			}
+		],
+		"specialization": [
+			{
+				"name": "Canhão Concentrado",
+				"description": "**Gaste 1 Ponto de Concentração** para fazer um teste de Instinto contra um adversário distante. Se atingi-lo, cause **d20+3** pontos de dano mágico com sua Proficiência."
+			},
+			{
+				"name": "Defesa Apurada",
+				"description": "Quando for alvo de um ataque, você pode **gastar 1 Ponto de Concentração** para aumentar sua Evasão contra esse ataque em um valor igual ao seu patamar."
+			}
+		],
+		"mastery": [
+			{
+				"name": "Estado de Fluxo",
+				"description": "Você pode **marcar 1 PF, em vez de gastar 1 Ponto de Concentração, para mudar sua Postura Marcial. Além disso, você pode **gastar 1 Ponto de Concentração**, em vez de marcar 1 PF, para iniciar uma Sequência de Golpes."
+			},
+			{
+				"name": "Superar Limites",
+				"description": "Uma vez por descanso, você pode realizar uma façanha atlética inacreditável, como correr sobre a água, saltar entre telhados distantes ou escalar um prédio, sem precisar fazer testes. Se fizer isso, você recebe 1 Ponto de Esperança e recupera 1 Ponto de Fadiga."
+			}
+		]
+	},
+	"pact-of-the-endless": {
+		"name": "Pacto do Eterno",
+		"foundation": [
+			{
+				"name": "Manto do Patrono",
+				"description": "**Gaste 1 Ponto de Benesse** para se envolver com o aspecto apavorante do seu patrono, o que dura até você sofrer dano grave ou até o fim da cena. Enquanto este efeito estiver ativo, você recebe um bônus em seus limiares de dano equivalente ao seu patamar e tem vantagem em testes para intimidar um alvo."
+			},
+			{
+				"name": "Abraço Imortal",
+				"description": "Uma vez por descanso, **gaste uma quantidade qualquer de Pontos de Benesse** para rolar um número de Dados de Patrono equivalente aos pontos gastos. Para cada resultado 4 ou maior, recupere 1 Ponto de Vida."
+			}
+		],
+		"spellcastTrait": "Presença",
+		"specialization": [
+			{
+				"name": "Súplica Pungente",
+				"description": "Quando um adversário fizer um ataque contra você ou contra um aliado muito próximo, você pode **gastar 1 PB** para que o teste seja feito com desvantagem. Em caso de falha, o adversário também marca 1 Ponto de Fadiga."
+			},
+			{
+				"name": "Absorver Dano",
+				"description": "Uma vez por descanso, você pode **gastar 1 PB** para reduzir o dano recebido à metade."
+			}
+		],
+		"mastery": [
+			{
+				"name": "Égide Sombria",
+				"description": "Uma vez por descanso longo, ao sofrer dano, você pode **gastar 1 PB** em vez de marcar Pontos de Vida."
+			},
+			{
+				"name": "Maldição Drenante",
+				"description": "Quando um adversário fizer um ataque contra você ou contra um aliado muito próximo, você pode **gastar 1 PB** para Drenar o atacante. Ao fazer isso, o adversário marca 1 Ponto de Fadiga e você pode recuperar 1 PF. Enquanto estiver Drenado, o alvo usa **d12**, em vez de d20, em seus testes de ataque (inclusive se tiver vantagem ou desvantagem), isso dura até ele falhar em um teste."
+			}
+		]
+	},
+	"pact-of-the-wrathful": {
+		"name": "Pacto do Colérico",
+		"foundation": [
+			{
+				"name": "Fúria do Patrono",
+				"description": "**Gaste 1 PB** para imbuir seus ataques com o poder do seu Patrono, o que dura até você causar dano grave ou até o fim da cena. Ao rolar dano enquanto este efeito estiver ativo, você também rola um número de Dados de Patrono igual ao seu patamar e soma seus resultados ao dano causado."
+			},
+			{
+				"name": "Vingança Mortal",
+				"description": "Ao marcar qualquer número de PV por conta de um ataque, você pode **gastar 1 Ponto de Benesse** e rolar uma quantidade de Dados de Patrono igual aos PV marcados. Para cada resultado 4 ou maior, o atacante marca 1 PV."
+			}
+		],
+		"spellcastTrait": "Presença",
+		"specialization": [
+			{
+				"name": "Alcance Ameaçador",
+				"description": "**Gaste 1 Ponto de Benesse** para aumentar o alcance de sua arma principal em um passo (de corpo a corpo para muito próximo, de muito próximo para próximo e assim por diante) até, no máximo, alcance muito distante. Este efeito termina quando você acertar um ataque com essa arma."
+			},
+			{
+				"name": "Enfraquecer Meus Inimigos",
+				"description": "Ao obter sucesso em uma rolagem com Esperança num teste contra um alvo, você pode **gastar uma quantidade qualquer de Pontos de Benesse** para fazer o alvo marcar um número de PF igual aos pontos gastos."
+			}
+		],
+		"mastery": [
+			{
+				"name": "Ataque Apavorante",
+				"description": "**Gaste 1 PB** para rolar novamente quaisquer dados de dano. Você pode gastar mais PB para usar esta habilidade várias vezes numa mesma rolagem de dano."
+			},
+			{
+				"name": "Cólera Transcendental",
+				"description": "Uma vez por descanso, ao sofrer dano, você pode **gastar uma quantidade qualquer de PB** para rolar um número de Dados de Patrono equivalente aos pontos gastos e escolher um número de criaturas próximas igual ao resultado mais alto da rolagem. Cada criatura escolhida marca 1 PV."
+			}
+		]
+	},
+	"hedge": {
+		"name": "Sábio Rústico",
+		"foundation": [
+			{
+				"name": "Ervas Medicinais",
+				"description": "Quando você ou um aliado presente na cena recuperar 1 ou mais PV ou PF por meio de algum consumível, você ou o aliado recupera 1 ponto adicional."
+			},
+			{
+				"name": "Talismã Encantado",
+				"description": "Uma vez por descanso, você pode imbuir um item pequeno com sua essência protetora. Gaste uma quantidade qualquer de Pontos de Esperança e coloque um número equivalente de marcadores nesta carta. Quando a pessoa que estiver com o talismã sofrer dano, gaste um marcador para reduzir o número de PV a serem marcados em 1. No seu próximo descanso, marcadores não usados são perdidos."
+			}
+		],
+		"spellcastTrait": "Conhecimento",
+		"specialization": [
+			{
+				"name": "Caminhar Entre Mundos",
+				"description": "Em um momento tranquilo, faça um **teste de conjuração (13)**. Em um sucesso, uma vez por descanso, você pode **marcar 1 PF** para atravessar o véu entre a vida e a morte e conversar com quaisquer espíritos próximos. Coloque um número de marcadores igual ao seu atributo de conjuração nesta carta. Remova um marcador cada vez que um espírito responder a uma pergunta. Quando o último marcador for removido, ou no fim da cena, você retorna ao Plano Mortal no mesmo lugar onde estava antes."
+			},
+			{
+				"name": "Praga Incômoda",
+				"description": "Você tem vantagem em testes de ataque contra criaturas _Esconjuradas_."
+			}
+		],
+		"mastery": [
+			{
+				"name": "Círculo de Poder",
+				"description": "Uma vez por descanso, desenhe um círculo no chão, delineando uma área muito próxima ao seu redor, e coloque um número de marcadores nesta carta igual ao seu atributo de conjuração. Enquanto estiverem dentro desse círculo, você e seus aliados recebem +2 em seus limiares de dano, Evasão e testes de ataque. Remova um marcador cada vez que você ou um aliado dentro do círculo fizer um teste ou evadir um ataque. Esta magia dura até que o último marcador seja removido ou até que você saia do círculo."
+			}
+		]
+	},
+	"moon": {
+		"name": "Sábio da Lua",
+		"foundation": [
+			{
+				"name": "Glamour Noturno",
+				"description": "Faça um **teste de conjuração (13)** para assumir uma aparência glamorosa e ficar Encantador. Um personagem Encantador tem vantagem em testes que se beneficiam de sua aparência ilusória. Além disso, adversários próximos precisam marcar 1 Ponto de Fadiga para atacá-lo.\n\nA menos que você **marque 1 PF** para continuar Encantador, a condição termina quando você marcar PV ou causar dano."
+			}
+		],
+		"spellcastTrait": "Instinto",
+		"specialization": [
+			{
+				"name": "Raio Lunar",
+				"description": "Uma vez por sessão, você pode conjurar uma coluna de luar, iluminando a área próxima até o fim da cena. Enquanto estiver banhado por este luar, você e seus aliados recebem +1 em testes de conjuração e conseguem enxergar através de ilusões."
+			},
+			{
+				"name": "Ira da Luz Pálida",
+				"description": "Quando uma criatura _Esconjurada_ muito distante falhar em um teste de ataque, ela deve marcar 1 PF."
+			}
+		],
+		"mastery": [
+			{
+				"name": "Fases da Lua",
+				"description": "No início de cada sessão, role 1d6 e o coloque sobre esta carta. Você recebe o efeito correspondente até o fim da sessão.\n\nd6 | Fase lunar | Efeito\n1 | Nova | **Gaste 1 Ponto de Esperança** para negar dano menor\n2–3 | Crescente | +2 em rolagens de dano\n4 | Cheia | +3 nos limiares de dano\n5–6 | Minguante | +1 na Evasão\n\nUma vez por descanso, você pode **gastar 1 Ponto de Esperança** para aumentar o valor da rolagem em um número. Aumentar um resultado 6 o transforma em um resultado 1."
+			}
+		]
+	}
+}

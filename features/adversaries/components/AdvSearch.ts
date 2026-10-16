@@ -1,0 +1,466 @@
+import { translate as dfTranslate } from "../../../i18n";
+import { ItemView, WorkspaceLeaf, Notice, MarkdownView, setIcon } from "obsidian";
+import { getAdversaries } from "../../../data/index";
+import { getLanguage } from "../../../i18n";
+import {
+	getAdversaryCount,
+	incrementAdversaryCount,
+	decrementAdversaryCount,
+	setAdversaryCount,
+	resetAdversaryCount,
+	resolveInsertDestination,
+	createCanvasCard,
+	getAvailableCanvasPosition,
+	SearchEngine,
+	SearchControlsUI,
+	injectDiceBadgesIntoHtml,
+	getDaggerForgePlugin,
+} from "../../../utils/index";
+import { buildCardHTML } from "../index";
+import type { AdvData } from "../../../types/index";
+
+export const Adv_View_Type = "daggerforge:adversary-view";
+
+interface Adversary extends AdvData { }
+
+export class AdversaryView extends ItemView {
+	private adversaries: Adversary[];
+	private lastActiveMarkdown: MarkdownView | null = null;
+	private searchEngine: SearchEngine<Adversary> = new SearchEngine<Adversary>();
+	private searchControlsUI: SearchControlsUI | null = null;
+	private resultsDiv: HTMLElement | null = null;
+	private scrollToTopBtn: HTMLButtonElement | null = null;
+
+	constructor(leaf: WorkspaceLeaf) {
+		super(leaf);
+	}
+
+	getViewType(): string {
+		return Adv_View_Type;
+	}
+
+	getDisplayText(): string {
+		return dfTranslate("ui.dynamic.adversary.browser");
+	}
+
+	getIcon(): string {
+		return "venetian-mask";
+	}
+
+	/**
+	 * Delete a custom adversary by its unique ID
+	 * @param adversary The adversary to get deleted
+	 */
+	private async deleteCustomAdversary(adversary: Adversary): Promise<void> {
+		try {
+			const plugin = getDaggerForgePlugin(this.app);
+			if (!plugin || !plugin.dataManager) {
+				new Notice(dfTranslate("ui.daggerforge.plugin.not.found"));
+				return;
+			}
+
+			const adversaryId = adversary.id;
+
+			if (!adversaryId) {
+				new Notice(dfTranslate("ui.cannot.delete.adversary.missing.id"));
+				return;
+			}
+
+			await plugin.dataManager.deleteAdversaryById(adversaryId);
+			new Notice(`Deleted adversary: ${adversary.name}`);
+			this.refresh();
+		} catch (error) {
+			console.error("Error deleting custom adversary:", error);
+			new Notice(dfTranslate("ui.failed.to.delete.adversary"));
+		}
+	}
+
+	async onOpen() {
+		this.initializeView();
+		this.registerEventListeners();
+		this.loadAdversaryData();
+		this.attachScrollToTop();
+	}
+
+	async onClose() {
+		this.searchControlsUI?.destroy();
+		this.searchControlsUI = null;
+		this.scrollToTopBtn?.remove();
+		this.scrollToTopBtn = null;
+	}
+
+	public async refresh() {
+		const currentFilters = this.searchEngine.getFilters();
+		this.loadAdversaryData();
+
+		// Remove any selected values that no longer exist in the data
+		const availableSources = this.searchEngine.getAvailableOptions("sources");
+		const availableTiers = this.searchEngine.getAvailableOptions("tiers");
+		const availableTypes = this.searchEngine.getAvailableOptions("types");
+
+		currentFilters.tiers = currentFilters.tiers.filter(t => availableTiers.includes(t));
+		currentFilters.sources = currentFilters.sources.filter(s => availableSources.includes(s));
+		currentFilters.types = currentFilters.types.filter(tp => availableTypes.includes(tp));
+
+		this.searchEngine.setFilters(currentFilters);
+
+		if (this.searchControlsUI) {
+			this.searchControlsUI.setFilterValues(currentFilters);
+		}
+
+		this.renderResults(this.searchEngine.search());
+	}
+
+	/** Shows a scroll-to-top button when the sidebar is scrolled down 200px */
+	// private attachScrollToTop() {
+	// 	const container = this.containerEl.children[1] as HTMLElement;
+
+	// 	this.scrollToTopBtn = container.createEl('button', {
+	// 		cls: 'df-scroll-to-top',
+	// 		text: '↑',
+	// 		attr: { 'aria-label': 'Scroll to top' },
+	// 	});
+	// 	this.scrollToTopBtn.style.display = 'none';
+
+	// 	container.addEventListener('scroll', () => {
+	// 		if (this.scrollToTopBtn) {
+	// 			this.scrollToTopBtn.style.display = container.scrollTop > 200 ? 'flex' : 'none';
+	// 		}
+	// 	});
+
+	// 	this.scrollToTopBtn.addEventListener('click', () => {
+	// 		container.scrollTo({ top: 0, behavior: 'smooth' });
+	// 	});
+	// }
+
+	private initializeView() {
+		const container = this.containerEl.children[1] as HTMLElement;
+		container.empty();
+
+		container.createEl("h2", {
+			text: dfTranslate("ui.adversary.browser"),
+			cls: "df-adv-title",
+		});
+
+		const counterContainer = container.createDiv({
+			cls: "df-adversary-counter-container",
+		});
+		this.createCounterControls(counterContainer);
+
+		container.createDiv({ cls: "df-search-controls-container" });
+
+		this.resultsDiv = container.createEl("div", {
+			cls: "df-adversary-results",
+		});
+	}
+
+	//register event listeners that need cleanup when the view closes
+	private registerEventListeners() {
+		this.registerEvent(
+			this.app.workspace.on("active-leaf-change", (leaf) => {
+				if (!leaf) return;
+				const view = leaf.view;
+				if (view instanceof MarkdownView) {
+					this.lastActiveMarkdown = view;
+				}
+			}),
+		);
+	}
+
+	private loadAdversaryData() {
+		try {
+			const builtIn = getAdversaries(getLanguage());
+			const custom = this.loadCustomAdversaries();
+			this.adversaries = [...builtIn, ...custom];
+
+			this.searchEngine.setCards(this.adversaries);
+
+			const searchContainer = this.containerEl.querySelector(".df-search-controls-container") as HTMLElement;
+			if (searchContainer) {
+				searchContainer.empty();
+				this.searchControlsUI = new SearchControlsUI({
+					placeholderText: "Search by name, type, or description...",
+					availableTiers: this.searchEngine.getAvailableOptions("tiers"),
+					availableSources: this.searchEngine.getAvailableOptions("sources"),
+					availableTypes: ["Bruiser", "Horde", // TODO: Remove this and use this.searchEngine.getAvailableOptions("type") after working on Horde
+						"Leader", "Minion", "Ranged", "Skulk", "Social", "Solo", "Standard", "Support",
+						"Leader (Umbra-Touched)", "Minion (Umbra-Touched)", "Solo (Umbra-Touched)"],
+					onSearchChange: (query) => this.handleSearchChange(query),
+					onTierChange: (tiers) => this.handleTierChange(tiers),
+					onSourceChange: (sources) => this.handleSourceChange(sources),
+					onTypeChange: (types) => this.handleTypeChange(types),
+					onClear: () => this.handleClearFilters(),
+				});
+				this.searchControlsUI.create(searchContainer);
+			}
+
+			this.renderResults(this.adversaries);
+		} catch (e) {
+			console.error("Error loading adversary data:", e);
+			new Notice(dfTranslate("ui.failed.to.load.adversary.data"));
+			if (this.resultsDiv) {
+				this.resultsDiv.setText(dfTranslate("ui.error.loading.adversary.data"));
+			}
+		}
+	}
+
+	private loadCustomAdversaries(): Adversary[] {
+		try {
+			const plugin = getDaggerForgePlugin(this.app);
+			if (!plugin || !plugin.dataManager) {
+				console.warn("DaggerForge plugin or dataManager not found");
+				return [];
+			}
+
+			const customAdvs: AdvData[] = plugin.dataManager.getAdversaries();
+			return customAdvs.map((adv) => ({
+				...adv as Adversary,
+				source: adv.source || "custom",
+			}));
+		} catch (error) {
+			console.error("Error loading custom adversaries from DataManager:", error);
+			return [];
+		}
+	}
+
+	private handleSearchChange(query: string) {
+		this.searchEngine.setFilters({ query });
+		this.renderResults(this.searchEngine.search());
+	}
+
+	private handleTierChange(tiers: string[]) {
+		this.searchEngine.setFilters({ tiers });
+		this.renderResults(this.searchEngine.search());
+	}
+
+	private handleSourceChange(sources: string[]) {
+		this.searchEngine.setFilters({ sources });
+		this.renderResults(this.searchEngine.search());
+	}
+
+	private handleTypeChange(types: string[]) {
+		this.searchEngine.setFilters({ types });
+		this.renderResults(this.searchEngine.search());
+	}
+
+	private handleClearFilters() {
+		resetAdversaryCount();
+		// Update the counter display
+		const counterInputs = this.containerEl.querySelectorAll(".df-count-input");
+		counterInputs.forEach((input) => {
+			if (input instanceof HTMLInputElement) {
+				input.value = "1";
+			}
+		});
+	}
+
+	private createCounterControls(container: HTMLElement): void {
+		const minusBtn = container.createEl("button", {
+			cls: "df-adversary-counter-btn",
+			attr: { "aria-label": "Decrease count", title: dfTranslate("ui.decrease") },
+		});
+		setIcon(minusBtn, "minus");
+
+		const counterInput = container.createEl("input", {
+			attr: {
+				type: "number",
+				min: "1",
+				max: "99",
+				value: getAdversaryCount().toString(),
+				placeholder: dfTranslate("ui.count"),
+			},
+			cls: "df-inline-input df-count-input",
+		});
+
+		const plusBtn = container.createEl("button", {
+			cls: "df-adversary-counter-btn",
+			attr: { "aria-label": "Increase count", title: dfTranslate("ui.increase") },
+		});
+		setIcon(plusBtn, "plus");
+
+		minusBtn.onclick = () => {
+			decrementAdversaryCount();
+			counterInput.value = getAdversaryCount().toString();
+		};
+
+		plusBtn.onclick = () => {
+			incrementAdversaryCount(1);
+			counterInput.value = getAdversaryCount().toString();
+		};
+
+		// Select all text on focus to allow easy replacement
+		counterInput.addEventListener("focus", () => {
+			counterInput.select();
+		});
+
+		// Update counter in real-time as user types
+		counterInput.addEventListener("input", () => {
+			if (counterInput.value === "" || counterInput.value === "-") {
+				return;
+			}
+			let value = parseInt(counterInput.value, 10);
+			if (isNaN(value) || value < 1) value = 1;
+			if (value > 99) {
+				value = 99;
+				counterInput.value = "99";
+			}
+			setAdversaryCount(value);
+		});
+
+		// Fallback for blur event to ensure final value is valid
+		counterInput.addEventListener("blur", () => {
+			let value = parseInt(counterInput.value, 10);
+			if (isNaN(value) || value < 1) {
+				value = 1;
+			}
+			counterInput.value = value.toString();
+		});
+	}
+
+	private renderResults(adversaries: Adversary[]) {
+		if (!this.resultsDiv) return;
+
+		this.resultsDiv.empty();
+
+		if (adversaries.length === 0) {
+			this.resultsDiv.setText(dfTranslate("ui.no.adversaries.found"));
+			return;
+		}
+
+		adversaries.forEach((adversary) => {
+			const card = this.createAdversaryCard(adversary);
+			this.resultsDiv!.appendChild(card);
+		});
+	}
+
+	private createAdversaryCard(adversary: Adversary): HTMLElement {
+		const card = document.createElement("div");
+		card.classList.add("df-adversary-card");
+
+		const source = adversary.source || "core";
+		card.classList.add(`df-source-${source.toLowerCase()}`);
+
+		const tier = document.createElement("p");
+		tier.classList.add("df-tier-text");
+		const typeDisplay = adversary.type; // displaytype
+
+		const sourceBadge = document.createElement("span");
+		sourceBadge.classList.add(
+			`df-source-badge-${source.toLowerCase()}`,
+		);
+		sourceBadge.textContent = `${source.toLowerCase()}`;
+
+		tier.textContent = `Tier ${adversary.tier} ${typeDisplay} `;
+		tier.appendChild(sourceBadge);
+
+		card.appendChild(tier);
+		if (source.toLowerCase() === "custom") {
+			const deleteBtn = document.createElement("button");
+			deleteBtn.classList.add("df-adv-delete-btn");
+			setIcon(deleteBtn, "trash");
+			deleteBtn.addEventListener("click", (e: MouseEvent) => {
+				e.stopPropagation();
+				this.deleteCustomAdversary(adversary);
+			});
+			card.appendChild(deleteBtn);
+		}
+
+		const title = document.createElement("h3");
+		title.classList.add("df-title-small-padding");
+		title.textContent = adversary.name || dfTranslate("ui.dynamic.unnamed.adversary");
+		card.appendChild(title);
+
+		const desc = document.createElement("p");
+		desc.classList.add("df-desc-small-padding");
+		desc.textContent = adversary.desc || dfTranslate("ui.dynamic.no.description.available");
+		card.appendChild(desc);
+
+		card.addEventListener("click", () =>
+			this.insertAdversaryIntoNote(adversary),
+		);
+
+		return card;
+	}
+
+	private insertAdversaryIntoNote(adversary: Adversary) {
+		const plugin = getDaggerForgePlugin(this.app);
+		const { kind, canvas, leaf } = resolveInsertDestination(this.app, plugin?.lastMainLeaf ?? null);
+
+		if (kind === "canvas") {
+			const adversaryText = this.generateAdversaryMarkdown(adversary);
+			const position = getAvailableCanvasPosition(canvas);
+			createCanvasCard(this.app, adversaryText, canvas, {
+				x: position.x,
+				y: position.y,
+				width: 400,
+				height: 600
+			});
+			new Notice(`Inserted adversary ${adversary.name} in canvas.`);
+			return;
+		}
+
+		if (kind !== "markdown" || !leaf) {
+			new Notice(dfTranslate("ui.no.note.is.open.in.edit.mode"));
+			return;
+		}
+
+		const view = leaf.view as MarkdownView;
+		if (view.getMode() === "preview") {
+			new Notice(dfTranslate("ui.please.switch.to.edit.mode"));
+			return;
+		}
+
+		const adversaryText = injectDiceBadgesIntoHtml(this.generateAdversaryMarkdown(adversary));
+		view.editor.replaceSelection(adversaryText);
+		new Notice(`Inserted ${adversary.name} in note.`);
+	}
+
+	/** Shows a scroll-to-top button when the sidebar is scrolled down 200px */
+	private attachScrollToTop() {
+		const container = this.containerEl.children[1] as HTMLElement;
+
+		this.scrollToTopBtn = container.createEl('button', {
+			cls: 'df-scroll-to-top',
+			text: '↑',
+			attr: { 'aria-label': 'Scroll to top' },
+		});
+		container.addEventListener('scroll', () => {
+			if (this.scrollToTopBtn) {
+				this.scrollToTopBtn.classList.toggle('df-scroll-to-top--visible', container.scrollTop > 200);
+			}
+		});
+
+		this.scrollToTopBtn.addEventListener('click', () => {
+			container.scrollTo({ top: 0, behavior: 'smooth' });
+		});
+	}
+
+	private generateAdversaryMarkdown(adversary: Adversary): string {
+		const currentCount = getAdversaryCount();
+		const wide = this.searchControlsUI?.getWideCard() ?? false;
+
+		return buildCardHTML(
+			{
+				name: adversary.name,
+				tier: adversary.tier,
+				type: adversary.type, //displaytype
+				desc: adversary.desc,
+				motives: adversary.motives,
+				difficulty: adversary.difficulty,
+				thresholdMajor: adversary.thresholdMajor,
+				thresholdSevere: adversary.thresholdSevere,
+				hp: adversary.hp,
+				stress: adversary.stress ?? 0,
+				atk: adversary.atk,
+				weaponName: adversary.weaponName,
+				weaponRange: adversary.weaponRange,
+				weaponDamage: adversary.weaponDamage,
+				xp: adversary.xp,
+				count: String(currentCount),
+				source: adversary.source || "core",
+			},
+			adversary.features.map(f => ({ ...f, cost: f.cost || "" })),
+			wide,
+		);
+	}
+}

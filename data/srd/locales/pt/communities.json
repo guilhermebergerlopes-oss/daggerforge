@@ -1,0 +1,107 @@
+[
+	{
+		"id": "community-highborne",
+		"name": "Aristocrática",
+		"description": [
+			"Fazer parte de uma comunidade aristocrática significa estar acostumado a uma vida de elegância, opulência e prestígio nos estratos mais elevados da sociedade. Tradicionalmente, os membros da comunidade aristocrática possuem uma riqueza material imensa. Embora essa riqueza possa assumir diversas formas — incluindo ouro e outros minerais, terras ou o controle dos meios de produção —, tal status vem sempre acompanhado de poder e influência.",
+			"Aristocratas valorizam imensamente títulos e posses, e há pouca mobilidade social em seu meio. Seus membros frequentemente controlam a situação política e econômica das regiões onde vivem, graças à capacidade de influenciar pessoas e a economia com sua vasta riqueza. A saúde e a segurança das pessoas menos abastadas que habitam esses locais muitas vezes dependem da disposição dessa classe dominante em priorizar o bem-estar de seus subordinados em detrimento do lucro.",
+			"Aristocratas costumam ser afáveis, francos, intrigantes, empreendedores, ostentatórios e imperturbáveis."
+		],
+		"features": [
+			"Privilégio: você tem vantagem em testes para se relacionar com nobres, negociar preços ou se aproveitar de sua reputação para conseguir o que quer."
+		]
+	},
+	{
+		"id": "community-loreborne",
+		"name": "Erudita",
+		"description": [
+			"Pertencer a uma comunidade erudita significa que você provém de uma sociedade que privilegia a grande competência acadêmica ou política. Essas comunidades valorizam profundamente o conhecimento — frequentemente expresso por meio da preservação histórica, do avanço político, de estudos científicos, do desenvolvimento de habilidades ou da compilação de saberes e mitologias. A maioria de seus membros realiza pesquisas em instituições situadas em bastiões da civilização, embora alguns poucos, de perfil mais eclético, prosperem ao coletar informações diretamente do mundo natural.", "Alguns podem ser isolacionistas, atuando em enclaves, escolas ou guildas menores e seguindo um código de conduta próprio. Outros, por sua vez, empregam seu conhecimento em uma escala mais ampla, realizando manobras políticas astutas nas esferas de poder governamental.", "Os eruditos costumam ser diretos, eloquentes, inquisitivos, pacientes, apaixonados e perspicazes."
+		],
+		"features": [
+			"Culto: você tem vantagem em testes que envolvem cultura, história ou política de um lugar ou pessoa importante."
+		]
+	},
+	{
+		"id": "community-orderborne",
+		"name": "Disciplinada",
+		"description": [
+			"Integrar uma comunidade disciplinada significa que você vem de um povo que se concentra em disciplina ou fé. Você defende um conjunto de princípios que refletem sua experiência nesta comunidade. Comunidades disciplinadas costumam estar entre as mais poderosas em seus arredores. Ao alinhar membros da sociedade em torno de um valor ou objetivo em comum, como um deus, doutrina, moralidade ou mesmo um negócio ou ofício compartilhado, os governantes desses locais conseguem mobilizar muitas pessoas com pouco esforço. Embora comunidades disciplinadas assumam diversas formas, algumas inclusive pacifistas, talvez as mais temidas sejam aquelas que se estruturam em torno do poderio militar. Nesses casos, não é incomum que uma comunidade disciplinada forneça soldados de aluguel para outras cidades e nações.",
+			"Personagens disciplinados costumam ser ambiciosos, benevolentes, cínicos, estoicos, pensativos e prudentes."
+		],
+		"features": [
+			"Princípios: anote três ditados ou valores com os quais você cresceu. Uma vez por descanso, ao descrever como você incorpora um destes princípios na sua ação atual, você pode jogar 1d20 como seu Dado de Esperança."
+		]
+	},
+	{
+		"id": "community-ridgeborne",
+		"name": "Ridgeborne",
+		"description": [
+			"Integrar uma comunidade montanhesa significa que você chama os picos e penhascos de lar. Aqueles que vivem nas montanhas costumam se considerar mais obstinados que a maioria; isso se deve ao seu sucesso em sobreviver em um dos ambientes mais perigosos do mundo. Esses grupos louvam a adaptação e desenvolvem tecnologias e equipamentos especializados para carregar pessoas e produtos em terreno difícil. Personagens montanheses crescem escalando e galgando as alturas, o que os torna mais vigorosos física e mentalmente",
+			"Há vários tipos de localidades montanhesas: cidades escavadas nas bordas dos penhascos, castelos construídos a partir da pedra, picos onde pequenas habitações prosperam a despeito dos fortes ventos… Forças externas costumam enfrentar dificuldades para atacar grupos montanheses, pois pequenas milícias e grandes tropas das montanhas se aproveitam da vantagem do terreno mais alto.",
+			"Personagens montanheses costumam ser intrépidos, indômitos, leais, obstinados, reservados e teimosos."
+		],
+		"features": [
+			"Firme: você tem vantagem em testes para cruzar abismos e saliências, orientar-se em ambientes inóspitos e usar seus conhecimentos de sobrevivência."
+		]
+	},
+	{
+		"id": "community-seaborne",
+		"name": "Marítima",
+		"description": [
+			"Integrar uma comunidade marítima significa que você já viveu perto ou dentro de um grande corpo d'água. Essas comunidades são construídas, física e culturalmente, em torno das massas de água que seus habitantes chamam de lar. Alguns vivem ao longo da costa, construindo portos que funcionam como centros comerciais, atrações turísticas ou apenas lugares seguros onde alguém pode descansar após semanas de viagem. ",
+			"Outros vivem na água, seja em pequenos barcos ou grandes navios, considerando como “lar” apenas a embarcação e sua tripulação, e não algum lugar em terra firme. Independente de onde estejam, comunidades marítimas estão ligadas às marés do oceano e às criaturas que o habitam. Personagens marítimos aprendem a pescar cedo e treinam desde o nascimento para prender a respiração e nadar mesmo nas águas mais turbulentas. Tais indivíduos são procurados por suas habilidades de navegação e muitos se tornam capitães, seja em suas próprias comunidades, em outras ou mesmo em grandes operações navais.",
+			"Personagens marítimos costumam ser calejados, cooperativos, ferrenhos, puros, resolutos e vivazes."
+		],
+		"features": [
+			"Conhecer a Maré: você pode sentir o fluxo da vida. Ao rolar com Medo, coloque 1 marcador na sua carta de comunidade. Você pode acumular um número de marcadores igual ao seu nível. Antes de fazer um teste, gaste um número qualquer desses marcadores para receber um bônus de +1 a cada marcador gasto. No fim de cada sessão, marcadores não utilizados são perdidos."
+		]
+	},
+	{
+		"id": "community-slyborne",
+		"name": "Fora da Lei",
+		"description": [
+			"Integrar uma comunidade fora da lei significa que você vem de um meio que age às margens da lei, composto por todo tipo de criminosos, trapaceiros e vigaristas. Membros de comunidades fora da lei se juntam em prol de seus objetivos infames e das formas mais astutas de atingi-los. Muitas pessoas dessas comunidades têm uma variedade de habilidades escusas como contrabando, falsificação, roubo e talento para violência.",
+			"Pessoas de qualquer classe social podem ser foras da lei, desde aquelas que acumularam grandes riquezas até aquelas que não têm onde cair mortas. Para os não nativos, fora da lei podem parecer bandidos sem lealdade, mas essas comunidades possuem alguns dos códigos de honra mais rígidos que existem e que, se quebrados, podem resultar num fim terrível para o transgressor.",
+			"Fora da lei costumam ser calculistas, espertos, formidáveis, perceptivos, perseverantes e sagazes."
+		],
+		"features": [
+			"Malandro: você tem vantagem em testes para negociar com criminosos, perceber mentiras ou encontrar um lugar seguro para se esconder."
+		]
+	},
+	{
+		"id": "community-underborne",
+		"name": "Subterrânea",
+		"description": [
+			"Integrar uma comunidade subterrânea significa que você cresceu abaixo da superfície. Alguns vivem logo abaixo das cidades e vilarejos de outros povos, enquanto outros habitam lugares muito mais profundos. Essas comunidades variam de pequenas famílias em tocas até gigantescas metrópoles em cavernas rochosas. Pessoas destas comunidades são reconhecidas em por sua ambição e habilidade, que lhes permitem grandes façanhas de arquitetura e engenharia.",
+			"Pessoas do subterrâneo são regularmente contratadas devido à sua bravura; mesmo os menos audazes destas comunidades podem já ter se deparado com formidáveis feras subterrâneas, e lidar com elas é prática comum nessas sociedades. Devido aos perigos do ambiente, muitas comunidades subterrâneas desenvolvem idiomas não verbais que se provam igualmente úteis na superfície.",
+			"Personagens do subterrâneo costumam ser criativos, modestos, engenhosos, esquivos, indômitos e sensatos."
+		],
+		"features": [
+			"Habituado à Penumbra: você tem vantagem em testes para se esconder, investigar ou perceber detalhes em áreas de penumbra ou sombra forte."
+		]
+	},
+	{
+		"id": "community-wanderborne",
+		"name": "Nômade",
+		"description": [
+			"Integrar uma comunidade nômade significa que você vive ou já viveu viajando, renunciando um lar permanente e conhecendo diversas culturas. Diferentemente das comunidades definidas por sua localidade, comunidades nômades se definem por seu estilo de vida errante. Devido à frequente migração, esses grupos dão menos valor ao acúmulo de bens materiais e prezam pela aquisição de informações, habilidades e vínculos",
+			"Embora alguns nômades se juntem em torno de algo em comum, como uma religião ou um conjunto de valores, outros são unidos por tragédias, como a perda de seu lar ou de suas terras. Independente dos motivos, os perigos da vida na estrada e a escolha por continuar seguindo juntos tornam os nômades famosos por sua obstinada lealdade.",
+			"Personagens nômades costumam ser alegres, atentos, confiáveis, heterodoxos, magnânimos e misteriosos."
+		],
+		"features": [
+			"Mochila de Nômade: adicione uma mochila de nômade ao seu inventário. Uma vez por sessão, você pode gastar 1 Ponto de Esperança para tirar um item mundano e útil para a situação de dentro dela. Colabore com o mestre ao definir este item."
+		]
+	},
+	{
+		"id": "community-wildborne",
+		"name": "Silvestre",
+		"description": [
+			"Integrar uma comunidade silvestre significa que você já viveu nas profundezas da floresta. Estas comunidades são definidas pela conservação de sua terra natal, e muitas têm fortes laços culturais ou religiosos com o ambiente em que vivem. Isso resulta em avanços arquitetônicos e tecnológicos singulares, favorecendo a sustentabilidade em detrimento de eficiência no curto prazo.",
+			"É típico destas sociedades integrar seus vilarejos e cidades ao ambiente natural, evitando perturbar a flora e a fauna ao redor. Enquanto algumas constroem suas habitações no alto dos galhos, outras se estabelecem no solo, sob as copas das árvores. Não é incomum que os habitantes destas comunidades permaneçam reclusos e escondidos em suas moradas silvestres.",
+			"Personagens silvestres costumam ser leais, reclusos, resolutos, sagazes, vibrantes e zelosos."
+		],
+		"features": [
+			"Pés Leves: seu movimento é naturalmente silencioso. Você tem vantagem em testes para se mover sem ser ouvido."
+		]
+	}
+]

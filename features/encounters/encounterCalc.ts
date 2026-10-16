@@ -1,0 +1,470 @@
+import { App, Modal, Notice, setIcon } from "obsidian";
+import { makeDraggable } from "../../utils/makeDraggable";
+import { getDaggerForgePlugin } from "../../utils/index";
+import { setIconLabel } from "../../utils/iconLabel";
+import { ADVERSARIES } from "../../data/adversaries";
+import { AdvData } from "../../types/index";
+import { buildAdversaryEmbedBlock } from "../adversaries/AdversaryEmbed";
+import { ConfirmModal } from "../characters/components/ConfirmModal";
+import { encodeAdversaryCode } from "../embeds/embedCode";
+import { insertAtFocusedTarget } from "../embeds/insertDestination";
+
+// ── Data ──────────────────────────────────────────────────────────────────────
+interface SpentItem {
+	cost: number;
+	label: string;
+	/** Spend-option key, used to pair the slot with adversary suggestions. */
+	category?: string;
+	/** The adversary chosen for this slot - nothing is written to a note until
+	 *  the Insert encounter button places the whole plan at once. */
+	adversary?: AdvData;
+}
+
+interface EncounterState {
+	baseBP: number;
+	adjustments: { value: number; reason: string }[];
+	spentItems: SpentItem[];
+	pcCount: number;
+	tier: string;   // "all" | "1".."4"
+	source: string; // "all" | lowercase source name
+}
+
+const ADJUSTMENTS = [
+	{ value: -1, label: "Less difficult / shorter" },
+	{ value: -2, label: "2+ Solo adversaries" },
+	{ value: -2, label: "+1d4 or +2 damage" },
+	{ value:  1, label: "Lower tier adversary" },
+	{ value:  1, label: "No Bruisers / Hordes / Leaders / Solos" },
+	{ value:  2, label: "More dangerous / longer" },
+];
+
+const SPEND_OPTIONS = [
+	{ cost: 1, key: "minion",   label: "Minions (party size)",              match: /minion/i },
+	{ cost: 1, key: "social",   label: "Social / Support",                  match: /social|support/i },
+	{ cost: 2, key: "standard", label: "Horde / Ranged / Skulk / Standard", match: /horde|ranged|skulk|standard/i },
+	{ cost: 3, key: "leader",   label: "Leader",                            match: /leader/i },
+	{ cost: 4, key: "bruiser",  label: "Bruiser",                           match: /bruiser/i },
+	{ cost: 5, key: "solo",     label: "Solo",                              match: /solo/i },
+];
+
+const capitalize = (text: string) => (text ? text[0].toUpperCase() + text.slice(1) : text);
+
+// ── Modal ─────────────────────────────────────────────────────────────────────
+export class EncounterCalcModal extends Modal {
+	private state: EncounterState = {
+		baseBP: 0,
+		adjustments: [],
+		spentItems: [],
+		pcCount: 3,
+		tier: "all",
+		source: "all",
+	};
+
+	constructor(app: App) {
+		super(app);
+		this.titleEl.setText("Battle calculator");
+	}
+
+	/** Custom adversaries first (they shadow bundled ids), then the bundled list. */
+	private allAdversaries(): AdvData[] {
+		const plugin = getDaggerForgePlugin(this.app);
+		const custom = plugin?.dataManager?.getAdversaries() ?? [];
+		return [...custom, ...ADVERSARIES];
+	}
+
+	onOpen(): void {
+		makeDraggable(this.modalEl, this.modalEl);
+		this.modalEl.addClass("df-enc-modal");
+
+		const { contentEl } = this;
+		contentEl.addClass("df-enc-content");
+
+		// ── Header row ────────────────────────────────────────────────────
+		const headerRow = contentEl.createDiv({ cls: "df-enc-header-row" });
+
+		const pcGroup = headerRow.createDiv({ cls: "df-enc-pc-group" });
+		pcGroup.createEl("label", { cls: "df-enc-label", text: "Number of pcs" });
+		const pcInput = pcGroup.createEl("input", { cls: "df-enc-pc-input" });
+		pcInput.type = "number";
+		pcInput.min = "1";
+		pcInput.max = "10";
+		pcInput.value = this.state.pcCount.toString();
+
+		const calcBtn = headerRow.createEl("button", { cls: "df-enc-calc-btn" });
+		setIconLabel(calcBtn, "zap", "Calculate");
+
+		// ── Stats bar ─────────────────────────────────────────────────────
+		const statsBar = contentEl.createDiv({ cls: "df-enc-stats" });
+		const makeStatEl = (label: string, cls = "") => {
+			const chip = statsBar.createDiv({ cls: `df-enc-stat ${cls}` });
+			chip.createSpan({ cls: "df-enc-stat-label", text: label });
+			const val = chip.createSpan({ cls: "df-enc-stat-value", text: "0" });
+			return val;
+		};
+		const svBase      = makeStatEl("Base BP");
+		const svAdj       = makeStatEl("Adjustments");
+		const svSpent     = makeStatEl("Spent");
+		const svRemaining = makeStatEl("Remaining", "df-enc-stat--highlight");
+
+		// ── Log columns ───────────────────────────────────────────────────
+		const columnsDiv = contentEl.createDiv({ cls: "df-enc-columns" });
+
+		const adjCol = columnsDiv.createDiv({ cls: "df-enc-column" });
+		const adjColHead = adjCol.createDiv({ cls: "df-enc-col-header" });
+		setIconLabel(adjColHead, "sliders-horizontal", "Adjustments");
+		const adjustmentsList = adjCol.createDiv({ cls: "df-enc-log" });
+
+		const spendCol = columnsDiv.createDiv({ cls: "df-enc-column" });
+		const spendColHead = spendCol.createDiv({ cls: "df-enc-col-header" });
+		setIconLabel(spendColHead, "swords", "Spending");
+		const spendingList = spendCol.createDiv({ cls: "df-enc-log" });
+
+		// ── Adjustment buttons ────────────────────────────────────────────
+		const adjSection = contentEl.createDiv({ cls: "df-enc-section" });
+		const adjHead = adjSection.createDiv({ cls: "df-enc-section-label" });
+		setIconLabel(adjHead, "sliders-horizontal", "Adjust Battle Points");
+		const adjGrid = adjSection.createDiv({ cls: "df-enc-btn-grid" });
+		ADJUSTMENTS.forEach(adj => {
+			const btn = adjGrid.createEl("button", { cls: "df-enc-action-btn" });
+			btn.setAttribute("data-adjust", adj.value.toString());
+			btn.createSpan({ cls: "df-enc-btn-label", text: adj.label });
+			btn.createSpan({
+				cls: `df-enc-badge ${adj.value > 0 ? "df-enc-badge--pos" : "df-enc-badge--neg"}`,
+				text: adj.value > 0 ? `+${adj.value}` : `${adj.value}`,
+			});
+		});
+
+		// ── Spend buttons ─────────────────────────────────────────────────
+		const spendSection = contentEl.createDiv({ cls: "df-enc-section" });
+		const spendHead = spendSection.createDiv({ cls: "df-enc-section-label" });
+		setIconLabel(spendHead, "swords", "Spend Battle Points");
+		const spendGrid = spendSection.createDiv({ cls: "df-enc-btn-grid" });
+		SPEND_OPTIONS.forEach(opt => {
+			const btn = spendGrid.createEl("button", { cls: "df-enc-action-btn" });
+			btn.setAttribute("data-cost", opt.cost.toString());
+			btn.setAttribute("data-key", opt.key);
+			btn.createSpan({ cls: "df-enc-btn-label", text: opt.label });
+			btn.createSpan({ cls: "df-enc-badge df-enc-badge--cost", text: `-${opt.cost}` });
+		});
+
+		// ── Suggestions ───────────────────────────────────────────────────
+		const sugSection = contentEl.createDiv({ cls: "df-enc-section" });
+		const sugHead = sugSection.createDiv({ cls: "df-enc-section-label" });
+		setIconLabel(sugHead, "wand-2", "Suggested Adversaries");
+
+		const filterRow = sugSection.createDiv({ cls: "df-enc-suggest-filters" });
+		const tierSelect = filterRow.createEl("select", { cls: "dropdown df-enc-suggest-select" });
+		tierSelect.createEl("option", { text: "Any tier", value: "all" });
+		["1", "2", "3", "4"].forEach(t => tierSelect.createEl("option", { text: `Tier ${t}`, value: t }));
+
+		const sourceSelect = filterRow.createEl("select", { cls: "dropdown df-enc-suggest-select" });
+		sourceSelect.createEl("option", { text: "Any source", value: "all" });
+		const sources = new Set<string>(ADVERSARIES.map(a => (a.source || "core").toLowerCase()));
+		sources.add("custom");
+		[...sources].sort().forEach(s => sourceSelect.createEl("option", { text: capitalize(s), value: s }));
+
+		const sugList = sugSection.createDiv({ cls: "df-enc-suggest" });
+
+		const insertRow = sugSection.createDiv({ cls: "df-enc-insert-row" });
+		const insertBtn = insertRow.createEl("button", { cls: "mod-cta df-enc-insert-btn", text: "Insert encounter" });
+		const insertNote = insertRow.createSpan({ cls: "df-enc-insert-note" });
+
+		// ── Footer ────────────────────────────────────────────────────────
+		const footer = contentEl.createDiv({ cls: "df-enc-footer" });
+		const clearBtn = footer.createEl("button", { cls: "df-enc-clear-btn" });
+		setIconLabel(clearBtn, "trash-2", "Clear all");
+
+		// ── Logic ─────────────────────────────────────────────────────────
+		const totals = () => {
+			const adj   = this.state.adjustments.reduce((s, a) => s + a.value, 0);
+			const spent = this.state.spentItems.reduce((s, i) => s + i.cost, 0);
+			return { adj, spent, remaining: this.state.baseBP + adj - spent };
+		};
+
+		/** The choices made in the calculator, as a markdown callout - printed
+		 *  into the note/canvas once, before the first inserted adversary, so
+		 *  the encounter can be read back later. */
+		const buildSummaryMarkdown = (): string => {
+			const scope = [`${this.state.pcCount} PCs`];
+			if (this.state.tier !== "all") scope.push(`Tier ${this.state.tier}`);
+			if (this.state.source !== "all") scope.push(capitalize(this.state.source));
+			const lines = [`> [!note] Battle plan - ${scope.join(" · ")}`];
+			lines.push(`> - Base battle points: ${this.state.baseBP}`);
+			this.state.adjustments.forEach(a =>
+				lines.push(`> - ${a.reason} (${a.value >= 0 ? "+" : ""}${a.value})`),
+			);
+			this.state.spentItems.forEach(s =>
+				lines.push(`> - ${s.label}${s.adversary ? ` - ${s.adversary.name}` : ""} (−${s.cost})`),
+			);
+			lines.push(`> - Remaining battle points: ${totals().remaining}`);
+			return lines.join("\n") + "\n";
+		};
+
+		/** Assign a suggested adversary to the first open slot of its category -
+		 *  nothing is written until Insert encounter. Choosing beyond the plan
+		 *  spends the points for a new, already-filled slot. */
+		const chooseSuggestion = (adv: AdvData, opt: (typeof SPEND_OPTIONS)[number]) => {
+			const slot = this.state.spentItems.find(s => s.category === opt.key && !s.adversary);
+			if (slot) slot.adversary = adv;
+			else this.state.spentItems.push({ cost: opt.cost, label: opt.label, category: opt.key, adversary: adv });
+			updateDisplay();
+		};
+
+		/** Write the whole plan into the focused note/canvas: the summary
+		 *  callout first, then every chosen adversary. Finalizing clears the
+		 *  calculator for the next encounter. */
+		const insertEncounter = async () => {
+			const chosen = this.state.spentItems.filter(s => s.adversary);
+			if (chosen.length === 0) return;
+			const plugin = getDaggerForgePlugin(this.app);
+			if (!plugin) {
+				new Notice("Open a note or canvas first.");
+				return;
+			}
+			if (!insertAtFocusedTarget(plugin, buildSummaryMarkdown(), { width: 440, height: 280 }, undefined, true)) {
+				return; // no target - keep the plan so nothing is lost
+			}
+
+			// The same adversary picked for several slots prints as ONE card with
+			// that many HP/stress rows (like the browser's battle counter), not
+			// as duplicate cards. Minion slots contribute a party-sized group each.
+			const groups = new Map<string, { adv: AdvData; count: number }>();
+			for (const slot of chosen) {
+				const adv = slot.adversary!;
+				if (!adv.id) continue;
+				const perSlot = slot.category === "minion" ? Math.max(1, this.state.pcCount) : 1;
+				const group = groups.get(adv.id);
+				if (group) group.count += perSlot;
+				else groups.set(adv.id, { adv, count: perSlot });
+			}
+			for (const { adv, count } of groups.values()) {
+				const isCustom = (adv.source ?? "").toLowerCase() === "custom" || adv.id.startsWith("CUA_");
+				const code = isCustom ? await encodeAdversaryCode(adv) : undefined;
+				insertAtFocusedTarget(
+					plugin,
+					buildAdversaryEmbedBlock(adv.id, count > 1 ? count : undefined, code),
+					{ width: 460, height: 620 },
+					undefined,
+					true,
+				);
+			}
+			new Notice(`Inserted the battle plan and ${chosen.length} ${chosen.length === 1 ? "adversary" : "adversaries"} on ${groups.size} ${groups.size === 1 ? "card" : "cards"}.`);
+
+			// Finalized - reset for the next encounter (same party size)
+			this.state.baseBP      = 3 * this.state.pcCount + 2;
+			this.state.adjustments = [];
+			this.state.spentItems  = [];
+			updateDisplay();
+		};
+
+		const confirmAndInsert = () => {
+			const { remaining } = totals();
+			if (remaining <= 0) {
+				void insertEncounter();
+				return;
+			}
+			new ConfirmModal(this.app, {
+				title: "Insert with unspent battle points?",
+				message: `You still have ${remaining} unspent battle point${remaining === 1 ? "" : "s"}. Inserting finalizes this encounter and clears the calculator - you would have to rebuild the plan from scratch to spend them.`,
+				confirmLabel: "Insert anyway",
+				onConfirm: () => void insertEncounter(),
+			}).open();
+		};
+
+		const renderSuggestions = () => {
+			sugList.empty();
+
+			const planKeys: string[] = [];
+			this.state.spentItems.forEach(s => {
+				if (s.category && !planKeys.includes(s.category)) planKeys.push(s.category);
+			});
+
+			if (planKeys.length === 0) {
+				sugList.createEl("p", {
+					cls: "df-enc-suggest-hint",
+					text: "Spend battle points above and matching adversaries will be suggested here.",
+				});
+				return;
+			}
+
+			const pool = this.allAdversaries();
+			planKeys.forEach(key => {
+				const opt = SPEND_OPTIONS.find(o => o.key === key);
+				if (!opt) return;
+				const slots = this.state.spentItems.filter(s => s.category === key);
+				const done = slots.filter(s => s.adversary).length;
+
+				const matches = pool
+					.filter(a => opt.match.test(a.type || ""))
+					.filter(a => this.state.tier === "all" || String(a.tier) === this.state.tier)
+					.filter(a => this.state.source === "all" || (a.source || "core").toLowerCase() === this.state.source)
+					.sort((a, b) => a.name.localeCompare(b.name));
+
+				const group = sugList.createDiv({ cls: "df-enc-suggest-group" });
+				const head = group.createDiv({ cls: "df-enc-suggest-group-head" });
+				head.createSpan({ text: opt.label });
+				head.createSpan({
+					cls: "df-enc-suggest-progress" + (done >= slots.length ? " is-done" : ""),
+					text: done >= slots.length ? `${done}/${slots.length} ✓` : `${done}/${slots.length} chosen`,
+				});
+
+				if (matches.length === 0) {
+					group.createEl("p", { cls: "df-enc-suggest-hint", text: "No adversaries match these filters." });
+					return;
+				}
+
+				const makeChips = (parent: HTMLElement, advs: AdvData[]) => {
+					const chips = parent.createDiv({ cls: "df-enc-suggest-chips" });
+					advs.forEach(adv => {
+						const picks = slots.filter(s => s.adversary?.id === adv.id).length;
+						const chip = chips.createEl("button", {
+							cls: "df-enc-suggest-chip" + (picks > 0 ? " is-selected" : ""),
+						});
+						if (picks > 0) chip.createSpan({ cls: "df-enc-chip-check", text: picks > 1 ? `✓×${picks}` : "✓" });
+						chip.createSpan({ text: adv.name });
+						chip.createSpan({ cls: "df-enc-chip-tier", text: `T${adv.tier}` });
+						chip.title = `${adv.type} · ${capitalize((adv.source || "core").toLowerCase())} - choose for this slot`;
+						chip.addEventListener("click", () => chooseSuggestion(adv, opt));
+					});
+				};
+
+				// Combined categories (Social/Support, Horde/Ranged/Skulk/Standard):
+				// split the chips per actual type behind thin labeled dividers, so a
+				// Ranged pick can't be mistaken for a Skulk.
+				const subTypes = new Map<string, AdvData[]>();
+				matches.forEach(adv => {
+					const base = capitalize(((adv.type || "").split("(")[0].trim() || "Other").toLowerCase());
+					if (!subTypes.has(base)) subTypes.set(base, []);
+					subTypes.get(base)!.push(adv);
+				});
+
+				if (subTypes.size <= 1) {
+					makeChips(group, matches);
+					return;
+				}
+				[...subTypes.keys()].sort().forEach(typeName => {
+					const sub = group.createDiv({ cls: "df-enc-suggest-subhead" });
+					sub.createSpan({ cls: "df-enc-suggest-subtype", text: typeName });
+					makeChips(group, subTypes.get(typeName)!);
+				});
+			});
+		};
+
+		const updateDisplay = () => {
+			// Adjustment log
+			adjustmentsList.empty();
+			this.state.adjustments.forEach((a, i) => {
+				const row = adjustmentsList.createDiv({ cls: "df-enc-log-row" });
+				row.createSpan({ cls: "df-enc-log-text", text: a.reason });
+				row.createSpan({
+					cls: `df-enc-log-val ${a.value >= 0 ? "df-enc-pos" : "df-enc-neg"}`,
+					text: a.value >= 0 ? `+${a.value}` : `${a.value}`,
+				});
+				const rm = row.createEl("button", { cls: "df-enc-remove-btn" });
+				setIcon(rm, "x");
+				rm.addEventListener("click", () => { this.state.adjustments.splice(i, 1); updateDisplay(); });
+			});
+
+			// Spending log
+			spendingList.empty();
+			this.state.spentItems.forEach((item, i) => {
+				const row = spendingList.createDiv({ cls: "df-enc-log-row" + (item.adversary ? " df-enc-log-row--done" : "") });
+				if (item.adversary) row.createSpan({ cls: "df-enc-log-tick", text: "✓" });
+				row.createSpan({
+					cls: "df-enc-log-text",
+					text: item.adversary ? `${item.label} - ${item.adversary.name}` : item.label,
+				});
+				row.createSpan({ cls: "df-enc-log-val df-enc-neg", text: `-${item.cost}` });
+				const rm = row.createEl("button", { cls: "df-enc-remove-btn" });
+				setIcon(rm, "x");
+				rm.title = item.adversary ? "Clear the chosen adversary" : "Remove this slot";
+				// First click clears the pick, second removes the slot entirely
+				rm.addEventListener("click", () => {
+					if (item.adversary) item.adversary = undefined;
+					else this.state.spentItems.splice(i, 1);
+					updateDisplay();
+				});
+			});
+
+			// Stats
+			const { adj, spent, remaining } = totals();
+			svBase.textContent      = this.state.baseBP.toString();
+			svAdj.textContent       = adj >= 0 ? `+${adj}` : `${adj}`;
+			svSpent.textContent     = spent.toString();
+			svRemaining.textContent = remaining.toString();
+			svRemaining.className = `df-enc-stat-value df-enc-stat-big ${remaining < 0 ? "df-enc-neg" : remaining > 0 ? "df-enc-pos" : ""}`;
+
+			adjustmentsList.scrollTop = adjustmentsList.scrollHeight;
+			spendingList.scrollTop    = spendingList.scrollHeight;
+
+			// Insert button reflects the plan: enabled once anything is chosen
+			const chosenCount = this.state.spentItems.filter(s => s.adversary).length;
+			insertBtn.disabled = chosenCount === 0;
+			insertNote.textContent =
+				chosenCount === 0
+					? "Choose adversaries above, then insert them all at once."
+					: remaining > 0
+						? `${remaining} BP still unspent`
+						: `${chosenCount} chosen - ready to insert`;
+
+			renderSuggestions();
+		};
+
+		// Events
+		insertBtn.addEventListener("click", confirmAndInsert);
+
+		calcBtn.addEventListener("click", () => {
+			this.state.pcCount     = Number(pcInput.value);
+			this.state.baseBP      = 3 * this.state.pcCount + 2;
+			this.state.adjustments = [];
+			this.state.spentItems  = [];
+			updateDisplay();
+		});
+
+		contentEl.querySelectorAll("[data-adjust]").forEach(btn => {
+			btn.addEventListener("click", () => {
+				const val    = parseInt((btn as HTMLElement).dataset.adjust!);
+				const reason = (btn as HTMLElement).querySelector(".df-enc-btn-label")?.textContent ?? "";
+				this.state.adjustments.push({ value: val, reason });
+				updateDisplay();
+			});
+		});
+
+		contentEl.querySelectorAll("[data-cost]").forEach(btn => {
+			btn.addEventListener("click", () => {
+				const cost  = parseInt((btn as HTMLElement).dataset.cost!);
+				const key   = (btn as HTMLElement).dataset.key;
+				const label = (btn as HTMLElement).querySelector(".df-enc-btn-label")?.textContent ?? "";
+				this.state.spentItems.push({ cost, label, category: key });
+				updateDisplay();
+			});
+		});
+
+		tierSelect.addEventListener("change", () => { this.state.tier = tierSelect.value; renderSuggestions(); });
+		sourceSelect.addEventListener("change", () => { this.state.source = sourceSelect.value; renderSuggestions(); });
+
+		clearBtn.addEventListener("click", () => {
+			this.state = {
+				...this.state,
+				baseBP: 0,
+				adjustments: [],
+				spentItems: [],
+				pcCount: Number(pcInput.value),
+			};
+			updateDisplay();
+		});
+
+		pcInput.addEventListener("change", () => { this.state.pcCount = Number(pcInput.value); });
+
+		updateDisplay();
+	}
+
+	onClose(): void {
+		this.contentEl.empty();
+	}
+}
+
+/** @deprecated use EncounterCalcModal */
+export function openEncounterCalculator(app: App): void {
+	new EncounterCalcModal(app).open();
+}

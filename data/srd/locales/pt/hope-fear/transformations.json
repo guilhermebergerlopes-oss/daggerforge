@@ -1,0 +1,104 @@
+[
+	{
+		"id": "transformation-demigod",
+		"name": "Semideus",
+		"description": [
+			"Semideuses são mortais que têm sangue divino correndo nas veias."
+		],
+		"features": [
+			{
+				"name": "Abençoado",
+				"description": "Você recebe um bônus de +1 em testes comuns, testes de reação e rolagens de dano."
+			},
+			{
+				"name": "Fardo da Divindade",
+				"description": "Ao falhar em um teste, você deve marcar 1 Ponto de Fadiga ou o mestre recebe 1 Ponto de Medo."
+			}
+		]
+	},
+	{
+		"id": "transformation-ghost",
+		"name": "Fantasma",
+		"description": [
+			"Fantasmas são espíritos de pessoas falecidas conectados ao Plano Mortal. "
+		],
+		"features": [
+			{
+				"name": "Assuntos Inacabados",
+				"description": "Converse com o mestre para decidir o propósito ou desejo que vincula você ao Plano Mortal. Quando tal pendência for encerrada, você atravessa o véu da morte."
+			},
+			{
+				"name": "Efêmero",
+				"description": "Seu corpo oscila entre corpóreo e incorpóreo. Você é resistente a dano físico, sofre o dobro de dano mágico e pode marcar 2 PF para temporariamente atravessar um objeto sólido."
+			}
+		]
+	},
+	{
+		"id": "transformation-reanimated",
+		"name": "Reanimado",
+		"description": [
+			"Reanimados são cadáveres que foram trazidos de volta à vida."
+		],
+		"features": [
+			{
+				"name": "Cadáver",
+				"description": "Em um descanso, você só pode recuperar PV se tiver acesso aos restos mortais de uma criatura que tenha morrido recentemente. Descreva como você usa esses materiais na manutenção de seu cadáver."
+			},
+			{
+				"name": "Nunca Morre",
+				"description": "Se falhar no movimento de morte arriscar tudo, você pode marcar 1 Ponto de Vida permanentemente em troca de obter sucesso. Ao fazer isso, você ainda usa o resultado do Dado de Esperança para recuperar PV e PF. Quando marcar permanentemente o seu último PV dessa forma, você atravessa o véu da morte."
+			}
+		]
+	},
+	{
+		"id": "transformation-shapeshifter",
+		"name": "Metamorfo",
+		"description": [
+			"Metamorfos são seres capazes de alterar sua forma física."
+		],
+		"features": [
+			{
+				"name": "Mudar de Forma",
+				"description": "Durante um descanso, você pode usar um movimento de repouso para trocar sua ancestralidade atual por outra. Ao fazer isso, descreva como sua aparência muda."
+			},
+			{
+				"name": "Superficial",
+				"description": "Você recebe os benefícios de apenas uma das habilidades de sua ancestralidade atual. Esta habilidade deve ser escolhida no momento em que você assume a nova forma. Para escolher uma habilidade diferente de uma mesma ancestralidade, você precisa usar mais um movimento de repouso."
+			}
+		]
+	},
+	{
+		"id": "transformation-vampire",
+		"name": "Vampiro",
+		"description": [
+			"Vampiros são mortos-vivos de presas afiadas que se alimentam do sangue dos vivos. "
+		],
+		"features": [
+			{
+				"name": "Presas",
+				"description": "Faça um ataque usando um atributo à sua escolha para morder um alvo em alcance corpo a corpo. Se acertar, cause **d6** pontos de dano físico com sua Proficiência."
+			},
+			{
+				"name": "Alimentação",
+				"description": "Quando acertar um ataque com suas \"Presas\" contra uma criatura que tem sangue, você pode **marcar 1 PF** para se alimentar. Coloque um número de marcadores nesta carta igual ao número de PV marcados pelo alvo (máximo de 6 marcadores por vez). Antes de um teste qualquer, você pode gastar um marcador para transformar seu Dado de Medo em **d20**. Quando fizer um descanso longo, remova um marcador. Se não houver nenhum marcador sobre esta carta, todos os seus testes são feitos com desvantagem."
+			}
+		]
+	},
+	{
+		"id": "transformation-werewolf",
+		"name": "Lobisomem",
+		"description": [
+			"Lobisomens são seres que se transformam em lobos grandes e sobrenaturais. "
+		],
+		"features": [
+			{
+				"name": "Forma de Lobo",
+				"description": "Ao marcar 1 PV ou mais, você pode **marcar 1 PF** para se metamorfosear na Forma de Lobo. Enquanto estiver nesta forma, você recebe **+1d10** em testes de ataque e rolagens de dano. Se receber Pontos de Esperança na Forma de Lobo, você também deve marcar uma quantidade equivalente de PF. Sua Forma de Lobo dura até você entrar em \"Fúria Uivante\" ou até o próximo descanso."
+			},
+			{
+				"name": "Fúria Uivante",
+				"description": "Ao marcar seu último Ponto de Fadiga enquanto estiver na Forma de Lobo, você entra em fúria. Role um número de **d20** igual ao seu patamar e cause pontos de dano físico equivalentes ao resultado em todas as criaturas muito próximas. Depois, abandone sua Forma de Lobo."
+			}
+		]
+	}
+]

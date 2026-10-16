@@ -1,0 +1,410 @@
+import { Modal, Editor, Notice } from "obsidian";
+import { addEnvFeature, getEnvFeatureValues, envToHtml, Env_View_Type } from "../index";
+import type DaggerForgePlugin from "../../../main";
+import { CountdownClock, EnvFeatureElements, EnvironmentData, FormStateElements } from "../../../types/index";
+import { createInlineField } from "../../../utils/index";
+import { buildEnvironmentEmbedBlock } from "../EnvironmentEmbed";
+import { encodeEnvironmentCode } from "../../embeds/embedCode";
+import { insertAtFocusedTarget } from "../../embeds/insertDestination";
+
+// Data Assembly
+// Builds a complete EnvironmentData object from raw form values and feature arrays.
+// Used both when persisting a new environment and when passing updated data back
+// through the onEditUpdate callback.
+
+function assembleEnvironmentData(
+	values: Record<string, string>,
+	features: ReturnType<typeof getEnvFeatureValues>,
+	countdowns: CountdownClock[],
+): EnvironmentData {
+	return {
+		id: values.id || "",
+		name: values.name || "",
+		tier: values.tier || "",
+		type: values.type || "",
+		desc: values.desc || "",
+		impulse: values.impulse || "",
+		difficulty: values.difficulty || "",
+		potentialAdversaries: values.potentialAdversaries || "",
+		source: "custom",
+		features,
+		countdowns: countdowns.length > 0 ? countdowns : undefined,
+	};
+}
+
+async function persistEnvironment(
+	plugin: DaggerForgePlugin,
+	data: EnvironmentData,
+): Promise<void> {
+	try {
+		await plugin.dataManager.addEnvironment(data);
+		new Notice(`Environment "${data.name}" saved successfully!`);
+	} catch (error) {
+		console.error("Error saving environment:", error);
+		new Notice("Failed to save environment. Check console for details.");
+	}
+}
+
+// Modal
+// Single modal for both create and edit flows.
+//
+// Edit mode is activated by passing cardData to the constructor. When present:
+//   • The form pre-fills from cardData instead of the plugin's saved state.
+//   • The submit button calls onEditUpdate (wired by cardEditor.ts) instead of
+//     persisting + inserting a new card.
+//   • onClose does not write back to the plugin's saved state - edit sessions
+//     are ephemeral.
+
+export class EnvironmentModal extends Modal {
+	private plugin: DaggerForgePlugin;
+	private editor: Editor | null;
+	private inputs: FormStateElements = {};
+	private features: EnvFeatureElements[] = [];
+	private featureContainer!: HTMLElement;
+	private countdownRows: { nameEl: HTMLInputElement; maxEl: HTMLInputElement }[] = [];
+	private countdownContainer!: HTMLElement;
+
+	// Edit-mode fields
+	private isEditMode: boolean;
+	private editData: Record<string, unknown> = {};
+	/**
+	 * Resolved before the modal opens so that opening the modal (which shifts
+	 * focus away from the note/canvas) does not change the answer.
+	 */
+	onEditUpdate?: (
+		newHTML: string,
+		newData: EnvironmentData,
+	) => void | Promise<void>;
+
+	constructor(
+		plugin: DaggerForgePlugin,
+		editor: Editor | null,
+		cardData?: EnvironmentData,
+	) {
+		super(plugin.app);
+		this.plugin = plugin;
+		this.editor = editor;
+		this.isEditMode = !!cardData;
+
+		if (cardData) {
+			this.editData = cardData;
+		}
+	}
+
+	// Form Construction
+
+	onOpen(): void {
+		// In edit mode we use the card data; in create mode we use
+		// whatever the user left in the form last time (persisted on the plugin).
+		const saved = this.isEditMode
+			? this.editData
+			: this.plugin.savedInputStateEnv || {};
+
+		const { contentEl } = this;
+		contentEl.empty();
+		this.modalEl.addClass("df-form-modal");
+
+		contentEl.createEl("h2", {
+			text: this.isEditMode ? "Edit environment" : "Create environment",
+			cls: "df-modal-title",
+		});
+
+		this.buildBasicInfoSection(contentEl, saved);
+		this.buildGameplaySection(contentEl, saved);
+		this.buildDifficultySection(contentEl, saved);
+		this.buildCountdownSection(contentEl, saved);
+		this.buildFeaturesSection(contentEl, saved);
+		this.buildActionButtons(contentEl);
+	}
+
+	private buildBasicInfoSection(
+		contentEl: HTMLElement,
+		saved: Record<string, unknown>,
+	) {
+		const section = contentEl.createDiv({ cls: "df-env-form-section" });
+		section.createEl("h3", { text: "Basic information", cls: "df-section-title" });
+
+		const row = section.createDiv({ cls: "df-env-row-basic-info" });
+
+		createInlineField(row, this.inputs, {
+			label: "Name",
+			key: "name",
+			type: "input",
+			savedValues: saved,
+			customClass: "df-env-field-name",
+		});
+
+		createInlineField(row, this.inputs, {
+			label: "Tier",
+			key: "tier",
+			type: "select",
+			options: ["1", "2", "3", "4"],
+			savedValues: saved,
+			customClass: "df-env-field-tier",
+		});
+
+		createInlineField(row, this.inputs, {
+			label: "Type",
+			key: "type",
+			type: "select",
+			options: ["Event", "Exploration", "Social", "Traversal"],
+			savedValues: saved,
+			customClass: "df-env-field-type",
+		});
+
+		const details = section.createDiv({ cls: "df-env-form-section-content" });
+		const descTextarea = details.createEl("textarea", {
+			cls: "df-env-field-desc-textarea",
+			attr: { placeholder: "Enter environment description...", rows: "4" },
+		});
+		this.inputs["desc"] = descTextarea;
+		if (typeof saved["desc"] === "string" && saved["desc"]) descTextarea.value = saved["desc"];
+	}
+
+	private buildGameplaySection(
+		contentEl: HTMLElement,
+		saved: Record<string, unknown>,
+	) {
+		const section = contentEl.createDiv({ cls: "df-env-form-section" });
+		section.createEl("h3", { text: "Gameplay", cls: "df-section-title" });
+
+		const row = section.createDiv({ cls: "df-env-row-impulse" });
+		createInlineField(row, this.inputs, {
+			label: "Impulses",
+			key: "impulse",
+			type: "input",
+			savedValues: saved,
+			customClass: "df-env-field-impulse",
+		});
+	}
+
+	private buildDifficultySection(
+		contentEl: HTMLElement,
+		saved: Record<string, unknown>,
+	) {
+		const section = contentEl.createDiv({ cls: "df-env-form-section" });
+		section.createEl("h3", {
+			text: "Difficulty & adversaries",
+			cls: "df-section-title",
+		});
+
+		const diffRow = section.createDiv({ cls: "df-env-row-difficulty" });
+		createInlineField(diffRow, this.inputs, {
+			label: "Difficulty",
+			key: "difficulty",
+			type: "input",
+			savedValues: saved,
+			customClass: "df-env-field-difficulty",
+		});
+
+		const advRow = section.createDiv({ cls: "df-env-row-adversaries" });
+		createInlineField(advRow, this.inputs, {
+			label: "Potential adversaries",
+			key: "potentialAdversaries",
+			type: "input",
+			savedValues: saved,
+			customClass: "df-env-field-adversaries",
+		});
+	}
+
+	private buildCountdownSection(
+		contentEl: HTMLElement,
+		saved: Record<string, unknown>,
+	) {
+		const section = contentEl.createDiv({ cls: "df-env-form-section" });
+		section.createEl("h3", { text: "Countdown clocks", cls: "df-section-title" });
+
+		this.countdownRows = [];
+		this.countdownContainer = section.createDiv({ cls: "df-env-countdown-form-list" });
+
+		const savedClocks = (saved.countdowns as { name: string; max: number }[] | undefined) ?? [];
+		if (savedClocks.length > 0) {
+			savedClocks.forEach(c => this.addCountdownRow(c.name, c.max));
+		}
+
+		const addBtn = section.createEl("button", {
+			text: "+ add countdown clock",
+			cls: "df-env-btn-add-countdown",
+		});
+		addBtn.onclick = () => this.addCountdownRow();
+	}
+
+	private addCountdownRow(name = "", max = 0) {
+		const row = this.countdownContainer.createDiv({ cls: "df-env-countdown-form-row" });
+
+		const nameEl = row.createEl("input", {
+			cls: "df-env-countdown-form-name",
+			attr: { type: "text", placeholder: "Clock name (e.g. Storm arrival)" },
+		});
+		nameEl.value = name;
+
+		const maxEl = row.createEl("input", {
+			cls: "df-env-countdown-form-max",
+			attr: { type: "number", min: "1", max: "20", placeholder: "Max" },
+		});
+		if (max > 0) maxEl.value = String(max);
+
+		const removeBtn = row.createEl("button", {
+			text: "✕",
+			cls: "df-env-countdown-form-remove",
+		});
+		removeBtn.onclick = () => {
+			const idx = this.countdownRows.findIndex(r => r.nameEl === nameEl);
+			if (idx !== -1) this.countdownRows.splice(idx, 1);
+			row.remove();
+		};
+
+		this.countdownRows.push({ nameEl, maxEl });
+	}
+
+	private buildFeaturesSection(
+		contentEl: HTMLElement,
+		saved: Record<string, unknown>,
+	) {
+		const section = contentEl.createDiv({ cls: "df-env-form-section" });
+		section.createEl("h3", { text: "Features", cls: "df-section-title" });
+
+		this.featureContainer = section.createDiv({ cls: "df-env-feature-container" });
+		this.features = [];
+
+		const savedFeatures = saved.features as Array<Record<string, unknown>> | undefined;
+
+		if (Array.isArray(savedFeatures) && savedFeatures.length > 0) {
+			savedFeatures.forEach((data) => {
+				const dataText = typeof data.text === "string" ? data.text : "";
+				const dataTextAfter = typeof data.textAfter === "string" ? data.textAfter : "";
+				const dataCost = typeof data.cost === "string" ? data.cost : "";
+
+				// Migrate old format (text/bullets/textAfter) to richContent if needed
+				let richContent = typeof data.richContent === "string" ? data.richContent : "";
+				if (!richContent) {
+					const parts: string[] = [];
+					if (dataText) parts.push(`<p>${dataText}</p>`);
+					if (Array.isArray(data.bullets) && data.bullets.length) {
+						parts.push(`<ul>${(data.bullets as unknown[]).map((b) => `<li>${typeof b === "string" ? b : ""}</li>`).join("")}</ul>`);
+					}
+					if (dataTextAfter) parts.push(`<p>${dataTextAfter}</p>`);
+					richContent = parts.join("");
+				}
+				addEnvFeature(this.featureContainer, this.features, {
+					name: typeof data.name === "string" && data.name ? data.name : "",
+					type: typeof data.type === "string" && data.type ? data.type : "Passive",
+					cost: dataCost || undefined,
+					richContent,
+					questions: Array.isArray(data.questions)
+						? (data.questions as unknown[]).map((q) => (typeof q === "string" ? q : ""))
+						: [],
+				});
+			});
+		} else {
+			addEnvFeature(this.featureContainer, this.features);
+		}
+
+		const addBtn = section.createEl("button", {
+			text: "+ add feature",
+			cls: "df-env-btn-add-feature",
+		});
+		addBtn.onclick = () => addEnvFeature(this.featureContainer, this.features);
+	}
+
+	private buildActionButtons(contentEl: HTMLElement) {
+		const btn = contentEl.createEl("button", {
+			text: this.isEditMode ? "Update card" : "Insert card",
+			cls: "df-modal-submit-btn",
+		});
+		btn.onclick = () => this.handleSubmit();
+	}
+
+	// Submit Logic
+	// Split into three paths so the main handler stays short:
+	//   1. Edit mode  -> delegate to onEditUpdate, then close.
+	//   2. Canvas     -> persist + insert canvas card.
+	//   3. Markdown   -> persist + insert into editor.
+
+	private readCountdowns(): CountdownClock[] {
+		return this.countdownRows
+			.map(r => ({ name: r.nameEl.value.trim(), max: parseInt(r.maxEl.value, 10) || 0 }))
+			.filter(c => c.name && c.max > 0);
+	}
+
+	private async handleSubmit() {
+		const values = this.readFormValues();
+		const features = getEnvFeatureValues(this.features);
+		const countdowns = this.readCountdowns();
+		const newData = assembleEnvironmentData(values, features, countdowns);
+		const newHTML = envToHtml(newData, false);
+
+		if (this.onEditUpdate) {
+			await this.onEditUpdate(newHTML, newData);
+			this.close();
+			return;
+		}
+
+		await persistEnvironment(this.plugin, newData);
+		await this.insertCard(newData);
+		this.resetForm();
+		this.refreshBrowserView();
+		this.close();
+	}
+
+	private readFormValues(): Record<string, string> {
+		return Object.fromEntries(
+			Object.entries(this.inputs).map(([key, el]) => [
+				key,
+				(el as HTMLInputElement | HTMLTextAreaElement).value.trim(),
+			]),
+		);
+	}
+
+	/** Inserts a live id-based embed block (with a `code:` snapshot for sync)
+	 *  into the last-focused note or canvas. */
+	private async insertCard(data: EnvironmentData) {
+		if (!data.id) return;
+		const code = await encodeEnvironmentCode(data);
+		insertAtFocusedTarget(this.plugin, buildEnvironmentEmbedBlock(data.id, code), { width: 460, height: 760 });
+	}
+
+	private resetForm() {
+		for (const el of Object.values(this.inputs)) {
+			if (el instanceof HTMLInputElement || el instanceof HTMLTextAreaElement) {
+				el.value = "";
+			} else if (el.instanceOf(HTMLSelectElement)) {
+				el.selectedIndex = 0;
+			}
+		}
+
+		this.features = [];
+		this.featureContainer.empty();
+		this.countdownRows = [];
+		this.countdownContainer.empty();
+		this.plugin.savedInputStateEnv = {};
+	}
+
+	private refreshBrowserView() {
+		const leaves = this.plugin.app.workspace.getLeavesOfType(Env_View_Type);
+		for (const leaf of leaves) {
+			const v = leaf.view as { refresh?: () => void | Promise<void> };
+			if (typeof v?.refresh === "function") {
+				void v.refresh();
+			}
+		}
+	}
+
+	// Close
+	// Edit sessions are ephemeral - nothing is persisted on close.
+	// Create sessions snapshot the current form so the user can reopen and
+	// continue where they left off.
+
+	onClose(): void {
+		if (this.isEditMode) return;
+
+		this.plugin.savedInputStateEnv = {};
+
+		for (const [key, el] of Object.entries(this.inputs)) {
+			this.plugin.savedInputStateEnv[key] = el.value;
+		}
+
+		this.plugin.savedInputStateEnv.features = getEnvFeatureValues(this.features);
+		this.plugin.savedInputStateEnv.countdowns = this.readCountdowns();
+	}
+}

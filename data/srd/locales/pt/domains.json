@@ -1,0 +1,1703 @@
+[
+	{
+		"id": "domain-card-arcana-1-rune-ward",
+		"name": "Proteção Runica",
+		"level": 1,
+		"domain": "Arcano",
+		"type": "Feitiço",
+		"recallCost": 0,
+		"text": "Você tem um talismã pessoal que pode ser infundido com magia protetora e usado por você ou por um aliado. Descreva o que esse item é e por que ele é importante para você. O portador da proteção pode gastar 1 Ponto de Esperança para reduzir o dano sofrido em **1d8**.\n\nSe tirar 8 nesse dado, o poder da Proteção Rúnica se encerra após reduzir dano neste turno. Ela pode ser recarregada sem custo no seu próximo descanso."
+	},
+	{
+		"id": "domain-card-arcana-1-unleash-chaos",
+		"name": "Caos Liberto",
+		"level": 1,
+		"domain": "Arcano",
+		"type": "Feitiço",
+		"recallCost": 1,
+		"text": "No início da sessão, coloque um número de marcadores igual ao seu atributo de conjuração nesta carta.\n\nFaça um **teste de conjuração** contra um alvo distante e gaste qualquer número de marcadores para canalizar energia bruta de seu interior e liberá-la contra ele. Em um sucesso, role uma quantidade de **d10** igual ao número de marcadores que gastou e cause o resultado deles como dano mágico ao alvo. **Marque 1 Ponto de Fadiga** para recarregar esta carta com marcadores (até uma quantidade igual ao seu atributo de conjuração).\n\nNo fim de cada sessão, marcadoresnão utilizados são perdidos."
+	},
+	{
+		"id": "domain-card-arcana-1-wall-walk",
+		"name": "Caminhar na Parede",
+		"level": 1,
+		"domain": "Arcano",
+		"type": "Feitiço",
+		"recallCost": 1,
+		"text": "**Gaste 1 Ponto de Esperança**: uma criatura tocada por você pode escalar paredes e tetos como se estivesse caminhando em terra firme. Esse efeito dura até o fim da cena ou até você conjurar Caminhar na Parede novamente."
+	},
+	{
+		"id": "domain-card-arcana-2-cinder-grasp",
+		"name": "Incendiar",
+		"level": 2,
+		"domain": "Arcano",
+		"type": "Feitiço",
+		"recallCost": 1,
+		"text": "Faça um **teste de conjuração** contra um alvo corpo a corpo. Em um sucesso, o alvo instantaneamente irrompe em chamas, sofre **1d20+3** de dano mágico e fica temporariamente _Em Chamas_.\n\nQuando uma criatura _Em Chamas_ age, ela sofre **2d6** de dano mágico adicional se ainda estiver _Em Chamas_ no fim da ação dela."
+	},
+	{
+		"id": "domain-card-arcana-2-floating-eye",
+		"name": "Olho Flutuante",
+		"level": 2,
+		"domain": "Arcano",
+		"type": "Feitiço",
+		"recallCost": 0,
+		"text": "**Gaste 1 Ponto de Esperança** para criar um pequeno orbe flutuante que você pode mover para um ponto qualquer em alcance muito distante. Enquanto este feitiço estiver ativo, você pode ver pelo orbe como se estivesse onde ele está. Você pode escolher entre usar seus próprios sentidos ou os do orbe como quiser. Se o orbe sofrer dano ou sair do alcance, o feitiço termina."
+	},
+	{
+		"id": "domain-card-arcana-3-counterspell",
+		"name": "Contramágica",
+		"level": 3,
+		"domain": "Arcano",
+		"type": "Feitiço",
+		"recallCost": 2,
+		"text": "Você pode interromper um efeito mágico em andamento fazendo um teste de reação com seu atributo de conjuração. Em um sucesso, o efeito termina, quaisquer consequências são evitadas e esta carta vai para sua reserva."
+	},
+	{
+		"id": "domain-card-arcana-3-flight",
+		"name": "Voo",
+		"level": 3,
+		"domain": "Arcano",
+		"type": "Feitiço",
+		"recallCost": 1,
+		"text": "Faça um **teste de conjuração (15)**. Em um sucesso, coloque um número de marcadores igual à sua Agilidade nesta carta (mínimo de 1). Ao fazer um teste enquanto estiver voando, gaste um marcador desta carta. Após terminar a ação que consumiu o último marcador, você desce para o solo diretamente abaixo de você."
+	},
+	{
+		"id": "domain-card-arcana-4-blink-out",
+		"name": "Translocação",
+		"level": 4,
+		"domain": "Arcano",
+		"type": "Feitiço",
+		"recallCost": 1,
+		"text": "Faça um **teste de conjuração (12)**. Em um sucesso, gaste 1 Ponto de Esperança para se teleportar a um ponto que você possa ver em alcance distante. Se houver criaturas voluntárias Muito Próximas, **gaste 1 Ponto de Esperança adicional** para cada criatura que quiser levar consigo."
+	},
+	{
+		"id": "domain-card-arcana-4-preservation-blast",
+		"name": "Impacto Defensivo",
+		"level": 4,
+		"domain": "Arcano",
+		"type": "Feitiço",
+		"recallCost": 2,
+		"text": "Faça um **teste de conjuração** contra todos os alvos corpo a corpo. Alvos atingidos são empurrados para um ponto qualquer em alcance distante e sofrem **d8+3** de dano mágico usando seu atributo de conjuração."
+	},
+	{
+		"id": "domain-card-arcana-5-chain-lightning",
+		"name": "Corrente de Relâmpagos",
+		"level": 5,
+		"domain": "Arcano",
+		"type": "Feitiço",
+		"recallCost": 1,
+		"text": "**Marque 2 Pontos de Fadiga** para fazer um **teste de conjuração** e liberar relâmpagos em cadeia contra todos os alvos próximos. Alvos atingidos devem fazer um teste de reação com Dificuldade igual ao resultado de seu teste de conjuração. Se falharem, sofrem **2d8+4** de dano mágico. Adversários adicionais que não tenham sido alvo da Corrente de Relâmpagos e estejam próximos dos alvos que sofreram dano também devem fazer um teste de reação. Se falharem, sofrem **2d8+4** de dano mágico. A corrente continua até não haver mais adversários no alcance."
+	},
+	{
+		"id": "domain-card-arcana-5-premonition",
+		"name": "Premonição",
+		"level": 5,
+		"domain": "Arcano",
+		"type": "Feitiço",
+		"recallCost": 2,
+		"text": "Você pode canalizar energia arcana para ter visões do futuro. Uma vez por descanso longo, imediatamente após o mestre apresentar as consequências de um teste que você fez, você pode ignorar esse movimento e suas consequências como se elas não tivessem acontecido e fazer outro movimento no lugar."
+	},
+	{
+		"id": "domain-card-arcana-6-rift-walker",
+		"name": "Fenda Espacial",
+		"level": 6,
+		"domain": "Arcano",
+		"type": "Feitiço",
+		"recallCost": 2,
+		"text": "Faça um **teste de conjuração (15)**. Em um sucesso, você faz uma marca arcana no solo onde está no momento. Na próxima vez que você conjurar Fenda Espacial, abre-se um portal que fornece passagem segura para o ponto exato onde a marca foi colocada. A fenda permanece aberta até você fechá-la ou até conjurar outro feitiço.\n\nVocê pode cancelar o feitiço a qualquer momento para conjurar Fenda Espacial novamente e marcar outro lugar."
+	},
+	{
+		"id": "domain-card-arcana-6-telekinesis",
+		"name": "Telecinese",
+		"level": 6,
+		"domain": "Arcano",
+		"type": "Feitiço",
+		"recallCost": 0,
+		"text": "Faça um **teste de conjuração** contra um alvo distante. Em um sucesso, você pode usar sua mente para movê-lo para um ponto qualquer em alcance distante relativo à posição inicial dele. Você também pode arremessá-lo como um ataque, fazendo um teste de conjuração adicional contra o alvo desse ataque. Em um sucesso, você causa **d12+4** de dano físico ao segundo alvo com sua Proficiência. Depois disso, o feitiço acaba."
+	},
+	{
+		"id": "domain-card-arcana-7-arcana-touched",
+		"name": "Dom Arcano",
+		"level": 7,
+		"domain": "Arcano",
+		"type": "Talento",
+		"recallCost": 2,
+		"text": "Se 4 ou mais cartas de domínio na sua mão pertencerem ao domínio Arcano, receba os seguintes benefícios:\n\n- Bônus de +1 em testes de conjuração;\n- Uma vez por descanso, você pode trocar os resultados dos Dados de Esperança e Medo um pelo outro."
+	},
+	{
+		"id": "domain-card-arcana-7-cloaking-blast",
+		"name": "Ocultação",
+		"level": 7,
+		"domain": "Arcano",
+		"type": "Feitiço",
+		"recallCost": 2,
+		"text": "Ao ter sucesso em um **teste de conjuração** para conjurar um feitiço diferente, você pode **gastar 1 Ponto de Esperança** para ficar _Oculto_. Enquanto estiver _Oculto_, quando um adversário se movimentar para um lugar de onde normalmente veria você, ele não pode vê-lo se você estiver parado. Ao entrar ou se movimentar dentro da linha de visão de um adversário, ou ao atacar, você deixa de estar _Oculto_."
+	},
+	{
+		"id": "domain-card-arcana-8-arcane-reflection",
+		"name": "Reflexo Arcano",
+		"level": 8,
+		"domain": "Arcano",
+		"type": "Feitiço",
+		"recallCost": 1,
+		"text": "Quando for sofrer dano mágico, você pode **gastar qualquer quantidade de Pontos de Esperança** e rolar um número equivalente de **d6**. Se tirar 6 em qualquer um desses dados, o ataque é refletido e, em vez de causar dano a você, causa dano ao atacante."
+	},
+	{
+		"id": "domain-card-arcana-8-confusing-aura",
+		"name": "Aura de Confusão",
+		"level": 8,
+		"domain": "Arcano",
+		"type": "Feitiço",
+		"recallCost": 2,
+		"text": "Faça um **teste de conjuração (14)**. Uma vez por descanso longo, em um sucesso, você cria uma camada ilusória sobre seu corpo, que torna difícil distinguir exatamente onde você está. **Marque um número qualquer de Pontos de Fadiga** e crie uma quantidade de camadas igual aos PF marcados. Quando um adversário ataca você, role um número de **d6** igual à quantidade de camadas que tem no momento. Se tirar 5 ou mais em qualquer dado, uma camada da aura é destruída e o ataque falha. Se todos os resultados forem 4 ou menos, você sofre o dano e o feitiço termina"
+	},
+	{
+		"id": "domain-card-arcana-9-earthquake",
+		"name": "Terremoto",
+		"level": 9,
+		"domain": "Arcano",
+		"type": "Feitiço",
+		"recallCost": 2,
+		"text": "Faça um **teste de conjuração (16)**. Uma vez por descanso, em um sucesso, todos os alvos Muito distantes que não estiverem voando devem fazer um **teste de reação (18)**. Quem falhar sofre **3d10+8** de dano físico e fica temporariamente Vulnerável. Quem passar sofre metade do dano.\n\nAlém disso, quando você tem sucesso no **teste de conjuração**, o terreno dentro do alcance muito distante tornase difícil e as estruturas dentro desse alcance podem ser danificadas ou desmoronar completamente."
+	},
+	{
+		"id": "domain-card-arcana-9-sensory-projection",
+		"name": "Projeção Sensorial",
+		"level": 9,
+		"domain": "Arcano",
+		"type": "Feitiço",
+		"recallCost": 0,
+		"text": "Uma vez por descanso, faça um **teste de conjuração (15)**. Em um sucesso, você entra numa visão que lhe permite ver e ouvir claramente qualquer lugar onde já esteve anteriormente, como se estivesse lá no momento. Você pode se mover livremente dentro da visão, sem sofrer as restrições físicas de ter um corpo material. Este feitiço não pode ser detectado por meios mágicos ou mundanos. Você sai da visão ao sofrer dano ou ao conjurar outra magia."
+	},
+	{
+		"id": "domain-card-arcana-10-adjust-reality",
+		"name": "Ajustar Realidade",
+		"level": 10,
+		"domain": "Arcano",
+		"type": "Feitiço",
+		"recallCost": 1,
+		"text": "Quando você ou um aliado voluntário faz uma rolagem, você pode **gastar 5 Pontos de Esperança** para mudar o resultado para um à sua escolha — ele deve ser plausível dentro das possibilidades fornecidas pelos dados."
+	},
+	{
+		"id": "domain-card-arcana-10-falling-sky",
+		"name": "Chuva Arcana",
+		"level": 10,
+		"domain": "Arcano",
+		"type": "Feitiço",
+		"recallCost": 1,
+		"text": "Faça um **teste de conjuração** contra todos os adversários distantes. **Marque uma quantidade qualquer de Pontos de Fadiga** para fazer chover fragmentos arcanos. Alvos atingidos sofrem **1d20+2** de dano mágico para cada PF marcado."
+	},
+	{
+		"id": "domain-card-blade-1-get-back-up",
+		"name": "Levante-se",
+		"level": 1,
+		"domain": "Lâmina",
+		"type": "Talento",
+		"recallCost": 1,
+		"text": "Ao sofrer dano grave, você pode **marcar 1 Ponto de Fadiga** para reduzir a gravidade em um limiar."
+	},
+	{
+		"id": "domain-card-blade-1-not-good-enough",
+		"name": "Não o Suficiente",
+		"level": 1,
+		"domain": "Lâmina",
+		"type": "Talento",
+		"recallCost": 1,
+		"text": "Ao rolar dados de dano, você pode rolar novamente quaisquer resultados 1 ou 2."
+	},
+	{
+		"id": "domain-card-blade-1-whirlwind",
+		"name": "Turbilhão",
+		"level": 1,
+		"domain": "Lâmina",
+		"type": "Talento",
+		"recallCost": 0,
+		"text": "Quando acerta um ataque contra um alvo muito próximo, você pode **gastar 1 Ponto de Esperança** para usar este ataque contra todos os outros alvos muito próximos. Todos os adversários adicionais que você acertar ao usar este talento sofrem metade do dano."
+	},
+	{
+		"id": "domain-card-blade-2-a-soldier-s-bond",
+		"name": "Fraternidade Marcial",
+		"level": 2,
+		"domain": "Lâmina",
+		"type": "Talento",
+		"recallCost": 1,
+		"text": "Uma vez por descanso longo, ao elogiar ou perguntar algo que alguém faz bem, vocês recebem 3 Pontos de Esperança."
+	},
+	{
+		"id": "domain-card-blade-2-reckless",
+		"name": "Ataque Imprudente",
+		"level": 2,
+		"domain": "Lâmina",
+		"type": "Talento",
+		"recallCost": 1,
+		"text": "**Marque 1 Ponto de Fadiga** para receber vantagem em um teste de ataque."
+	},
+	{
+		"id": "domain-card-blade-3-scramble",
+		"name": "Mexa-se",
+		"level": 3,
+		"domain": "Lâmina",
+		"type": "Talento",
+		"recallCost": 1,
+		"text": "Uma vez por descanso, quando uma criatura corpo a corpo for causar dano a você, você pode evitar o ataque e sair com segurança do alcance do inimigo."
+	},
+	{
+		"id": "domain-card-blade-3-versatile-fighter",
+		"name": "Versatilidade",
+		"level": 3,
+		"domain": "Lâmina",
+		"type": "Talento",
+		"recallCost": 1,
+		"text": "Em vez de usar o atributo requerido por uma arma equipada, você pode usar um atributo diferente.\n\nAo causar dano, você pode **marcar 1 Ponto de Fadiga** para usar o valor máximo de um de seus dados de dano."
+	},
+	{
+		"id": "domain-card-blade-4-deadly-focus",
+		"name": "Concentração Mortal",
+		"level": 4,
+		"domain": "Lâmina",
+		"type": "Talento",
+		"recallCost": 2,
+		"text": "Uma vez por descanso, você pode se concentrar totalmente em um alvo à sua escolha, recebendo um bônus de +1 em sua Proficiência. Esse bônus dura até você derrotar o alvo, atacar outra criatura ou a batalha terminar."
+	},
+	{
+		"id": "domain-card-blade-4-fortified-armor",
+		"name": "Armadura Fortificada",
+		"level": 4,
+		"domain": "Lâmina",
+		"type": "Talento",
+		"recallCost": 0,
+		"text": "Você recebe um bônus de +2 nos seus limiares de dano enquanto estiver usando armadura."
+	},
+	{
+		"id": "domain-card-blade-5-champion-s-edge",
+		"name": "Vantagem do Campeão",
+		"level": 5,
+		"domain": "Lâmina",
+		"type": "Talento",
+		"recallCost": 1,
+		"text": "Ao ter sucesso crítico em um ataque, você pode **gastar até 3 Pontos de Esperança** e escolher uma das opções a seguir para cada Ponto de Esperança gasto dessa forma:\n\n- Você recupera 1 Ponto de Vida;.\n- Você recupera 1 Ponto de Armadura;\n- O alvo deve marcar 1 PV adicional. Você não pode escolher a mesma opção mais de uma vez."
+	},
+	{
+		"id": "domain-card-blade-5-vitality",
+		"name": "Vitalidade",
+		"level": 5,
+		"domain": "Lâmina",
+		"type": "Talento",
+		"recallCost": 0,
+		"text": "Ao escolher esta carta, receba dois destes benefícios permanentemente:\n\n- 1 PF adicional;\n- 1 PV adicional;\n- Bônus de +2 em seus limiares de dano\n\nEm seguida, coloque esta carta na sua reserva permanentemente."
+	},
+	{
+		"id": "domain-card-blade-6-battle-hardened",
+		"name": "Calejado pela Batalha",
+		"level": 6,
+		"domain": "Lâmina",
+		"type": "Talento",
+		"recallCost": 2,
+		"text": "Uma vez por descanso longo, quando for fazer um movimento de morte, você pode **gastar 1 Ponto de Esperança** para, em vez disso, recuperar 1 PV"
+	},
+	{
+		"id": "domain-card-blade-6-rage-up",
+		"name": "Fúria",
+		"level": 6,
+		"domain": "Lâmina",
+		"type": "Talento",
+		"recallCost": 1,
+		"text": "Antes de fazer um ataque, você pode **marcar 1 Ponto de Fadiga** para receber um bônus igual ao dobro de sua Força na rolagem de dano.\n\nVocê pode ativar este talento duas vezes por ataque."
+	},
+	{
+		"id": "domain-card-blade-7-blade-touched",
+		"name": "Dom da Lâmina",
+		"level": 7,
+		"domain": "Lâmina",
+		"type": "Talento",
+		"recallCost": 1,
+		"text": "Se 4 ou mais cartas de domínio na sua mão pertencerem ao domínio da Lâmina, receba os seguintes benefícios:\n\n- Bônus de +2 em testes de ataque;\n- Bônus de +4 no seu limiar de dano grave."
+	},
+	{
+		"id": "domain-card-blade-7-glancing-blow",
+		"name": "Golpe de Raspão",
+		"level": 7,
+		"domain": "Lâmina",
+		"type": "Talento",
+		"recallCost": 1,
+		"text": "Quando erra um ataque, você pode **marcar 1 Ponto de Fadiga** para causar o dano da arma usando metade de sua Proficiência"
+	},
+	{
+		"id": "domain-card-blade-8-battle-cry",
+		"name": "Grito de Guerra",
+		"level": 8,
+		"domain": "Lâmina",
+		"type": "Talento",
+		"recallCost": 2,
+		"text": "Uma vez por descanso longo, enquanto se lança rumo ao perigo, você pode emitir um grito de guerra que inspira 336 Apêndice: Cartas de Domínioseus aliados. Cada aliado capaz de ouvilo recupera 1 Ponto de Fadiga e ganha 1 Ponto de Esperança. Além disso, seus aliados fazem testes de ataque com vantagem até que você ou algum aliado role uma falha com Medo."
+	},
+	{
+		"id": "domain-card-blade-8-frenzy",
+		"name": "Frenesi",
+		"level": 8,
+		"domain": "Lâmina",
+		"type": "Talento",
+		"recallCost": 3,
+		"text": "Uma vez por descanso longo, você pode entrar _Em Frenesi_ até que não haja mais adversários na sua linha de visão.\n\nEnquanto estiver _Em Frenesi_, você não pode usar PA, ganha um bônus de +10 em rolagens de dano e um bônus de +8 no seu limiar de dano grave."
+	},
+	{
+		"id": "domain-card-blade-9-gore-and-glory",
+		"name": "Guerra e Glória",
+		"level": 9,
+		"domain": "Lâmina",
+		"type": "Talento",
+		"recallCost": 2,
+		"text": "Em um sucesso crítico ao atacar com uma arma, receba 1 Ponto de Esperança adicional ou recupere 1 Ponto de Fadiga adicional.\n\nAlém disso, ao causar dano suficiente para derrotar um inimigo, receba 1 Ponto de Esperança ou recupere 1 PF."
+	},
+	{
+		"id": "domain-card-blade-9-reaper-s-strike",
+		"name": "Golpe da Morte",
+		"level": 9,
+		"domain": "Lâmina",
+		"type": "Talento",
+		"recallCost": 3,
+		"text": "Uma vez por descanso longo, **gaste 1 Ponto de Esperança** para fazer um teste de ataque. O mestre informa contra quais alvos no alcance da arma o teste teria sucesso. Escolha um desses alvos e force-o a marcar 5 PV."
+	},
+	{
+		"id": "domain-card-blade-10-battle-monster",
+		"name": "Monstro de Batalha",
+		"level": 10,
+		"domain": "Lâmina",
+		"type": "Talento",
+		"recallCost": 0,
+		"text": "Ao acertar um ataque contra um adversário, em vez de rolar o dano, você pode **marcar 4 Pontos de Fadiga** para forçar o alvo a marcar um número de PV igual ao número de PV que você tem marcados no momento."
+	},
+	{
+		"id": "domain-card-blade-10-onslaught",
+		"name": "Massacrar",
+		"level": 10,
+		"domain": "Lâmina",
+		"type": "Talento",
+		"recallCost": 3,
+		"text": "Ao acertar um ataque com sua arma, você nunca causa dano abaixo do limiar de dano maior do alvo (ele sempre marca no mínimo 2 Pontos de Vida).\n\nAlém disso, quando uma criatura no alcance da sua arma causa dano a um aliado com um ataque que não tem você como alvo, você pode **marcar 1 PF** para forçá-la a fazer um teste de reação (15).\n\nSe falhar, o alvo deve marcar 1 Ponto de Vida."
+	},
+	{
+		"id": "domain-card-bone-1-deft-maneuvers",
+		"name": "Movimento Ligeiro",
+		"level": 1,
+		"domain": "Falange",
+		"type": "Talento",
+		"recallCost": 0,
+		"text": "Uma vez por descanso, **marque 1 PF** para se deslocar para qualquer lugar em alcance distante sem precisar de um teste de Agilidade.\n\nSe terminar esse movimento em alcance corpo a corpo de um adversário e imediatamente atacá-lo, você ganha um bônus de +1 no teste de ataque."
+	},
+	{
+		"id": "domain-card-bone-1-i-see-it-coming",
+		"name": "Um Passo à Frente",
+		"level": 1,
+		"domain": "Falange",
+		"type": "Talento",
+		"recallCost": 1,
+		"text": "Quando você é alvo de um ataque originado de um ponto fora de alcance corpo a corpo, você pode **marcar 1 Ponto de Fadiga** para rolar **1d4** e receber um bônus igual ao resultado na sua Evasão contra este ataque"
+	},
+	{
+		"id": "domain-card-bone-1-untouchable",
+		"name": "Intocável",
+		"level": 1,
+		"domain": "Falange",
+		"type": "Talento",
+		"recallCost": 1,
+		"text": "Receba um bônus na Evasão igual à metade da sua Agilidade."
+	},
+	{
+		"id": "domain-card-bone-2-ferocity",
+		"name": "Ferocidade",
+		"level": 2,
+		"domain": "Falange",
+		"type": "Talento",
+		"recallCost": 2,
+		"text": "Ao fazer com que um adversário marque 1 ou mais Pontos de Vida, você pode **gastar 2 Pontos de Esperança** para aumentar sua Evasão em um número igual à quantidade de PV que ele marcou. Esse bônus dura até o término do próximo ataque feito contra você."
+	},
+	{
+		"id": "domain-card-bone-2-strategic-approach",
+		"name": "Aproximação Estratégica",
+		"level": 2,
+		"domain": "Falange",
+		"type": "Talento",
+		"recallCost": 1,
+		"text": "Após um descanso longo, coloque um número de marcadores igual ao seu Conhecimento nesta carta (mínimo de 1). Na primeira vez que você se mover para ficar próximo de um adversário e atacá-lo, você pode gastar um marcador para escolher uma das opções abaixo:\n\n- Você faz o ataque com vantagem;\n-Você recupera 1 Ponto de Fadiga de um aliado cac ao adversário;\n- Você soma **1d8** à rolagem de dano.\n\nApós um descanso longo, marcadores não utilizados são perdidos."
+	},
+	{
+		"id": "domain-card-bone-3-brace",
+		"name": "Resistir",
+		"level": 3,
+		"domain": "Falange",
+		"type": "Talento",
+		"recallCost": 1,
+		"text": "Ao marcar 1 Ponto de Armadura para reduzir o dano sofrido, você pode **marcar 1 Ponto de Fadiga** para marcar 1 Ponto de Armadura adicional."
+	},
+	{
+		"id": "domain-card-bone-3-tactician",
+		"name": "Táticas",
+		"level": 3,
+		"domain": "Falange",
+		"type": "Talento",
+		"recallCost": 1,
+		"text": "Ao prestar ajuda a um aliado, você pode **gastar 1 Ponto de Esperança** para somar uma de suas Experiências à rolagem, junto ao seu dado de vantagem.\n\nAo fazer um teste em dupla, você pode usar **1d20** como seu Dado de Esperança."
+	},
+	{
+		"id": "domain-card-bone-4-boost",
+		"name": "Impulso",
+		"level": 4,
+		"domain": "Falange",
+		"type": "Talento",
+		"recallCost": 1,
+		"text": "**Marque 1 Ponto de Fadiga** para usar um aliado próximo voluntário como impulso para se lançar no ar e fazer um ataque aéreo contra um alvo distante. Você tem vantagem no ataque, soma **1d10** à rolagem de dano e termina seu movimento corpo a corpo ao alvo."
+	},
+	{
+		"id": "domain-card-bone-4-redirect",
+		"name": "Redirecionar",
+		"level": 4,
+		"domain": "Falange",
+		"type": "Talento",
+		"recallCost": 1,
+		"text": "Quando um ataque originado de um ponto além do alcance corpo a corpo falha contra você, role um número de **d6** igual à sua Proficiência. Se tirar 6 em qualquer dado, você pode **marcar 1 Ponto de Fadiga** para redirecionar o ataque, fazendo-o causar dano a um adversário muito próximo."
+	},
+	{
+		"id": "domain-card-bone-5-know-thy-enemy",
+		"name": "Conhece teu Inimigo",
+		"level": 5,
+		"domain": "Falange",
+		"type": "Talento",
+		"recallCost": 1,
+		"text": "Enquanto estiver observando uma criatura, você pode fazer um **teste de Instinto** contra ela. Em um sucesso, **gaste 1 Ponto de Esperança** e pergunte ao mestre uma das seguintes informações a respeito dela:\n\n- PV e PF restantes;\n- Dificuldade e limiares de dano;\n- Táticas e dados de dano padrão;\n- Habilidades e Experiências.\n\nAlém disso, em um sucesso, você pode **marcar 1 PF** para fazer o mestre perder 1 Ponto de Medo"
+	},
+	{
+		"id": "domain-card-bone-5-signature-move",
+		"name": "Golpe Pessoal",
+		"level": 5,
+		"domain": "Falange",
+		"type": "Talento",
+		"recallCost": 1,
+		"text": "Você tem um golpe icônico de combate. Descreva-o e dê um nome a ele. Uma vez por descanso, ao utilizá-lo como parte de uma ação, você pode rolar **1d20** como seu Dado de Esperança. Em um sucesso, recupere 1 Ponto de Fadiga."
+	},
+	{
+		"id": "domain-card-bone-6-rapid-riposte",
+		"name": "Contra-Ataque Rápido",
+		"level": 6,
+		"domain": "Falange",
+		"type": "Talento",
+		"recallCost": 0,
+		"text": "Quando um ataque originado de um ponto em alcance corpo a corpo falha contra você, você pode **marcar 1 Ponto de Fadiga** e aproveitar a oportunidade para causar o dano de uma de suas armas ativas ao atacante."
+	},
+	{
+		"id": "domain-card-bone-6-recovery",
+		"name": "Recuperação",
+		"level": 6,
+		"domain": "Falange",
+		"type": "Talento",
+		"recallCost": 1,
+		"text": "Durante um descanso curto, você pode escolher um movimento de repouso de descanso longo. Você pode **gastar 1 Ponto de Esperança** para permitir que um aliado também faça isso."
+	},
+	{
+		"id": "domain-card-bone-7-bone-touched",
+		"name": "Dom da Falange",
+		"level": 7,
+		"domain": "Falange",
+		"type": "Talento",
+		"recallCost": 2,
+		"text": "Se 4 ou mais cartas de domínio na sua mão pertencerem ao domínio da Falange, receba os seguintes benefícios:\n\n- Bônus de +1 na Agilidade;\n- Uma vez por descanso, você pode **gastar 3 Pontos de Esperança** para fazer com que um ataque bem-sucedido contra você falhe."
+	},
+	{
+		"id": "domain-card-bone-7-cruel-precision",
+		"name": "Acuidade Cruel",
+		"level": 7,
+		"domain": "Falange",
+		"type": "Talento",
+		"recallCost": 1,
+		"text": "Ao acertar um ataque com uma arma, receba um bônus igual à sua Acuidade ou Agilidade na rolagem de dano."
+	},
+	{
+		"id": "domain-card-bone-8-breaking-blow",
+		"name": "Golpe Debilitante",
+		"level": 8,
+		"domain": "Falange",
+		"type": "Talento",
+		"recallCost": 3,
+		"text": "Ao acertar um ataque, você pode **marcar 1 PF** para fazer com que o próximo ataque bem-sucedido contra o mesmo alvo cause **2d12** de dano adicional."
+	},
+	{
+		"id": "domain-card-bone-8-wrangle",
+		"name": "Amontoar",
+		"level": 8,
+		"domain": "Falange",
+		"type": "Talento",
+		"recallCost": 1,
+		"text": "Faça um teste de Agilidade contra todos os alvos próximos. **Gaste 1 Ponto de Esperança** para mover os alvos que você acerta, bem como quaisquer aliados próximos voluntários, para outro ponto em alcance próximo."
+	},
+	{
+		"id": "domain-card-bone-9-on-the-brink",
+		"name": "Quase Lá",
+		"level": 9,
+		"domain": "Falange",
+		"type": "Talento",
+		"recallCost": 1,
+		"text": "Se tiver 2 PV ou menos desmarcados, você não sofre dano menor."
+	},
+	{
+		"id": "domain-card-bone-9-splintering-strike",
+		"name": "Ataque Fragmentado",
+		"level": 9,
+		"domain": "Falange",
+		"type": "Talento",
+		"recallCost": 3,
+		"text": "**Gaste 1 Ponto de Esperança** e faça um ataque contra todos os adversários ao alcance de sua arma. Uma vez por descanso longo, em um sucesso contra qualquer um dos alvos, some todo o dano causado e em seguida o redistribua como quiser entre os alvos atingidos. Antes de causar dano a um alvo, role um dado de dano adicional e some o resultado dele ao dano que causar ao alvo."
+	},
+	{
+		"id": "domain-card-bone-10-deathrun",
+		"name": "Trajeto Mortal",
+		"level": 10,
+		"domain": "Falange",
+		"type": "Talento",
+		"recallCost": 1,
+		"text": "**Gaste 3 Pontos de Esperança** para percorrer o campo de batalha em linha reta até um ponto em alcance distante, fazendo um ataque contra todos os adversários no alcance da sua arma ao longo do caminho percorrido. Escolha a ordem na qual o dano é causado aos alvos atingidos. Para o primeiro alvo, role o dano de sua arma com +1 de bônus na Proficiência. Depois disso, remova um dado do teste de dano e cause o dano restante ao próximo alvo. Continue removendo um dado para cada alvo subsequente até que não tenha mais dados de dano ou adversários.\n\nVocê não pode escolher o mesmo alvo mais de uma vez por ataque."
+	},
+	{
+		"id": "domain-card-bone-10-swift-step",
+		"name": "Passo Célere",
+		"level": 10,
+		"domain": "Falange",
+		"type": "Talento",
+		"recallCost": 2,
+		"text": "Quando um ataque falha contra você, recupere 1 Ponto de Fadiga. Se não puder recuperar PF, receba 1 Ponto de Esperança."
+	},
+	{
+		"id": "domain-card-codex-1-book-of-ava",
+		"name": "Livro de Ava",
+		"level": 1,
+		"domain": "Códice",
+		"type": "Grimório",
+		"recallCost": 2,
+		"text": "_**Propelir**_: faça um **teste de conjuração** contra um alvo corpo a corpo. Em um sucesso, ele é empurrado para um ponto em alcance distante e sofre **d10+2** de dano mágico com sua Proficiência.\n\n_**Armadura de Tava**_: **gaste 1 Ponto de Esperança** para conceder um bônus de +1 na Armadura a um alvo que você possa tocar. Esse bônus dura até o próximo descanso do alvo ou até que você conjure Armadura de Tava novamente.\n\n_**Estaca de Gelo**_: faça um **teste de conjuração (12)** para invocar um grande espinho de gelo em alcance distante. Se usá-lo como arma, em vez disso, faça o teste de conjuração contra a Dificuldade do alvo. Em um sucesso, você causa **d6** de dano físico usando sua Proficiência"
+	},
+	{
+		"id": "domain-card-codex-1-book-of-illiat",
+		"name": "Livro de Illiat",
+		"level": 1,
+		"domain": "Códice",
+		"type": "Grimório",
+		"recallCost": 2,
+		"text": "_**Sonolência**_: faça um **teste de conjuração** contra um alvo muito próximo. Em um sucesso, ele fica Adormecido até sofrer dano ou até o mestre gastar 1 Ponto de Medo no turno dele para encerrar a condição.\n\n_**Saraivada Arcana**_: uma vez por descanso, **gaste qualquer quantidade de Pontos de Esperança** para atirar projéteis mágicos que acertam um alvo próximo à sua escolha. Role um número de **d6** igual à quantidade de Pontos de Esperança gasta e cause o resultado deles como dano mágico ao alvo.\n\n_**Telepatia**_: gaste 1 Ponto de Esperança para criar uma linha de comunicação mental com um alvo que você possa ver. Essa conexão dura até seu próximo descanso ou até você conjurar Telepatia novamente."
+	},
+	{
+		"id": "domain-card-codex-1-book-of-tyfar",
+		"name": "Livro de Tyfar",
+		"level": 1,
+		"domain": "Códice",
+		"type": "Grimório",
+		"recallCost": 2,
+		"text": "_**Chama Selvagem**_: faça um **teste de conjuração** contra até três adversários corpo a corpo. Chamas irrompem de sua mão. Alvos atingidos sofrem **2d6** de dano mágico e marcam 1 Ponto de Fadiga.\n\n_**Mão Arcana**_: você conjura uma mão mágica idêntica à sua em força e tamanho num ponto em alcance distante.\n\n_**Névoa Misteriosa**_: faça um **teste de conjuração (13)** para conjurar uma névoa densa que fica em uma área estática dentro do alcance muito próximo. A neblina deixa essa área e tudo o que há nela fortemente obscurecido"
+	},
+	{
+		"id": "domain-card-codex-2-book-of-sitil",
+		"name": "Livro de Sitil",
+		"level": 2,
+		"domain": "Códice",
+		"type": "Grimório",
+		"recallCost": 2,
+		"text": "_**Ajustar Aparência**_: você muda magicamente sua aparência e vestimentas para evitar ser reconhecido.\n\n_**Paralelos**_: **gaste 2 Pontos de Esperança** para conjurar este feitiço sobre si mesmo ou sobre um aliado próximo. Na próxima vez que o alvo fizer um ataque, ele pode acertar um alvo adicional dentro do alcance contra o qual seu teste de ataque seria bem-sucedido. Você pode manter este feitiço ativo sobre uma única criatura por vez.\n\n_**Ilusão**_: faça um **teste de conjuração (14)**. Em um sucesso, você cria uma ilusão visual temporária em um ponto em alcance próximo. Ela não pode ultrapassar seu tamanho e dura enquanto você olhar para ela. A ilusão não levanta suspeitas até um observador estar corpo a corpo dela."
+	},
+	{
+		"id": "domain-card-codex-2-book-of-vagras",
+		"name": "Livro de Vagras",
+		"level": 2,
+		"domain": "Códice",
+		"type": "Grimório",
+		"recallCost": 2,
+		"text": "_**Tranca Rúnica**_: faça um **teste de conjuração (15)** sobre um objeto que esteja tocando e que possa fechar (como um baú, cadeado, caixa ou fechadura). Uma vez por descanso, em um sucesso, você pode trancar o objeto de modo que ele só possa ser aberto por criaturas designadas por você. Este feitiço pode ser quebrado em uma hora por uma pessoa com acesso à magia.\n\n_**Portal Arcano**_: se não houver adversários corpo a corpo, faça um **teste de conjuração (13)**. Em um sucesso, **gaste 1 Ponto de Esperança** para criar um portal de onde você está para outro ponto que você possa ver em alcance distante. Ele se fecha depois que uma criatura passar por ele.\n\n_**Revelar**_: faça um **teste de conjuração**. Se houver algo escondido por magia em alcance próximo, ela é revelada."
+	},
+	{
+		"id": "domain-card-codex-3-book-of-korvax",
+		"name": "Livro de Korvax",
+		"level": 3,
+		"domain": "Códice",
+		"type": "Grimório",
+		"recallCost": 2,
+		"text": "_**Levitação**_: faça um **teste de conjuração** para suspender temporariamente no ar um alvo que você possa ver e movê-lo para um ponto em alcance próximo relativo à posição original dele.\n\n_**Lapso**_: **gaste 1 Ponto de Esperança** para forçar um alvo corpo a corpo a fazer um teste de reação (15). Se falhar, ele esquece o último minuto de conversa com você.\n\n_**Círculo Rúnico**_: **marque 1 Ponto de Fadiga** para criar um círculo mágico temporário abaixo de onde você está. Todos os adversários que entrarem ou estiverem em alcance cac sofrem **2d12+4** de dano mágico e são empurrados para um ponto em alcance muito próximo."
+	},
+	{
+		"id": "domain-card-codex-3-book-of-norai",
+		"name": "Livro de Norai",
+		"level": 3,
+		"domain": "Códice",
+		"type": "Grimório",
+		"recallCost": 2,
+		"text": "_**Amarração Mística**_: faça um **teste de conjuração** contra um alvo distante. Em um sucesso, ele fica temporariamente Imobilizado e deve marcar 1 Ponto de Fadiga. Se tiver uma criatura que esteja voando como alvo, este feitiço faz com que ela aterrisse e fique temporariamente _Imobilizada_.\n\n_**Bola de Fogo**_: faça um **teste de conjuração** contra um alvo muito distante. Em um sucesso, lance uma esfera de fogo que explode ao se chocar contra ele. O alvo e todas as criaturas Muito Próximas dele devem fazer um teste de reação (13). Alvos que falharem sofrem **d20+5** de dano mágico com sua Proficiência. Alvos bem-sucedidos sofrem metade do dano."
+	},
+	{
+		"id": "domain-card-codex-4-book-of-exota",
+		"name": "Livro de Ecsota",
+		"level": 4,
+		"domain": "Códice",
+		"type": "Grimório",
+		"recallCost": 3,
+		"text": "_**Repudiar**_: você pode interromper um efeito mágico em andamento. Faça um teste de conjuração usando seu atributo de conjuração. Se passar, uma vez por descanso, o efeito cessa e quaisquer consequências são evitadas.\n\n_**Criar Construto**_: **gaste 1 Ponto de Esperança** para escolher um grupo de objetos ao seu redor e, a partir deles, crie um construto animado que obedece comandos básicos. Faça um **teste de conjuração** para mandá-lo agir. Quando necessário, ele compartilha sua Evasão e atributos, e os ataques dele causam **2d10+3** de dano físico. Você pode manter apenas um construto por vez, e ele se desfaz ao sofrer qualquer quantidade de dano."
+	},
+	{
+		"id": "domain-card-codex-4-book-of-grynn",
+		"name": "Livro de Grynn",
+		"level": 4,
+		"domain": "Códice",
+		"type": "Grimório",
+		"recallCost": 2,
+		"text": "_**Deflexão**_: uma vez por descanso longo, **gaste 1 Ponto de Esperança** para negar o dano de um ataque que tenha você ou um aliado muito próximo como alvo.\n\n_**Tranca Temporal**_: escolha um objeto distante como alvo. Esse objeto para no tempo e espaço exatamente onde está até o seu próximo descanso. Se uma criatura tentar movê-lo, faça um **teste de conjuração** contra ela para sustentar este feitiço.\n\n_**Muralha de Fogo**_: faça um **teste de conjuração (15)**. Em um sucesso, crie uma muralha de fogo mágico entre dois pontos em alcance distante. Todas as criaturas no caminho dela devem escolher ficar em um dos lados, e tudo o que atravessá-la depois disso sofre 4d10+3 de dano mágico."
+	},
+	{
+		"id": "domain-card-codex-5-manifest-wall",
+		"name": "Muralha",
+		"level": 5,
+		"domain": "Códice",
+		"type": "Feitiço",
+		"recallCost": 2,
+		"text": "Faça um **teste de conjuração (15)**. Em um sucesso, **gaste 1 Ponto de Esperança** uma vez por descanso para criar uma parede mágica temporária entre dois pontos em alcance distante. Ela pode ter até 15m de altura e se formar em qualquer ângulo. Criaturas ou objetos no caminho dela são desviados para um dos lados à sua escolha. A muralha perdura até seu próximo descanso ou até você conjurar Muralha novamente."
+	},
+	{
+		"id": "domain-card-codex-5-teleport",
+		"name": "Teleporte",
+		"level": 5,
+		"domain": "Códice",
+		"type": "Feitiço",
+		"recallCost": 2,
+		"text": "Uma vez por descanso longo, você pode instantaneamente teleportar a si mesmo e qualquer número de alvos próximos voluntários para um lugar onde você já esteve anteriormente. Escolha uma das opções a seguir e faça um **teste de conjuração (16)**:\n\n- Se conhece o lugar muito bem, receba +3 de bônus;\n- Se visitou o lugar com alguma frequência, receba +1 de bônus;\n- Se não visitou o lugar com frequência, você não ganha um modificador;\n- Se visitou o lugar apenas uma vez, sofra uma penalidade de –2.\n\nEm um sucesso, você aparece no lugar pretendido. Se falhar, você aparece em um lugar diferente do pretendido. O grau da falha determina quão longe você aparece."
+	},
+	{
+		"id": "domain-card-codex-6-banish",
+		"name": "Banir",
+		"level": 6,
+		"domain": "Códice",
+		"type": "Feitiço",
+		"recallCost": 0,
+		"text": "Faça um **teste de conjuração** contra um alvo próximo. Em um sucesso, role um número de **d20** igual ao seu atributo de conjuração. O alvo deve fazer um teste de reação com Dificuldade igual ao seu resultado mais alto. Em um sucesso, o alvo marca 1 Ponto de Fadiga, mas não é banido. Uma vez por descanso, se falhar, ele é banido deste reino.\n\nQuando os personagens rolarem com Medo, a Dificuldade sofre uma penalidade de –1 e o alvo faz outro teste de reação. Em um sucesso, ele volta do banimento."
+	},
+	{
+		"id": "domain-card-codex-6-sigil-of-retribution",
+		"name": "Sigilo da Retaliação",
+		"level": 6,
+		"domain": "Códice",
+		"type": "Feitiço",
+		"recallCost": 2,
+		"text": "Marque um adversário próximo com um Sigilo da Retaliação. O mestre ganha 1 Ponto de Medo. Quando o adversário marcado causar dano a você ou aos seus aliados, coloque **1d8** nesta carta. Você pode acumular um número de **d8** igual ao seu nível. Ao atacar o adversário marcado com sucesso, role os dados que estão nesta carta e some o total à sua rolagem de dano; em seguida, retire os dados. Este efeito termina quando o adversário marcado é derrotado ou quando você conjura Sigilo da Retaliação novamente."
+	},
+	{
+		"id": "domain-card-codex-7-book-of-homet",
+		"name": "Livro de Homet",
+		"level": 7,
+		"domain": "Códice",
+		"type": "Grimório",
+		"recallCost": 0,
+		"text": "_**Atravessar**_: faça um **teste de conjuração (13)**. Uma vez por descanso, em um sucesso, você e todas as criaturas que o estejam tocando podem atravessar uma parede ou porta Próxima. O efeito termina quando todos estiverem do outro lado.\n\n_**Portal Planar*_: faça um **teste de conjuração (14)**. Uma vez por descanso longo, em um sucesso, abra um portal para uma localidade que você já tenha visitado em outra dimensão ou plano de existência. Esse portal perdura até seu próximo descanso."
+	},
+	{
+		"id": "domain-card-codex-7-codex-touched",
+		"name": "Dom do Códice",
+		"level": 7,
+		"domain": "Códice",
+		"type": "Talento",
+		"recallCost": 2,
+		"text": "Se 4 ou mais cartas de domínio na sua mão pertencerem ao domínio do Códice, receba os seguintes benefícios:\n\n- Você pode marcar **1 Ponto de Fadiga** para somar sua Proficiência a um teste de conjuração;\n- Uma vez por descanso, substitua esta carta por qualquer carta em sua reserva sem pagar o custo de troca."
+	},
+	{
+		"id": "domain-card-codex-8-book-of-vyola",
+		"name": "Livro de Vyola",
+		"level": 8,
+		"domain": "Códice",
+		"type": "Grimório",
+		"recallCost": 2,
+		"text": "_**Clareza Compartilhada**_: uma vez por descanso longo, **gaste 1 Ponto de Esperança** para escolher duas criaturas voluntárias. Quando uma delas for marcar PF, ela pode escolher qual das duas irá marcar. Este feitiço dura até o próximo descanso dos alvos.\n\n_**Sondar Memórias**_: faça um **teste de conjuração** contra um alvo distante. Em um sucesso, espione a mente do alvo e faça uma pergunta ao mestre. O mestre descreve as memórias do alvo que estejam relacionadas à resposta."
+	},
+	{
+		"id": "domain-card-codex-8-safe-haven",
+		"name": "Refúgio Seguro",
+		"level": 8,
+		"domain": "Códice",
+		"type": "Feitiço",
+		"recallCost": 3,
+		"text": "Quando tem alguns minutos de calma para se concentrar, você pode **gastar 2 Pontos de Esperança** para invocar seu Refúgio Seguro: um grande abrigo interdimensional onde você e seus aliados podem ficar. Ao fazer isso, uma porta mágica aparece em algum lugar em alcance próximo. Apenas criaturas designadas por você podem entrar. Após entrar, você pode deixar a entrada invisível. Qualquer pessoa no interior do refúgio pode sair a hora que quiser. Depois que você sair, a porta de entrada deve ser invocada novamente.\n\nAo fazer um descanso em seu Refúgio Seguro, você pode escolher um movimento de repouso adicional."
+	},
+	{
+		"id": "domain-card-codex-9-book-of-ronin",
+		"name": "Livro de Ronin",
+		"level": 9,
+		"domain": "Códice",
+		"type": "Grimório",
+		"recallCost": 4,
+		"text": "_**Enervação Eterna**_: uma vez por descanso longo, faça um **teste de conjuração** contra um alvo próximo. Em um sucesso, ele fica permanentemente _Vulnerável_. O alvo não pode se recuperar dessa condição por quaisquer meios.\n\n_**Transformação**_: faça um **teste de conjuração (15)**. Em um sucesso, transforme-se em um objeto inanimado que não exceda o dobro de seu tamanho normal. Você pode permanecer nessa forma até sofrer dano."
+	},
+	{
+		"id": "domain-card-codex-9-disintegration-wave",
+		"name": "Onda Desintegradora",
+		"level": 9,
+		"domain": "Códice",
+		"type": "Feitiço",
+		"recallCost": 4,
+		"text": "Faça um **teste de conjuração (18)**. Uma vez por descanso longo, em um sucesso, o mestre lhe informa quais adversários distantes têm Dificuldade 18 ou menor. **Marque 1 Ponto de Fadiga** para cada alvo que quiser atingir com este feitiço. O alvo morre e não pode voltar à vida por quaisquer meios."
+	},
+	{
+		"id": "domain-card-codex-10-book-of-yarrow",
+		"name": "Livro de Yarrow",
+		"level": 10,
+		"domain": "Códice",
+		"type": "Grimório",
+		"recallCost": 2,
+		"text": "_**Imunidade Mágica**_: **gaste 5 Pontos de Esperança** para ficar imune a dano mágico até seu próximo descanso.\n\n_**Manipulação Temporal**_: faça um **teste de conjuração (18)**. Em um sucesso, o tempo desacelera temporariamente até parar para todos que estiverem em alcance distante, com exceção de você. Ele volta ao normal na próxima vez que você fizer um teste que tenha outra criatura como alvo."
+	},
+	{
+		"id": "domain-card-codex-10-transcendent-union",
+		"name": "União Transcendental",
+		"level": 10,
+		"domain": "Códice",
+		"type": "Feitiço",
+		"recallCost": 1,
+		"text": "Uma vez por descanso longo, **gaste 5 Pontos de Esperança** para conjurar este feitiço sobre duas ou mais criaturas voluntárias. Até seu próximo descanso, quando uma criatura conectada por essa união for marcar Pontos de Vida ou Pontos de Fadiga, as criaturas conectadas podem escolher qual delas marcará."
+	},
+	{
+		"id": "domain-card-grace-1-deft-deceiver",
+		"name": "Dissimulação",
+		"level": 1,
+		"domain": "Graça",
+		"type": "Talento",
+		"recallCost": 0,
+		"text": "**Gaste 1 Ponto de Esperança** para receber vantagem em um teste para enganar ou fazer alguém acreditar em uma mentira que você contar"
+	},
+	{
+		"id": "domain-card-grace-1-enrapture",
+		"name": "Enfeitiçar",
+		"level": 1,
+		"domain": "Graça",
+		"type": "Feitiço",
+		"recallCost": 0,
+		"text": "Faça um teste de conjuração contra um alvo próximo. Em um sucesso, ele fica temporariamente _Enfeitiçado_. Enquanto estiver _Enfeitiçado_, a atenção do alvo se fixa em você. O campo de visão dele se estreita e todos os sons além da sua voz são abafados. Uma vez por descanso, você pode marcar 1 Ponto de Fadiga para forçar o alvo _Enfeitiçado_ a **marcar 1 PF** também."
+	},
+	{
+		"id": "domain-card-grace-1-inspirational-words",
+		"name": "Palavras Inspiradoras",
+		"level": 1,
+		"domain": "Graça",
+		"type": "Talento",
+		"recallCost": 1,
+		"text": "Suas palavras são imbuídas de poder. Após um descanso longo, coloque um número de marcadores igual à sua Presença nesta carta. Ao falar com um aliado, você pode gastar um marcador desta carta para dar a ele um benefício dentre os seguintes:\n\n- Seu aliado recupera 1 PF;\n- Seu aliado recupera 1 PV;\n- Seu aliado recebe 1 Ponto de Esperança.\n\nApós um descanso longo, marcadores não utilizados são perdidos."
+	},
+	{
+		"id": "domain-card-grace-2-tell-no-lies",
+		"name": "Não Minta Para Mim",
+		"level": 2,
+		"domain": "Graça",
+		"type": "Feitiço",
+		"recallCost": 1,
+		"text": "Faça um **teste de conjuração** contra um alvo muito próximo. Em um sucesso, ele não pode mentir para você enquanto estiver em alcance próximo, porém não é obrigado a falar. Se você fizer uma pergunta e ele se recusar a responder, ele deve marcar 1 Ponto de Fadiga e o efeito termina. O alvo em geral não está ciente de que este feitiço foi conjurado sobre ele até que fale uma verdade contra sua vontade."
+	},
+	{
+		"id": "domain-card-grace-2-troublemaker",
+		"name": "Insolência",
+		"level": 2,
+		"domain": "Graça",
+		"type": "Talento",
+		"recallCost": 2,
+		"text": "Ao insultar ou provocar um alvo distante, faça um **teste de Presença** contra ele. Uma vez por descanso, em um sucesso, role um número de **d4** igual à sua Proficiência. O alvo deve marcar um número de Pontos de Fadiga igual ao maior resultado obtido"
+	},
+	{
+		"id": "domain-card-grace-3-hypnotic-shimmer",
+		"name": "Lampejo Hipnótico",
+		"level": 3,
+		"domain": "Graça",
+		"type": "Feitiço",
+		"recallCost": 1,
+		"text": "Faça um **teste de conjuração** contra todos os adversários próximos na sua frente. Uma vez por descanso, em um sucesso, crie lampejos ilusórios de cores e luzes que deixam os alvos atingidos temporariamente _Atordoados_ e os força a marcar 1 PF. Enquanto estiverem _Atordoados_, os alvos não podem usar reações e não podem fazer quaisquer outras ações até que se recuperem desta condição."
+	},
+	{
+		"id": "domain-card-grace-3-invisibility",
+		"name": "Invisibilidade",
+		"level": 3,
+		"domain": "Graça",
+		"type": "Feitiço",
+		"recallCost": 1,
+		"text": "Faça um **teste de conjuração (10)**. Em um sucesso, **marque 1 Ponto de Fadiga** e deixe você ou um aliado corpo a corpo Invisível. Uma criatura Invisível só pode ser vista por meios mágicos e testes de ataque contra ela são feitos com desvantagem. Coloque um número de marcadores igual ao seu atributo de conjuração nesta carta. Quando a criatura Invisível faz uma ação, gaste um marcador desta carta. Após o término da ação que consumiu o último marcador, o efeito termina.\n\nYou can only hold Invisibility on one creature at a time."
+	},
+	{
+		"id": "domain-card-grace-4-soothing-speech",
+		"name": "Palavras Tranquilizantes",
+		"level": 4,
+		"domain": "Graça",
+		"type": "Talento",
+		"recallCost": 1,
+		"text": "Durante um descanso curto, ao passar um tempo amparando outro personagem por meio do movimento de repouso Tratar Ferimentos, recupere 1 Ponto de Vida adicional desse personagem. Ao fazer isso, você também recupera 2 Pontos de Vida."
+	},
+	{
+		"id": "domain-card-grace-4-through-your-eyes",
+		"name": "Espionar",
+		"level": 4,
+		"domain": "Graça",
+		"type": "Feitiço",
+		"recallCost": 1,
+		"text": "Escolha um alvo muito distante. Você pode ver e ouvir pelos olhos e ouvidos dele. Você pode escolher entre usar seus próprios sentidos ou os do alvo à vontade até seu próximo descanso ou até você conjurar outro feitiço."
+	},
+	{
+		"id": "domain-card-grace-5-thought-delver",
+		"name": "Sondar Pensamentos",
+		"level": 5,
+		"domain": "Graça",
+		"type": "Feitiço",
+		"recallCost": 2,
+		"text": "Você pode espionar a mente dos outros. **Gaste 1 Ponto de Esperança** para ler pensamentos vagos e superficiais de um alvo distante. Faça um **teste de conjuração** contra o alvo para sondar pensamentos profundos e escondidos.\n\nSe rolar com Medo, a critério do mestre, o alvo pode perceber que você está lendo a mente dele."
+	},
+	{
+		"id": "domain-card-grace-5-words-of-discord",
+		"name": "Palavras de Discórdia",
+		"level": 5,
+		"domain": "Graça",
+		"type": "Feitiço",
+		"recallCost": 1,
+		"text": "Sussurre palavras de discórdia para um adversário corpo a corpo e faça um **teste de conjuração (13)**. Em um sucesso, o alvo deve marcar 1 Ponto de Fadiga e atacar outro adversário em vez de você ou seus aliados.\n\nApós concluir o ataque, o alvo percebe o que aconteceu. Na próxima vez que conjurar Palavras de Discórdia sobre ele, você sofre uma penalidade de –5 no teste de conjuração."
+	},
+	{
+		"id": "domain-card-grace-6-never-upstaged",
+		"name": "Jamais Esquecido",
+		"level": 6,
+		"domain": "Graça",
+		"type": "Talento",
+		"recallCost": 2,
+		"text": "Ao marcar 1 ou mais Pontos de Vida devido a um ataque, você pode **marcar 1 Ponto de Fadiga** para colocar um número de marcadores nesta carta igual ao número de PV marcados. Para cada marcador nesta carta, você recebe um bônus de +5 na rolagem de dano do próximo ataque que você acertar. Em seguida, zere todos os marcadores."
+	},
+	{
+		"id": "domain-card-grace-6-share-the-burden",
+		"name": "Partilhar o Fardo",
+		"level": 6,
+		"domain": "Graça",
+		"type": "Feitiço",
+		"recallCost": 0,
+		"text": "Uma vez por descanso, absorva a Fadiga de uma criatura corpo a corpo voluntária. O alvo descreve quais conhecimentos ou emoções particulares são transferidos da mente dele para a sua. Transfira qualquer número de PF do alvo para você e em seguida receba 1 Ponto de Esperança para cada PF transferido"
+	},
+	{
+		"id": "domain-card-grace-7-endless-charisma",
+		"name": "Carisma Infinito",
+		"level": 7,
+		"domain": "Graça",
+		"type": "Talento",
+		"recallCost": 1,
+		"text": "Após fazer um teste para obter favores, mentir ou persuadir, você pode **gastar 1 Ponto de Esperança** para rolar novamente seu Dado de Esperança ou Medo."
+	},
+	{
+		"id": "domain-card-grace-7-grace-touched",
+		"name": "Dom da Graça",
+		"level": 7,
+		"domain": "Graça",
+		"type": "Talento",
+		"recallCost": 2,
+		"text": "Se 4 ou mais cartas de domínio na sua mão pertencerem ao domínio da Graça, receba os seguintes benefícios:\n\n- Você pode **marcar 1 PA** em vez de 1 PF;\n- Quando for fazer com que um alvo marque PV, você pode forçá-lo a marcar um número equivalente de PF em vez disso."
+	},
+	{
+		"id": "domain-card-grace-8-astral-projection",
+		"name": "Projeção Astraç",
+		"level": 8,
+		"domain": "Graça",
+		"type": "Feitiço",
+		"recallCost": 0,
+		"text": "Uma vez por descanso longo, **marque 1 Ponto de Fadiga** para projetar uma cópia de si mesmo que pode aparecer em qualquer lugar no qual você já tenha estado anteriormente.\n\nVocê pode ver e ouvir através da projeção e pode afetar o mundo como se você estivesse no lugar dela. Uma criatura que investigue a projeção pode discernir sua origem mágica. Esse efeito dura até seu próximo descanso ou até sua projeção sofrer qualquer dano."
+	},
+	{
+		"id": "domain-card-grace-8-mass-enrapture",
+		"name": "Enfeitiçar em Massa",
+		"level": 8,
+		"domain": "Graça",
+		"type": "Feitiço",
+		"recallCost": 3,
+		"text": "Faça um **teste de conjuração** contra todos os alvos distantes. Alvos atingidos ficam temporariamente _Enfeitiçados_. Enquanto um alvo estiver Enfeitiçado, a atenção dele se fixa em você. O campo de visão dele se estreita e todos os sons além da sua voz são abafados. **Marque 1 Ponto de Fadiga** para forçar todos os alvos _Enfeitiçados_ a marcarem 1 PF, encerrando este feitiço."
+	},
+	{
+		"id": "domain-card-grace-9-copycat",
+		"name": "Imitador",
+		"level": 9,
+		"domain": "Graça",
+		"type": "Feitiço",
+		"recallCost": 3,
+		"text": "Uma vez por descanso longo, esta carta pode imitar as habilidades de outra carta de domínio de 8º nível ou menor na mão de outro jogador. **Gaste uma quantidade de Esperança igual à metade do nível da carta** para ter acesso à habilidade. A cópia permanece até seu próximo descanso ou até o outro jogador colocar a carta original na reserva."
+	},
+	{
+		"id": "domain-card-grace-9-master-of-the-craft",
+		"name": "Mestre do Ofício",
+		"level": 9,
+		"domain": "Graça",
+		"type": "Talento",
+		"recallCost": 0,
+		"text": "Receba um bônus permanente de +2 em duas de suas Experiências, ou +3 em apenas uma. Em seguida, coloque esta carta na sua reserva permanentemente."
+	},
+	{
+		"id": "domain-card-grace-10-encore",
+		"name": "Em Dobro",
+		"level": 10,
+		"domain": "Graça",
+		"type": "Feitiço",
+		"recallCost": 1,
+		"text": "Quando um aliado próximo causa dano a um adversário, você pode fazer um **teste de conjuração** contra esse mesmo alvo. Em um sucesso, você causa o mesmo dano que seu aliado causou. Se você rolar um sucesso com Medo, coloque esta carta na reserva."
+	},
+	{
+		"id": "domain-card-midnight-1-pick-and-pull",
+		"name": "Notoriedade",
+		"level": 10,
+		"domain": "Graça",
+		"type": "Talento",
+		"recallCost": 0,
+		"text": "As pessoas sabem quem você é e o que já fez; por isso, o tratam de forma diferente. Ao se aproveitar de sua notoriedade para conseguir o que quer, você pode **marcar 1 Ponto de Fadiga** antes do teste para receber um bônus de +10 no resultado. Onde quer que vá, você obtém comida e bebida grátis, e o preço das outras mercadorias que você compra diminui em uma bolsa de ouro (até o mínimo de um punhado).\n\nEsta carta não conta para o limite de 5 cartas de domínio na sua mão e não pode ser colocada na reserva."
+	},
+	{
+		"id": "domain-card-midnight-1-pick-and-pull",
+		"name": "Delinquente",
+		"level": 1,
+		"domain": "Meia-noite",
+		"type": "Talento",
+		"recallCost": 0,
+		"text": "Você tem vantagem em testes para arrombar fechaduras não mágicas, desarmar armadilhas não mágicas ou roubar itens de um alvo (seja por meio da furtividade ou da força)."
+	},
+	{
+		"id": "domain-card-midnight-1-rain-of-blades",
+		"name": "Chuva de Lâminas",
+		"level": 1,
+		"domain": "Meia-noite",
+		"type": "Feitiço",
+		"recallCost": 1,
+		"text": "**Gaste 1 Ponto de Esperança** para fazer um **teste de conjuração** e arremessar lâminas mágicas contra todos os alvos muito próximos. Alvos atingidos sofrem **d8+2** de dano mágico com sua Proficiência.\n\nSe um alvo atingido estiver _Vulnerável_, ele sofre **1d8** de dano adicional."
+	},
+	{
+		"id": "domain-card-midnight-1-uncanny-disguise",
+		"name": "Disfarce Inquietante",
+		"level": 1,
+		"domain": "Meia-noite",
+		"type": "Feitiço",
+		"recallCost": 0,
+		"text": "Quando tem alguns minutos para se preparar, você pode **marcar 1 Ponto de Fadiga** para tomar a forma de qualquer humanoide que você possa ver com clareza em sua mente. Enquanto estiver disfarçado dessa forma, você tem vantagem em testes de Presença para evitar ser descoberto.\n\nColoque um número de marcadores igual ao seu atributo de conjuração nesta carta. Quando fizer uma ação enquanto estiver disfarçado, gaste um marcador. Após a ação que consumiu o último marcador, o efeito termina."
+	},
+	{
+		"id": "domain-card-midnight-2-midnight-spirit",
+		"name": "Espírito da Meia-Noite",
+		"level": 2,
+		"domain": "Meia-noite",
+		"type": "Feitiço",
+		"recallCost": 1,
+		"text": "**Gaste 1 Ponto de Esperança** para invocar um espírito de tamanho humanoide que pode se mover ou carregar coisas para você até seu próximo descanso.\n\nVocê também pode mandá-lo atacar um adversário. Ao fazer isso, faça um **teste de conjuração** contra um alvo muito distante. Em um sucesso, o espírito se move até ficar corpo a corpo ao alvo. Role um número de **d6** igual ao seu atributo de conjuração e cause o resultado deles como dano mágico ao alvo. O espírito então se dissipa. Você pode ter apenas um espírito por vez."
+	},
+	{
+		"id": "domain-card-midnight-2-shadowbind",
+		"name": "Sombra Traiçoeira",
+		"level": 2,
+		"domain": "Meia-noite",
+		"type": "Feitiço",
+		"recallCost": 0,
+		"text": "Faça um **teste de conjuração** contra todos os adversários muito próximos. Alvos atingidos ficam temporariamente _Imobilizados_ pela própria sombra no lugar em que estão."
+	},
+	{
+		"id": "domain-card-midnight-3-chokehold",
+		"name": "Estrangulamento",
+		"level": 3,
+		"domain": "Meia-noite",
+		"type": "Talento",
+		"recallCost": 1,
+		"text": "Quando se posiciona atrás de uma criatura de tamanho similar ao seu, você pode **marcar 1 Ponto de Fadiga** para estrangulá-la, deixando-a temporariamente _Vulnerável_.\n\nQuando uma criatura ataca um alvo _Vulnerável_ dessa forma, ela causa **2d6** de dano adicional."
+	},
+	{
+		"id": "domain-card-midnight-3-veil-of-night",
+		"name": "Véu da Noite",
+		"level": 3,
+		"domain": "Meia-noite",
+		"type": "Feitiço",
+		"recallCost": 1,
+		"text": "Faça um **teste de conjuração (13)** Em um sucesso, crie uma cortina de escuridão entre dois pontos em alcance distante. Apenas você pode enxergar através dessa escuridão. Você é considerado _Escondido_ para adversários no outro lado da cortina e tem vantagem em testes de ataque feitos através da escuridão. A cortina dura até você conjurar outro feitiço."
+	},
+	{
+		"id": "domain-card-midnight-4-glyph-of-nightfall",
+		"name": "Glifo do Acaso",
+		"level": 4,
+		"domain": "Meia-noite",
+		"type": "Feitiço",
+		"recallCost": 1,
+		"text": "Faça um **teste de conjuração** contra um alvo muito próximo. Em um sucesso, **gaste 1 Ponto de Esperança** para conjurar um glifo sombrio sobre ele. O glifo expõe os pontos fracos do alvo, reduzindo temporariamente sua Dificuldade em um valor igual ao seu Conhecimento (mínimo de 1)."
+	},
+	{
+		"id": "domain-card-midnight-4-stealth-expertise",
+		"name": "Mestre da Furtividade",
+		"level": 4,
+		"domain": "Meia-noite",
+		"type": "Talento",
+		"recallCost": 0,
+		"text": "Ao rolar com Medo enquanto tenta se mover por uma área perigosa sem ser percebido, você pode **marcar 1 PF** para rolar com Esperança em vez disso.\n\nSe um aliado próximo também estiver tentando se mover sem ser percebido e rolar com Medo, você pode **marcar 1 PF** para mudar o resultado e fazê-lo rolar com Esperança."
+	},
+	{
+		"id": "domain-card-midnight-5-hush",
+		"name": "Silêncio",
+		"level": 5,
+		"domain": "Meia-noite",
+		"type": "Feitiço",
+		"recallCost": 1,
+		"text": "Faça um **teste de conjuração** contra um alvo próximo. Em um sucesso, **gaste 1 Ponto de Esperança** para conjurar um efeito mágico supressor sobre o alvo. Esse efeito afeta tudo em alcance muito próximo do alvo e o acompanha quando ele se move.\n\nO alvo, e tudo mais na área afetada, fica _Silenciado_. Enquanto estiver _Silenciado_, o alvo não pode fazer barulho ou conjurar feitiços. Essa condição dura até o mestre gastar 1 Ponto de Medo no turno dele para encerrá-la, até você conjurar Silêncio novamente ou até você sofrer dano maior"
+	},
+	{
+		"id": "domain-card-midnight-5-phantom-retreat",
+		"name": "Recuo Espectral",
+		"level": 5,
+		"domain": "Meia-noite",
+		"type": "Feitiço",
+		"recallCost": 2,
+		"text": "**Gaste 1 Ponto de Esperança** para ativar Recuo Espectral no local onde você está. **Gaste mais 1 Ponto de Esperança** a qualquer momento antes de seu próximo descanso para desaparecer da sua localização atual e reaparecer no local onde estava quando ativou Recuo Espectral. Depois que você reaparecer, este feitiço termina."
+	},
+	{
+		"id": "domain-card-midnight-6-dark-whispers",
+		"name": "Sussurros Sombrios",
+		"level": 6,
+		"domain": "Meia-noite",
+		"type": "Feitiço",
+		"recallCost": 0,
+		"text": "Você pode se comunicar mentalmente com qualquer pessoa com a qual tenha tido contato físico. Uma vez que tenha aberto um canal de comunicação com o alvo, ele pode se comunicar com você da mesma forma. Além disso, você pode **marcar 1 Ponto de Fadiga** para fazer um **teste de conjuração** contra ele. Em um sucesso, você pode fazer uma das seguintes perguntas, que deve ser respondida pelo mestre:\n\n- Onde a pessoa está?\n- O que ela está fazendo?\n- Do que ela tem medo?\n- Com o que ela mais se preocupa?"
+	},
+	{
+		"id": "domain-card-midnight-6-mass-disguise",
+		"name": "Disfarce em Massa",
+		"level": 6,
+		"domain": "Meia-noite",
+		"type": "Feitiço",
+		"recallCost": 0,
+		"text": "Quando tem alguns minutos de silêncio para se concentrar, você pode **marcar 1 Ponto de Fadiga** para alterar a aparência de todas as criaturas Próximas voluntárias. As novas formas devem ter estrutura corporal e tamanho semelhantes e podem ser tanto algo ou alguém que você já tenha visto quanto criação sua. Uma criatura disfarçada dessa forma tem vantagem em testes de Presença para evitar ser descoberta.\n\nAtive uma contagem regressiva (8). Ela diminui em virtude de uma consequência escolhida pelo mestre. Quando a consequência da contagem regressiva é ativada, o disfarce termina."
+	},
+	{
+		"id": "domain-card-midnight-7-midnight-touched",
+		"name": "Dom da Meia-noite",
+		"level": 7,
+		"domain": "Meia-noite",
+		"type": "Talento",
+		"recallCost": 2,
+		"text": "Se 4 ou mais cartas de domínio na sua mão pertencerem ao domínio da Meia- -noite, receba os seguintes benefícios:\n\n- Uma vez por descanso, se você tiver 0 Ponto de Esperança e o mestre for receber Medo, em vez disso, você pode receber 1 Ponto de Esperança;\n- Ao acertar um ataque, você pode marcar 1 Ponto de Fadiga para somar o resultado de seu Dado de Medo à rolagem de dano."
+	},
+	{
+		"id": "domain-card-midnight-7-vanishing-dodge",
+		"name": "Esvanecer",
+		"level": 7,
+		"domain": "Meia-noite",
+		"type": "Feitiço",
+		"recallCost": 1,
+		"text": "Quando um ataque que causaria dano físico a você falha, você pode gastar 1 Ponto de Esperança para ficar _Escondido_ em um invólucro de sombras e se teleportar para um ponto próximo do atacante. Você permanece _Escondido_ até o próximo teste que fizer"
+	},
+	{
+		"id": "domain-card-midnight-8-shadowhunter",
+		"name": "Caçador Sombrio",
+		"level": 8,
+		"domain": "Meia-noite",
+		"type": "Talento",
+		"recallCost": 2,
+		"text": "Suas capacidades são aprimoradas quando você age nas sombras. Enquanto estiver na penumbra ou na escuridão, você recebe um bônus de +1 na Evasão e tem vantagem em testes de ataque."
+	},
+	{
+		"id": "domain-card-midnight-8-spellcharge",
+		"name": "Carga Mágica",
+		"level": 8,
+		"domain": "Meia-noite",
+		"type": "Feitiço",
+		"recallCost": 1,
+		"text": "Ao sofrer dano mágico, coloque um número de marcadores nesta carta igual ao número de PV marcados. Você pode acumular um número de marcadores igual ao seu atributo de conjuração.\n\nQuando acertar um ataque contra um alvo, você pode gastar um número qualquer de marcadores e somar uma quantidade equivalente de **d6** à rolagem de dano."
+	},
+	{
+		"id": "domain-card-midnight-9-night-terror",
+		"name": "Terror Noturno",
+		"level": 9,
+		"domain": "Meia-noite",
+		"type": "Feitiço",
+		"recallCost": 2,
+		"text": "Uma vez por descanso longo, escolha quaisquer alvos muito próximos. Eles passam a ver você como uma horrorosa visão de pesadelo. Os alvos devem ter sucesso em um teste de reação (16) ou ficam temporariamente _Horrorizados_. Enquanto estiverem _Horrorizados_, eles ficam Vulneráveis. Roube uma quantidade de Medo do mestre igual ao número de alvos _Horrorizados_ (até o máximo de acúmulos de Medo do mestre). Role um número de **d6** igual à quantidade de Medo roubado e cause o resultado deles como dano a cada alvo Horrorizado. Em seguida, descarte todo o Medo que roubou."
+	},
+	{
+		"id": "domain-card-midnight-9-twilight-toll",
+		"name": "Tributo do Anoitecer",
+		"level": 9,
+		"domain": "Meia-noite",
+		"type": "Talento",
+		"recallCost": 1,
+		"text": "Escolha um alvo distante. Quando você tem sucesso em um teste que não resulta em uma rolagem de dano contra ele, coloque um marcador nesta carta. Ao causar dano contra esse alvo, gaste qualquer quantidade de marcadores e some um número equivalente de **d12** à rolagem de dano. Você pode manter o Tributo do Anoitecer apenas sobre uma criatura por vez. Ao escolher um novo alvo ou fazer um descanso, marcadores não utilizados são perdidos."
+	},
+	{
+		"id": "domain-card-midnight-10-eclipse",
+		"name": "Eclipse",
+		"level": 10,
+		"domain": "Meia-noite",
+		"type": "Feitiço",
+		"recallCost": 2,
+		"text": "Faça um **teste de conjuração (16)**. Uma vez por descanso longo, em um sucesso, faça com que toda a área em alcance distante caia em completa escuridão, na qual apenas você e seus aliados podem enxergar. Os testes de ataque contra você ou seus aliados têm desvantagem dentro dessa escuridão.\n\nAlém disso, quando você ou um aliado tem um sucesso com Esperança contra um adversário dentro dessa área, o alvo deve marcar 1 Ponto de Fadiga.\n\nEste feitiço dura até o mestre gastar 1 Ponto de Medo no turno dele para encerrar o efeito ou até você sofrer dano grave."
+	},
+	{
+		"id": "domain-card-midnight-10-specter-of-the-dark",
+		"name": "Espectro das Trevas",
+		"level": 10,
+		"domain": "Meia-noite",
+		"type": "Feitiço",
+		"recallCost": 1,
+		"text": "**Marque 1 Ponto de Fadiga** para tornar-se _Incorpóreo_. Essa condição dura até você fazer um teste tendo outra criatura como alvo. Enquanto estiver _Incorpóreo_, você é imune a dano físico e pode flutuar e atravessar objetos sólidos. Outras criaturas ainda podem vê-lo nessa forma."
+	},
+	{
+		"id": "domain-card-sage-1-gifted-tracker",
+		"name": "Rastreador Talentoso",
+		"level": 1,
+		"domain": "Sabedoria",
+		"type": "Talento",
+		"recallCost": 0,
+		"text": "Ao rastrear uma criatura ou grupo de criaturas com base nos sinais da passagem delas, você pode **gastar qualquer quantidade de Pontos de Esperança** e fazer um número equivalente destas perguntas ao mestre:\n\n- Para que direção ele(s) foi(foram)?\n- Há quanto tempo a criatura ou grupo passou por aqui?\n- O que a criatura ou grupo fazia neste lugar?\n- Quantas criaturas havia?\n\nAo encontrar os alvos rastreados dessa forma, você recebe um bônus de +1 na Evasão contra elas."
+	},
+	{
+		"id": "domain-card-sage-1-nature-s-tongue",
+		"name": "Voz da Natureza",
+		"level": 1,
+		"domain": "Sabedoria",
+		"type": "Talento",
+		"recallCost": 0,
+		"text": "Você fala o idioma do mundo natural. Quando quiser falar com as plantas e animais ao seu redor, faça um **teste de Instinto (12)**. Em um sucesso, essas plantas ou animais fornecem a informação que conhecem. Se rolar com Medo, o conhecimento fornecido pode ser limitado ou ter um custo.\n\nAlém disso, antes de fazer um teste de conjuração em um ambiente natural, você pode **gastar 1 Ponto de Esperança** para receber um bônus de +2 na rolagem."
+	},
+	{
+		"id": "domain-card-sage-1-vicious-entangle",
+		"name": "Vinha Voraz",
+		"level": 1,
+		"domain": "Sabedoria",
+		"type": "Feitiço",
+		"recallCost": 1,
+		"text": "Faça um **teste de conjuração** contra um alvo distante. Em um sucesso, raízes e vinhas saem do chão, causando **1d8+1** de dano físico e Imobilizando o alvo temporariamente.\n\nAlém disso, em um sucesso, você pode **gastar 1 Ponto de Esperança** para temporariamente Imobilizar um adversário muito próximo do primeiro."
+	},
+	{
+		"id": "domain-card-sage-2-conjure-swarm",
+		"name": "Conjurar Enxame",
+		"level": 2,
+		"domain": "Sabedoria",
+		"type": "Feitiço",
+		"recallCost": 1,
+		"text": "_**Besouros Blindados de Tekaira**_: **marque 1 PF** para conjurar um enxame de besouros ao seu redor. Na próxima vez que sofrer dano, reduza a gravidade em um limiar. Você pode **gastar 1 Ponto de Esperança** para manter os besouros conjurados após sofrer dano.\n\n_**Vaga-Lumes**_: faça um **teste de conjuração** contra todos os adversários próximos. **Gaste 1 Ponto de Esperança** para causar **2d8+3** de dano mágico aos alvos atingidos."
+	},
+	{
+		"id": "domain-card-sage-2-natural-familiar",
+		"name": "Familiar da Natureza",
+		"level": 2,
+		"domain": "Sabedoria",
+		"type": "Feitiço",
+		"recallCost": 1,
+		"text": "**Gaste 1 Ponto de Esperança** para invocar um pequeno espírito da natureza ou criatura da floresta. Esse familiar fica ao seu lado até seu próximo descanso, até você conjurar Familiar da Natureza novamente ou até que ele seja alvo de um ataque. Ao **gastar 1 Ponto de Esperança adicional**, você pode invocar um familiar voador. Você pode se comunicar com ele, fazer um teste de conjuração para mandá-lo executar tarefas simples e **marcar 1 PF** para enxergar pelos olhos dele.\n\nAo causar dano a um adversário corpo a corpo ao seu familiar, some **1d6** à rolagem de dano."
+	},
+	{
+		"id": "domain-card-sage-3-corrosive-projectile",
+		"name": "Projétil Corrosivo",
+		"level": 3,
+		"domain": "Sabedoria",
+		"type": "Feitiço",
+		"recallCost": 1,
+		"text": "Faça um **teste de conjuração** contra um alvo distante. Em um sucesso, cause **d6+4** de dano mágico usando sua Proficiência. Além disso, **marque 2 ou mais Pontos de Fadiga** para deixá-lo permanentemente _Corroído_. Um alvo _Corroído_ sofre uma penalidade de –1 na Dificuldade para cada 2 Pontos de Fadiga que você gastou. Essa condição é cumulativa."
+	},
+	{
+		"id": "domain-card-sage-3-towering-stalk",
+		"name": "Tronco Descomunal",
+		"level": 3,
+		"domain": "Sabedoria",
+		"type": "Feitiço",
+		"recallCost": 1,
+		"text": "Uma vez por descanso, você pode conjurar um tronco espesso, retorcido e fácil de escalar em um ponto em alcance próximo. A altura dele pode ser equivalente ao alcance distante.\n\n**Marque 1 Ponto de Fadiga** para usar este feitiço como um ataque. Faça um **teste de conjuração** contra um adversário ou grupo de adversários próximo. O tronco irrompe, lançando os alvos no ar e derrubando-os, causando **d8** de dano físico usando sua Proficiência."
+	},
+	{
+		"id": "domain-card-sage-4-death-grip",
+		"name": "Constrição Mortal",
+		"level": 4,
+		"domain": "Sabedoria",
+		"type": "Feitiço",
+		"recallCost": 1,
+		"text": "Faça um **teste de conjuração** contra um alvo próximo e escolha uma das seguintes opções:\n\n- Você puxa o alvo para um ponto corpo a corpo ou puxa a si mesmo para um ponto corpo a corpo a ele;\n- Você constringe o alvo e o força a marcar 2 Pontos de Fadiga;\n- Todos os adversários entre você e o alvo devem ter sucesso em um teste de reação (13) ou são atingidos por vinhas e sofrem **3d6+2** de dano fís.\n\nEm um sucesso, vinhas saem de suas mãos, causando o efeito escolhido e _Imobilizando_ o alvo temporariamente."
+	},
+	{
+		"id": "domain-card-sage-4-healing-field",
+		"name": "Campo Curativo",
+		"level": 4,
+		"domain": "Sabedoria",
+		"type": "Feitiço",
+		"recallCost": 2,
+		"text": "Uma vez por descanso longo, você pode conjurar um campo de plantas curativas ao seu redor. Toda a área em alcance próximo irrompe em vida e natureza vibrante, permitindo que você e todos os aliados nessa área recuperem 1 Ponto de Vida.\n\n**Gaste 2 Pontos de Esperança** para curar 2 Pontos de Vida em vez de 1."
+	},
+	{
+		"id": "domain-card-sage-5-thorn-skin",
+		"name": "Pele de Espinhos",
+		"level": 5,
+		"domain": "Sabedoria",
+		"type": "Feitiço",
+		"recallCost": 1,
+		"text": "Uma vez por descanso, **gaste 1 Ponto de Esperança** para fazer com que espinhos brotem de todo o seu corpo. Ao fazer isso, coloque um número de marcadores igual ao seu atributo de conjuração nesta carta. Ao sofrer dano, você pode gastar qualquer quantidade de marcadores e rolar um número equivalente de **d6**. Reduza o dano sofrido em um número igual à soma dos resultados. Se estiver corpo a corpo ao atacante, cause a mesma quantidade de dano a ele.\n\nApós um descanso, marcadores não utilizados são perdidos."
+	},
+	{
+		"id": "domain-card-sage-5-wild-fortress",
+		"name": "Fortaleza Selvagem",
+		"level": 5,
+		"domain": "Sabedoria",
+		"type": "Feitiço",
+		"recallCost": 1,
+		"text": "Faça um **teste de conjuração (13)**. Em um sucesso, **gaste 2 Pontos de Esperança** para fazer crescer uma barricada natural em formato de domo na qual você e um aliado podem buscar cobertura. Uma criatura dentro do domo não pode atacar nem ser alvo de ataques. Ataques feitos contra o domo acertam automaticamente. O domo tem 3 PV (coloque marcadores nesta carta para representá-los) e tem 15/30 como seus limiares de dano."
+	},
+	{
+		"id": "domain-card-sage-6-conjured-steeds",
+		"name": "Conjurar Montarias",
+		"level": 6,
+		"domain": "Sabedoria",
+		"type": "Feitiço",
+		"recallCost": 0,
+		"text": "**Gaste qualquer quantidade de Pontos de Esperança** para conjurar um número equivalente de montarias (como cavalos, camelos ou elefantes) que você e seus aliados podem usar até seu próximo descanso longo ou até que as montarias sofram dano. As montarias dobram sua velocidade de viagem por terra e, quando em perigo, permitem que você se mova para um ponto em alcance distante sem precisar de teste. Criaturas sobre as montarias sofrem uma penalidade de –2 em testes de ataque e ganham +2 de bônus nas rolagens de dano."
+	},
+	{
+		"id": "domain-card-sage-6-forager",
+		"name": "Coletor",
+		"level": 6,
+		"domain": "Sabedoria",
+		"type": "Talento",
+		"recallCost": 1,
+		"text": "Como um movimento de repouso adicional que você pode escolher, role **1d6** para descobrir o que você coleta. Colabore com o mestre para descrever esse item e adicione-o ao seu inventário como um consumível. Seu grupo pode carregar no máximo cinco consumíveis coletados por vez.\n\n1. Um alimento único (recupera 2 Pontos de Fadiga);\n2. Uma bela relíquia (receba 2 Pontos de Esperança);\n3. Uma runa arcana (+2 em um teste de conjuração);\n4. Um frasco curativo (recupera 2 PV);\n5. Um talismã da sorte (role qualquer dado novamente);\n6. Escolha uma das opções acima."
+	},
+	{
+		"id": "domain-card-sage-7-sage-touched",
+		"name": "Dom da Sabedoria",
+		"level": 7,
+		"domain": "Sabedoria",
+		"type": "Talento",
+		"recallCost": 2,
+		"text": "Se 4 ou mais cartas de domínio na sua mão pertencerem ao domínio da Sabedoria, receba os seguintes benefícios:\n\n- Enquanto estiver em um ambiente natural, você ganha um bônus de +2 em testes de conjuração;\n- Uma vez por descanso, você pode dobrar sua Agilidade ou Instinto ao fazer um teste que use esse atributo. Você deve fazer isso antes de rolar os dados."
+	},
+	{
+		"id": "domain-card-sage-7-wild-surge",
+		"name": "Aspecto Selvagem",
+		"level": 7,
+		"domain": "Sabedoria",
+		"type": "Feitiço",
+		"recallCost": 2,
+		"text": "Uma vez por descanso longo, **marque 1 Ponto de Fadiga** para canalizar a natureza ao seu redor e aprimorar a si mesmo. Descreva como sua aparência muda e, em seguida, coloque **1d6** nesta carta, com o 1 virado para cima.\n\nEnquanto o Dado de Aspecto Selvagem estiver ativo, você soma seu valor a todos seus testes. Após somar seu valor a um teste, aumente o valor do dado em 1. Se o valor do dado for ultrapassar 6, ou se você fizer um descanso, essa forma termina e você deve **marcar 1 Ponto de Fadiga adicional.**."
+	},
+	{
+		"id": "domain-card-sage-8-forest-sprites",
+		"name": "Espíritos da Floresta",
+		"level": 8,
+		"domain": "Sabedoria",
+		"type": "Feitiço",
+		"recallCost": 2,
+		"text": "Faça um *teste de conjuração (13)**. Em um sucesso, **gaste qualquer quantidade de Pontos de Esperança** para criar um número equivalente de espíritos da floresta. Todos surgem em pontos à sua escolha em alcance distante e fornecem os seguintes benefícios:\n\n- Seus aliados recebem um bônus de +3 em testes de ataque contra adversários cac a um espírito;\n- Se um aliado marcar 1 Ponto de Armadura enquanto estiver cac a um dos espíritos, ele pode marcar 1 Ponto de Armadura adicional.\n\nApós conceder um benefício ou sofrer qualquer dano, um espírito desaparece."
+	},
+	{
+		"id": "domain-card-sage-8-rejuvenation-barrier",
+		"name": "Barreira Revigorante",
+		"level": 8,
+		"domain": "Sabedoria",
+		"type": "Feitiço",
+		"recallCost": 1,
+		"text": "Faça um **teste de conjuração (15)**. Uma vez por descanso, em um sucesso, crie uma barreira temporária de energia protetora que fica Muito Próxima de você. Você e todos os aliados que estão dentro da barreira quando este feitiço é conjurado recuperam **1d4** PV. Enquanto a barreira estiver de pé, você e todos os aliados no interior dela têm resistência a dano físico oriundo do lado de fora.\n\nQuando você se move, a barreira se move com você."
+	},
+	{
+		"id": "domain-card-sage-9-fane-of-the-wilds",
+		"name": "Santuário Selvagem",
+		"level": 9,
+		"domain": "Sabedoria",
+		"type": "Talento",
+		"recallCost": 2,
+		"text": "Após um descanso longo, coloque uma quantidade de marcadores nesta carta igual ao número de cartas do domínio da Sabedoria na sua mão e reserva.\n\nQuando fizer um teste de conjuração, você pode gastar qualquer número de marcadores após o teste para receber um bônus de +1 por marcador.\n\nAo ter sucesso crítico em um teste de conjuração para um feitiço do domínio da Sabedoria, receba um marcador.\n\nApós o próximo descanso longo, marcadores não utilizados são perdidos."
+	},
+	{
+		"id": "domain-card-sage-9-plant-dominion",
+		"name": "Soberania Vegetal",
+		"level": 9,
+		"domain": "Sabedoria",
+		"type": "Feitiço",
+		"recallCost": 1,
+		"text": "Faça um **teste de conjuração (18)**. Uma vez por descanso longo, em um sucesso, você remodela o mundo natural, alterando a flora em qualquer ponto em alcance distante. Por exemplo, você pode fazer árvores brotarem instantaneamente, criar um caminho através de vegetação densa ou erguer uma muralha de raízes."
+	},
+	{
+		"id": "domain-card-sage-10-force-of-nature",
+		"name": "Força da Natureza",
+		"level": 10,
+		"domain": "Sabedoria",
+		"type": "Feitiço",
+		"recallCost": 2,
+		"text": "**Marque 1 Ponto de Fadiga** para se transformar em um grande espírito da natureza, recebendo os seguintes benefícios:\n\n- Ao ter sucesso em um teste de ataque ou conjuração, receba +10 de bônus na rolagem de dano;\n- Ao causar dano suficiente para derrotar uma criatura Próxima, você a absorve e recupera 1 PA;\n- Você não pode ser _Imobilizado_.\n\nAntes de fazer um teste, você deve **gastar 1 Ponto de Esperança**. Se não puder fazer isso, volta à forma normal."
+	},
+	{
+		"id": "domain-card-sage-10-tempest",
+		"name": "Tempestade",
+		"level": 10,
+		"domain": "Sabedoria",
+		"type": "Feitiço",
+		"recallCost": 2,
+		"text": "Escolha um dos tipos de tempestade abaixo e faça um **teste de conjuração** contra todos os alvos distantes. Alvos atingidos sofrem os efeitos até o mestre gastar 1 Ponto de Medo no turno dele para encerrar este feitiço.\n\n- _**Nevasca**_: causa **2d20+8** de dano mágico e deixa os alvos temporariamente _Vulneráveis._\n- _**Furacão**_: causa **3d10+10** de dano mágico. Escolha uma direção para a qual o vento sopra. Alvos não podem se mover contra o vento.\n- _**Tempestade de Areia**_: cause **5d6+9** de dano mágico. Ataques oriundos de um ponto além do alcance corpo a corpo têm desvantagem."
+	},
+	{
+		"id": "domain-card-splendor-1-bolt-beacon",
+		"name": "Raio Luminoso",
+		"level": 1,
+		"domain": "Esplendor",
+		"type": "Feitiço",
+		"recallCost": 1,
+		"text": "Faça um **teste de conjuração** contra um alvo distante. Em um sucesso, **gaste 1 Ponto de Esperança** para lançar um raio de luz radiante contra ele, causando **d8+2** de dano mágico usando sua Proficiência. O alvo fica temporariamente Vulnerável e emite uma luz intensa até se recuperar dessa condição."
+	},
+	{
+		"id": "domain-card-splendor-1-mending-touch",
+		"name": "Toque Reparador",
+		"level": 1,
+		"domain": "Esplendor",
+		"type": "Feitiço",
+		"recallCost": 1,
+		"text": "Você toca uma criatura e canaliza magia curativa para fechar seus ferimentos. Quando pode passar alguns minutos se concentrando em quem está ajudando, **gaste 2 Pontos de Esperança** para recuperar 1 PV ou PF do alvo.\n\nUma vez por descanso longo, ao passar esse momento curativo descobrindo algo novo sobre a criatura ou revelando algo sobre si mesmo a ela, você pode fazê-la recuperar 2 Pontos de Vida ou Pontos de Fadiga, em vez de 1."
+	},
+	{
+		"id": "domain-card-splendor-1-reassurance",
+		"name": "Validação",
+		"level": 1,
+		"domain": "Esplendor",
+		"type": "Talento",
+		"recallCost": 0,
+		"text": "Uma vez por descanso, após o teste de um aliado, mas antes das consequências ocorrerem, você pode auxiliá-lo com palavras de apoio. Ao fazer isso, seu aliado pode rolar os dados novamente."
+	},
+	{
+		"id": "domain-card-splendor-2-final-words",
+		"name": "Últimas Palavras",
+		"level": 2,
+		"domain": "Esplendor",
+		"type": "Feitiço",
+		"recallCost": 1,
+		"text": "Você pode conceder um momento de vida a um cadáver para conversar com ele. Faça um **teste de conjuração (13)**. Em um sucesso com Esperança, o cadáver responde até três perguntas. Em um sucesso com Medo, o cadáver responde uma pergunta. O cadáver responde com sinceridade, mas não pode fornecer informações que desconhecia enquanto estava vivo. Se falhar, ou após o cadáver terminar de responder às suas perguntas, ele se desfaz em pó."
+	},
+	{
+		"id": "domain-card-splendor-2-healing-hands",
+		"name": "Mãos Curativas",
+		"level": 2,
+		"domain": "Esplendor",
+		"type": "Feitiço",
+		"recallCost": 1,
+		"text": "Faça um **teste de conjuração (13)** tendo como alvo uma criatura corpo a corpo que não seja você. Em um sucesso, **marque 1 Ponto de Fadiga** para recuperar 2 Pontos de Vida ou Pontos de Fadiga do alvo. Se falhar, **marque 1 Ponto de Fadiga** para recuperar 1 PV ou PF do alvo. Você não pode curar o mesmo alvo novamente até seu próximo descanso longo."
+	},
+	{
+		"id": "domain-card-splendor-3-second-wind",
+		"name": "Novo Fôlego",
+		"level": 3,
+		"domain": "Esplendor",
+		"type": "Talento",
+		"recallCost": 2,
+		"text": "Uma vez por descanso, ao acertar um ataque contra um adversário, você pode recuperar 1 Ponto de Vida ou 3 Pontos de Fadiga. Em um sucesso com Esperança, você também recupera 1 PV ou 3 PF de um aliado próximo."
+	},
+	{
+		"id": "domain-card-splendor-3-voice-of-reason",
+		"name": "Voz da Razão",
+		"level": 3,
+		"domain": "Esplendor",
+		"type": "Talento",
+		"recallCost": 1,
+		"text": "Você fala com poder e autoridade sem igual. Você tem vantagem em testes para acalmar situações violentas ou convencer alguém a seguir sua ordem.\n\nAlém disso, você demonstra mais firmeza sob pressão. Quando todos seus Pontos de Fadiga estiverem marcados, você ganha um bônus de +1 na Proficiência para rolagens de dano."
+	},
+	{
+		"id": "domain-card-splendor-4-divination",
+		"name": "Adivinhação",
+		"level": 4,
+		"domain": "Esplendor",
+		"type": "Feitiço",
+		"recallCost": 1,
+		"text": "Uma vez por descanso longo, gaste 3 Pontos de Esperança para se comunicar com as forças do além e fazer uma única pergunta sobre algum evento, lugar, pessoa ou situação no futuro próximo que possa ser respondida com \"sim ou não\". O tempo presente desaparece por um momento e a resposta surge magicamente diante de você."
+	},
+	{
+		"id": "domain-card-splendor-4-life-ward",
+		"name": "Sigilo da Vida",
+		"level": 4,
+		"domain": "Esplendor",
+		"type": "Feitiço",
+		"recallCost": 1,
+		"text": "**Gaste 3 Pontos de Esperança** e escolha um aliado próximo. Ele é marcado por um brilhante sigilo de proteção. Quando esse aliado for fazer um movimento de morte, ele recupera 1 PV em vez disso.\n\nEste efeito termina quando salva o alvo de um movimento de morte, quando você conjura Sigilo da Vida sobre outro alvo ou quando faz um descanso longo."
+	},
+	{
+		"id": "domain-card-splendor-5-shape-material",
+		"name": "Moldar Material",
+		"level": 5,
+		"domain": "Esplendor",
+		"type": "Feitiço",
+		"recallCost": 1,
+		"text": "**Gaste 1 Ponto de Esperança** para moldar parte de um material natural que esteja tocando (como gelo, madeira ou pedra) à sua vontade. A área do material não pode ser maior que você. Por exemplo, você pode criar uma ferramenta rudimentar ou criar uma porta.\n\nVocê só pode afetar o material próximo do ponto que você está tocando."
+	},
+	{
+		"id": "domain-card-splendor-5-smite",
+		"name": "Punição",
+		"level": 5,
+		"domain": "Esplendor",
+		"type": "Feitiço",
+		"recallCost": 2,
+		"text": "Uma vez por descanso, **gaste 3 Pontos de Esperança para carregar sua Punição**. Ao acertar seu próximo ataque com uma arma, dobre o resultado da rolagem de dano. Independentemente do tipo de dano da arma, este ataque causa dano mágico."
+	},
+	{
+		"id": "domain-card-splendor-6-restoration",
+		"name": "Restauração",
+		"level": 6,
+		"domain": "Esplendor",
+		"type": "Feitiço",
+		"recallCost": 2,
+		"text": "Após um descanso longo, coloque um número de marcadores igual ao seu atributo de conjuração nesta carta. Toque uma criatura e gaste qualquer quantidade de marcadores. Para cada marcador gasto, recupere 2 Pontos de Vida ou Pontos de Fadiga do alvo.\n\nVocê também pode gastar um marcador desta carta para tocar uma criatura e recuperá-la da condição Vulnerável ou curar uma doença física ou mágica (o mestre pode exigir o gasto de mais marcadores, dependendo da potência da doença).\n\nApós um descanso longo, marcadores não utilizados são perdidos."
+	},
+	{
+		"id": "domain-card-splendor-6-zone-of-protection",
+		"name": "Zona de Proteção",
+		"level": 6,
+		"domain": "Esplendor",
+		"type": "Feitiço",
+		"recallCost": 2,
+		"text": "Faça um **teste de conjuração (16)**. Uma vez por descanso longo, em um sucesso, escolha um ponto em alcance distante e crie uma zona de proteção visível para todos os aliados muito próximos do ponto de origem. Ao fazer isso, coloque **1d6** nesta carta, com o 1 virado para cima. Quando um aliado na zona de proteção sofre dano, reduza esse dano pelo valor do dado. Em seguida, aumente o valor do dado em um. Se o valor do dado for ultrapassar 6, este efeito termina."
+	},
+	{
+		"id": "domain-card-splendor-7-healing-strike",
+		"name": "Golpe Curativo",
+		"level": 7,
+		"domain": "Esplendor",
+		"type": "Feitiço",
+		"recallCost": 1,
+		"text": "Ao causar dano a um adversário, você pode **gastar 2 Pontos de Esperança** para recuperar 1 PV de um aliado próximo."
+	},
+	{
+		"id": "domain-card-splendor-7-splendor-touched",
+		"name": "Dom do Esplendor",
+		"level": 7,
+		"domain": "Esplendor",
+		"type": "Talento",
+		"recallCost": 2,
+		"text": "Se 4 ou mais cartas de domínio na sua mão pertencerem ao domínio do Esplendor, receba os seguintes benefícios:\n\n- Um bônus de +3 no seu limiar de dano grave;\n- Uma vez por descanso longo, quando o dano sofrido exigir que marque PV, você pode, em vez disso, marcar uma quantidade equivalente de PF ou gastar uma quantidade equivalente de Esperança."
+	},
+	{
+		"id": "domain-card-splendor-8-shield-aura",
+		"name": "Aura Defensora",
+		"level": 8,
+		"domain": "Esplendor",
+		"type": "Feitiço",
+		"recallCost": 2,
+		"text": "**Marque 1 Ponto de Fadiga** para conjurar uma aura protetora sobre um alvo muito próximo. Quando o alvo marca 1 Ponto de Armadura, ele reduz a gravidade do ataque em um limiar adicional. Se este feitiço fizer uma criatura que sofreria dano não marcar Pontos de Vida, o efeito termina.\n\nVocê pode manter a Aura Defensora apenas sobre uma criatura por vez."
+	},
+	{
+		"id": "domain-card-splendor-8-stunning-sunlight",
+		"name": "Fulgor Atordoante",
+		"level": 8,
+		"domain": "Esplendor",
+		"type": "Feitiço",
+		"recallCost": 2,
+		"text": "Faça um **teste de conjuração** para disparar raios solares contra todos os adversários distantes à sua frente. Em um sucesso, **gaste qualquer quantidade de Pontos de Esperança** e force um número equivalente de alvos atingidos a fazer um teste de reação (14).\n\nAlvos bem-sucedidos sofrem **3d20+3** de dano mágico. Alvos que falharem sofrem **4d20+5** de dano mágico e ficam temporariamente Atordoados. Enquanto estiverem Atordoados, os alvos não podem usar reações e não podem fazer quaisquer outras ações até que se recuperem dessa condição."
+	},
+	{
+		"id": "domain-card-splendor-9-overwhelming-aura",
+		"name": "Aura Esmagadora",
+		"level": 9,
+		"domain": "Esplendor",
+		"type": "Feitiço",
+		"recallCost": 2,
+		"text": "Faça um **teste de conjuração (15)** para fortalecer sua aura com magia. Em um sucesso, **gaste 2 Pontos de Esperança** para tornar sua Presença igual ao seu atributo de conjuração até seu próximo descanso longo.\n\nEnquanto este feitiço estiver ativo, seus adversários devem marcar 1 Ponto de Fadiga ao selecionarem você como alvo de um ataque."
+	},
+	{
+		"id": "domain-card-splendor-9-salvation-beam",
+		"name": "Feixe de Remissão",
+		"level": 9,
+		"domain": "Esplendor",
+		"type": "Feitiço",
+		"recallCost": 2,
+		"text": "Faça um **teste de conjuração (16)**. Em um sucesso, **marque uma quantidade qualquer de PF** para escolher uma linha de aliados em alcance distante como alvo. Você pode recuperar um número de Pontos de Vida, divididos como você quiser entre os alvos, igual à quantidade de PF que marcou."
+	},
+	{
+		"id": "domain-card-splendor-10-invigoration",
+		"name": "Revigorar",
+		"level": 10,
+		"domain": "Esplendor",
+		"type": "Feitiço",
+		"recallCost": 3,
+		"text": "Após você ou um aliado próximo usar uma habilidade com limite de uso (como uma vez por descanso ou uma vez por sessão), você pode **gastar uma quantidade qualquer de Pontos de Esperança** e rolar um número equivalente de **d6**. Se tirar 6 em qualquer dado, a habilidade pode ser usada novamente."
+	},
+	{
+		"id": "domain-card-splendor-10-resurrection",
+		"name": "Ressurreição",
+		"level": 10,
+		"domain": "Esplendor",
+		"type": "Feitiço",
+		"recallCost": 2,
+		"text": "Faça um **teste de conjuração (20)**. Em um sucesso, faça com que uma criatura morta há no máximo 100 anos volte à vida com todas as suas capacidades. Em seguida, role **1d6**. Se tirar 5 ou menos, coloque esta carta na reserva permanentemente.\n\nSe falhar, você não pode conjurar Ressurreição novamente por uma semana."
+	},
+	{
+		"id": "domain-card-valor-1-bare-bones",
+		"name": "Armadura Corporal",
+		"level": 1,
+		"domain": "Valor",
+		"type": "Talento",
+		"recallCost": 0,
+		"text": "Enquanto não equipar uma armadura, você tem Armadura base igual a 3 + sua Força e usa estes limiares de dano base:\n\n- _**1º patamar**_: 9/19;\n- _**2º patamar**_: 11/24;\n- _**3º patamar**_: 13/31;\n- _**4º patamar**_: 15/38."
+	},
+	{
+		"id": "domain-card-valor-1-forceful-push",
+		"name": "Imposição",
+		"level": 1,
+		"domain": "Valor",
+		"type": "Talento",
+		"recallCost": 0,
+		"text": "Ataque um alvo corpo a corpo com sua arma principal. Em um sucesso, você causa dano e o empurra para um ponto em alcance próximo. Em um sucesso com Esperança, acrescente **1d6** à rolagem de dano.\n\nAlém disso, **gaste 1 Ponto de Esperança** para deixá-lo temporariamente _Vulnerável_."
+	},
+	{
+		"id": "domain-card-valor-1-i-am-your-shield",
+		"name": "Sou Seu Escudo",
+		"level": 1,
+		"domain": "Valor",
+		"type": "Talento",
+		"recallCost": 1,
+		"text": "Quando um aliado muito próximo for sofrer dano, você pode **marcar 1 Ponto de Fadiga** para prostrar-se no caminho e virar o alvo do ataque no lugar dele. Ao sofrer dano desse ataque, você pode marcar um número qualquer de Pontos de Armadura."
+	},
+	{
+		"id": "domain-card-valor-2-body-basher",
+		"name": "Força Esmagadora",
+		"level": 2,
+		"domain": "Valor",
+		"type": "Talento",
+		"recallCost": 1,
+		"text": "Você usa toda sua força física em um combate. Ao acertar um ataque usando uma arma com alcance corpo a corpo, receba um bônus igual à sua Força na rolagem de dano."
+	},
+	{
+		"id": "domain-card-valor-2-bold-presence",
+		"name": "Presença Corajosa",
+		"level": 2,
+		"domain": "Valor",
+		"type": "Talento",
+		"recallCost": 0,
+		"text": "Ao fazer um teste de Presença, você pode **gastar 1 Ponto de Esperança** para somar sua Força à rolagem.\n\nAlém disso, uma vez por descanso, quando for sofrer uma condição, você pode descrever como sua Presença Corajosa ajuda na situação e impede que você sofra a condição."
+	},
+	{
+		"id": "domain-card-valor-3-critical-inspiration",
+		"name": "Inspiração Crítica",
+		"level": 3,
+		"domain": "Valor",
+		"type": "Talento",
+		"recallCost": 1,
+		"text": "Uma vez por descanso, quando você obtém um sucesso crítico em um ataque, todos os aliados muito próximos podem recuperar 1 PF ou receber 1 Ponto de Esperança."
+	},
+	{
+		"id": "domain-card-valor-3-lean-on-me",
+		"name": "Palavras de Conforto",
+		"level": 3,
+		"domain": "Valor",
+		"type": "Talento",
+		"recallCost": 1,
+		"text": "Uma vez por descanso longo, quando você consola ou inspira um aliado que falhou em um teste, vocês dois podem recuperar 2 Pontos de Fadiga cada."
+	},
+	{
+		"id": "domain-card-valor-4-goad-them-on",
+		"name": "Incitar",
+		"level": 4,
+		"domain": "Valor",
+		"type": "Talento",
+		"recallCost": 1,
+		"text": "Descreva como você provoca um alvo próximo. Em seguida, faça um **teste de Presença** contra ele. Em um sucesso, o alvo deve marcar 1 PF e, na próxima vez que o mestre colocá-lo em foco, ele deve atacar você com desvantagem."
+	},
+	{
+		"id": "domain-card-valor-4-support-tank",
+		"name": "Bastião",
+		"level": 4,
+		"domain": "Valor",
+		"type": "Talento",
+		"recallCost": 2,
+		"text": "Quando um aliado próximo falhar em um teste, você pode **gastar 2 Pontos de Esperança** para permitir que ele role novamente o Dado de Medo ou de Esperança."
+	},
+	{
+		"id": "domain-card-valor-5-armorer",
+		"name": "Armeiro",
+		"level": 5,
+		"domain": "Valor",
+		"type": "Talento",
+		"recallCost": 1,
+		"text": "Você recebe um bônus de +1 na Armadura enquanto estiver usando armadura.\n\nAo escolher Reparar Armadura como movimento de repouso durante um descanso, seus aliados também recuperam 1 Ponto de Armadura."
+	},
+	{
+		"id": "domain-card-valor-5-rousing-strike",
+		"name": "Golpe Inspirador",
+		"level": 5,
+		"domain": "Valor",
+		"type": "Talento",
+		"recallCost": 1,
+		"text": "Uma vez por descanso, ao ter sucesso crítico em um ataque, você e todos os aliados que possam vê-lo ou ouvi-lo podem recuperar 1 Ponto de Vida ou **1d4** Pontos de Fadiga."
+	},
+	{
+		"id": "domain-card-valor-6-inevitable",
+		"name": "Inevitável",
+		"level": 6,
+		"domain": "Valor",
+		"type": "Talento",
+		"recallCost": 1,
+		"text": "Ao falhar em um teste, seu próximo teste é feito com vantagem."
+	},
+	{
+		"id": "domain-card-valor-6-rise-up",
+		"name": "Altivez",
+		"level": 6,
+		"domain": "Valor",
+		"type": "Talento",
+		"recallCost": 2,
+		"text": "Receba um bônus igual à sua Proficiência no seu limiar grave.\n\nAo marcar 1 ou mais PV devido a um ataque, recupere 1 Ponto de Fadiga."
+	},
+	{
+		"id": "domain-card-valor-7-shrug-it-off",
+		"name": "Desprezar Fraqueza",
+		"level": 7,
+		"domain": "Valor",
+		"type": "Talento",
+		"recallCost": 1,
+		"text": "Quando sofrer dano, você pode **marcar 1 Ponto de Fadiga** para reduzir a gravidade do dano em um limiar. Ao fazer isso, role **1d6**. Se tirar 3 ou menos, coloque esta carta na reserva."
+	},
+	{
+		"id": "domain-card-valor-7-valor-touched",
+		"name": "Dom do Valor",
+		"level": 7,
+		"domain": "Valor",
+		"type": "Talento",
+		"recallCost": 1,
+		"text": "Se 4 ou mais cartas de domínio na sua mão pertencerem ao domínio do Valor, receba os seguintes benefícios:\n\n- Bônus de +1 na Armadura;\n- Ao marcar 1 ou mais Pontos de Vida sem marcar Pontos de Armadura, recupere 1 PA."
+	},
+	{
+		"id": "domain-card-valor-8-full-surge",
+		"name": "Testar os Limites",
+		"level": 8,
+		"domain": "Valor",
+		"type": "Talento",
+		"recallCost": 1,
+		"text": "Uma vez por descanso longo, **marque 3 Pontos de Fadiga** para testar os limites de seu corpo. Você recebe um bônus de +2 em todos os atributos até seu próximo descanso."
+	},
+	{
+		"id": "domain-card-valor-8-ground-pound",
+		"name": "Abalo Sísmico",
+		"level": 8,
+		"domain": "Valor",
+		"type": "Talento",
+		"recallCost": 2,
+		"text": "**Gaste 2 Pontos de Esperança** para golpear o solo abaixo de você. Faça um **teste de Força** contra todos os alvos próximos. Alvos atingidos são empurrados para um ponto em alcance distante e devem fazer um teste de reação (17). Quem falhar, sofre **4d10+8** de dano. Quem passar sofre metade do dano."
+	},
+	{
+		"id": "domain-card-valor-9-hold-the-line",
+		"name": "Manter Posição",
+		"level": 9,
+		"domain": "Valor",
+		"type": "Talento",
+		"recallCost": 1,
+		"text": "Descreva a posição defensiva que você assume e **gaste 1 Ponto de Esperança**. Se um adversário se mover para alcance muito próximo, ele é puxado para o alcance corpo a corpo e fica _Imobilizado_.\n\nEsta condição dura até você se mover ou rolar uma falha com Medo, ou até o mestre gastar 2 Pontos de Medo no turno dele para encerrá-la."
+	},
+	{
+		"id": "domain-card-valor-9-lead-by-example",
+		"name": "Líder Exemplar",
+		"level": 9,
+		"domain": "Valor",
+		"type": "Talento",
+		"recallCost": 3,
+		"text": "Ao causar dano a um adversário, você pode **marcar 1 PF** e descrever como encoraja seus aliados. O próximo personagem que atacar esse adversário pode recuperar 1 Ponto de Fadiga ou receber 1 Ponto de Esperança."
+	},
+	{
+		"id": "domain-card-valor-10-unbreakable",
+		"name": "Defesa Irredutível",
+		"level": 10,
+		"domain": "Valor",
+		"type": "Talento",
+		"recallCost": 4,
+		"text": "Quando for marcar 1 Ponto de Armadura, role uma quantidade de **d6** igual à sua Proficiência. Se algum tirar 6, reduza a gravidade em um limiar sem marcar 1 Ponto de Armadura."
+	},
+	{
+		"id": "domain-card-valor-10-unyielding-armor",
+		"name": "Invencível",
+		"level": 10,
+		"domain": "Valor",
+		"type": "Talento",
+		"recallCost": 1,
+		"text": "Ao marcar seu último Ponto de Vida, em vez de fazer um movimento de morte, você pode recuperar 1d6 Pontos de Vida. Em seguida, esta carta vai para sua reserva."
+	}
+]

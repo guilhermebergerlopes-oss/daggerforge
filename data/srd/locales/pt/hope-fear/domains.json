@@ -1,0 +1,128 @@
+[
+	{
+		"id": "domain-card-dread-1-blighting-strike",
+		"name": "Golpe Debilitante",
+		"type": "Feitiço",
+		"text": "Faça um teste de conjuração contra um alvo distante. Em caso de sucesso:\n• Se rolar com Esperança, cause **d6+1** de dano mágico com sua Proficiência. Se rolar com Medo, cause **d10+1** de dano mágico com sua Proficiência.\n• O próximo ataque bem-sucedido do alvo causa metade do dano.\n\nEm caso de falha, você deve gastar 1 Ponto de Esperança ou marcar 1 PF."
+	},
+	{
+		"id": "domain-card-dread-1-umbral-veil",
+		"name": "Véu Umbral",
+		"type": "Feitiço",
+		"text": "Uma vez por descanso, você pode **marcar 1 PF** para se envolver em energia sombria. Ao fazer isso, coloque um número de marcadores nesta carta igual ao número de Pontos de Medo que o mestre tem no momento. Após ser alvo de um teste de ataque, você pode gastar qualquer número de marcadores para aplicar uma penalidade ao resultado igual a –1 para cada marcador gasto.\n\nNo fim da cena, marcadores não utilizados são perdidos."
+	},
+	{
+		"id": "domain-card-dread-1-voice-of-dread",
+		"name": "Voz do Pavor",
+		"type": "Feitiço",
+		"text": "Você pode falar magicamente com uma criatura que você possa ver, atormentando-a com suas palavras. Faça um **teste de conjuração** contra ela. Em um sucesso, ela deve marcar 1 PF e congela de terror, ficando temporariamente Imobilizada."
+	},
+	{
+		"id": "domain-card-dread-2-hideous-retribution",
+		"name": "Retribuição Sinistra",
+		"type": "Feitiço",
+		"text": "Quando um aliado próximo sofrer dano de um alvo que você possa ver, você pode fazer um teste de reação contra o alvo usando seu atributo de conjuração. Se acertar, **marque 1 PF** para causar **d6** de dano mágico com sua Proficiência."
+	},
+	{
+		"id": "domain-card-dread-2-siphon-essence",
+		"name": "Sorver Essência",
+		"type": "Feitiço",
+		"text": "Faça um **teste de conjuração** contra um alvo muito próximo. Uma vez por descanso longo, em um sucesso, o alvo sofre **d12+4** de dano mágico com sua Proficiência. Em um sucesso com Medo, sua Proficiência para esta rolagem de dano recebe +1\n\nVocê recupera um número de Pontos de Vida igual aos PV marcados pelo alvo deste ataque."
+	},
+	{
+		"id": "domain-card-dread-3-shared-trauma",
+		"name": "Trauma Compartilhado",
+		"type": "Feitiço",
+		"text": "Você pode transferir o sofrimento de uma criatura para outra. Uma vez por descanso, marque qualquer número de PV de uma criatura voluntária em alcance corpo a corpo para recuperar uma quantidade equivalente de PV de outra criatura voluntária em alcance corpo a corpo."
+	},
+	{
+		"id": "domain-card-dread-3-terrify",
+		"name": "Aterrorizar",
+		"type": "Feitiço",
+		"text": "Faça um **teste de conjuração** contra um alvo próximo. Em um sucesso, o alvo marca **1d4** PF e você pode fazê-lo fugir uma categoria de alcance para longe de você (como de muito próximo para próximo, de próximo para distante e assim por diante). Em um sucesso com Medo, o alvo também fica temporariamente Vulnerável."
+	},
+	{
+		"id": "domain-card-dread-4-chains-of-affliction",
+		"name": "Correntes de Aflição",
+		"type": "Feitiço",
+		"text": "**Marque 2 PF** para temporariamente Acorrentar um alvo próximo. Quando uma criatura Acorrentada causa dano, o alvo do ataque dela marca 1 PV a menos do que normalmente marcaria. Você não pode manter mais de uma criatura Acorrentada por vez."
+	},
+	{
+		"id": "domain-card-dread-4-summon-horror",
+		"name": "Conjurar Horror",
+		"type": "Feitiço",
+		"text": "**Marque 1 PF** para invocar uma criatura de outro mundo. Ela causa **d8+1** de dano mágico com seu atributo de conjuração a um alvo distante. Se o alvo marcar qualquer número de PV por este ataque, ele precisa passar num teste de reação (12) para se fortalecer contra o horror ou é obrigado a marcar a mesma quantidade de PF.\n\nApós fazer o ataque, a criatura desaparece."
+	},
+	{
+		"id": "domain-card-dread-5-dire-strike",
+		"name": "Golpe Atroz",
+		"type": "Feitiço",
+		"text": "Quando um alvo marca qualquer número de PV por conta de um ataque que você fez, você pode gastar 1 Ponto de Esperança para drenar o poder dele. O mestre perde 1 Ponto de Medo."
+	},
+	{
+		"id": "domain-card-dread-5-spectral-mist",
+		"name": "Névoa Espectral",
+		"type": "Feitiço",
+		"text": "**Gaste 2 Pontos de Esperança** para conjurar uma névoa misteriosa que torna você e aliados próximos à sua escolha momentaneamente incorpóreos. Enquanto uma criatura estiver incorpórea, ela pode se mover através de objetos sólidos e é imune a dano físico. Ela se torna corpórea novamente após atravessar um objeto sólido ou fazer um teste. Do contrário, este efeito dura até o fim da cena."
+	},
+	{
+		"id": "domain-card-dread-6-darkfire",
+		"name": "Fogo Negro",
+		"type": "Feitiço",
+		"text": "**Gaste qualquer número de Pontos de Esperança** para atingir uma quantidade de adversários próximos equivalente aos pontos gastos. Cada alvo deve fazer um teste de reação (15). Quem falhar sofre **d8+6** de dano mágico com seu atributo de conjuração conforme é envolto em fogo negro. Quem passar sofre metade do dano."
+	},
+	{
+		"id": "domain-card-dread-6-jump-scare",
+		"name": "Susto Repentino",
+		"type": "Feitiço",
+		"text": "Ao causar dano mágico a um alvo, você pode **marcar 1 PF** para se teletransportar ao alcance corpo a corpo do alvo. Ao fazer isso, ele fica Vulnerável até marcar 1 ou mais PV."
+	},
+	{
+		"id": "domain-card-dread-7-dread-touched",
+		"name": "Dom do Pavort",
+		"type": "Talento",
+		"text": "Se 4 ou mais cartas de domínio na sua mão pertencerem ao domínio do Pavor, receba os seguintes benefícios:\n• Ao obter um sucesso com Medo, você pode marcar 2 PF para impedir o mestre de receber 1 Ponto de Medo.\n• Uma vez por descanso, ao fazer um teste, você pode receber um bônus igual ao número de Pontos de Medo que o mestre possui."
+	},
+	{
+		"id": "domain-card-dread-7-wall-of-hunger",
+		"name": "Muralha Faminta",
+		"type": "Feitiço",
+		"text": "Faça um teste de conjuração (10). Em um sucesso, você pode gastar 1 Ponto de Esperança para criar uma muralha visível de energia necrótica entre dois pontos em alcance distante. A muralha dura até você marcar 1 PV ou conjurar esta magia novamente. Uma criatura que atravesse a muralha (ou que esteja dentro dela quando surgir) deve marcar 2 Pontos de Fadiga."
+	},
+	{
+		"id": "domain-card-dread-8-dark-army",
+		"name": "Exército Sombrio",
+		"type": "Feitiço",
+		"text": "Faça um teste de conjuração (14). Uma vez por descanso longo, em um sucesso, você pode invocar ínferos ao seu redor e que se movem com você. Coloque 8 marcadores nesta carta. Ao causar dano a um alvo muito próximo, você pode gastar qualquer número de marcadores, adicionando 1d8 à rolagem de dano para cada marcador gasto dessa forma. Além disso, ao sofrer dano, você pode gastar qualquer número de marcadores, reduzindo o dano em 1d8 para cada marcador gasto dessa forma. Cada vez que você gasta um marcador, um ínfero age em seu benefício e então desaparece.\n\nNo próximo descanso longo, marcadores não utilizados são perdidos."
+	},
+	{
+		"id": "domain-card-dread-8-eldritch-flesh",
+		"name": "Carne Macabra",
+		"type": "Feitiço",
+		"text": "Receba +1 em seus limiares de dano para cada PF que você tem marcado.\n\nAlém disso, ao rolar com Medo, você pode **gastar 2 Pontos de Esperança** para recuperar 1 Ponto de Armadura."
+	},
+	{
+		"id": "domain-card-dread-9-damnation",
+		"name": "Danação",
+		"type": "Feitiço",
+		"text": "Faça um teste de conjuração contra um alvo distante. Em um sucesso, **marque qualquer número de PF** para rolar um número de **d20** equivalente aos pontos marcados, causando dano mágico igual à soma dos resultados. Se este ataque derrotar o alvo, todos os adversários distantes dele devem marcar 1 Ponto de Fadiga."
+	},
+	{
+		"id": "domain-card-dread-9-savor-the-anguish",
+		"name": "Saborear a Angústia",
+		"type": "Talento",
+		"text": "Quando um adversário próximo sofre dano grave, você pode recuperar 1 PF."
+	},
+	{
+		"id": "domain-card-dread-10-avatar-of-terror",
+		"name": "Avatar do Terror",
+		"type": "Feitiço",
+		"text": "**Marque 1 PF** para se transformar em uma criatura alimentada pelo medo. Enquanto estiver nessa forma, você recebe **+1d6** em suas rolagens de dano para cada Ponto de Medo que o mestre possui. Além disso, você recebe 1 Ponto de Esperança sempre que o mestre gasta 1 Ponto de Medo para pôr em foco um adversário muito próximo.\n\nAntes de fazer qualquer teste, você deve gastar 1 Ponto de Esperança. Se não puder fazer isso, você retorna à sua forma normal."
+	},
+	{
+		"id": "domain-card-dread-10-invoke-torment",
+		"name": "invocar o Tormento",
+		"type": "Talento",
+		"text": "Você causa o dobro de dano a alvos que estejam com todos os PF marcados.\n\nAlém disso, quando um adversário próximo é derrotado com todos os PF marcados, você recebe 1 Ponto de Esperança."
+	}
+]

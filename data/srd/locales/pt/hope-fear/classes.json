@@ -1,0 +1,412 @@
+[
+	{
+		"id": "class-assassin",
+		"name": "Assassino",
+		"description": [
+			"Assassinos são mestres em infligir ferimentos mortais com ataques precisos. Ao contrário de quem usa violência como um meio para alcançar seus objetivos, assassinos fazem da morte asua profissão. Muitos membros desta classe veem sua ocupação como um trabalho digno, se não sagrado, e alguns se unem a guildas para aprimorar seu ofício, consolidar suas crenças e ganhar dinheiro. Assassinos podem ser contratados por gente de todo tipo: governantes poderosos que buscam evitar uma guerra sangrenta, líderes comerciais que tentam eliminar a concorrência e até mesmo pessoas comuns atrás de um acerto de contas. Assassinos costumam ser um último recurso usado para eliminar alvos outrora intocáveis. Enquanto alguns destroem qualquer um em seu caminho pelo motivo ou valor monetário adequado, outros seguem rígidos códigos morais ou regras de conduta pessoal para escolher seus alvos. Quem descobre estar na mira de um assassino já deveria se considerar uma pessoa morta."
+		],
+		"stats": {
+			"domains": "Lâmina & Meia-noite",
+			"evasion": 12,
+			"hp": 5,
+			"suggestedTraits": "+2, -1, +1, 0, 0, +1",
+			"suggestedPrimary": "Katana",
+			"suggestedSecondary": null,
+			"suggestedArmor": "Brigandine Armor"
+		},
+		"items": "Uma lista de nomes, vários deles marcados, ou uma lâmina enferrujada com uma insígnia",
+		"hopeFeature": "Determinação Mortal: gaste 3 Pontos de Esperança para recuperar 2 Pontos de Fadiga",
+		"classFeatures": [
+			{
+				"name": "Determinação Mortal: gaste 3 Pontos de Esperança para recuperar 2 Pontos de Fadiga",
+				"description": "Ao acertar um ataque armado, você pode marcar 1 PF para deixar o alvo Marcado de Morte. Ao causar dano a um alvo Marcado de Morte, a rolagem de dano aumenta em um número de **d4** igual ao seu patamar. Você só pode manter um adversário Marcado de Morte por vez. Esta condição dura até o seu próximo descanso, até que o adversário Marcado de Morte tenha sido derrotado, ou até que o mestre gaste um número de Pontos de Medo igual ao seu patamar para eliminar a marca."
+			},
+			{
+				"name": "Entrar e Sair",
+				"description": "**Gaste 1 Ponto de Esperança** para pedir que o mestre ofereça um jeito rápido ou discreto de entrar ou sair de um lugar que você possa ver. Seu teste baseado nas informações recebidas é feito com vantagem."
+			}
+		],
+		"subclasses": {
+			"Executioners Guild": {
+				"name": "Membro dos Executores",
+				"spellcastTrait": "Agilidade",
+				"foundation": [
+					{
+						"name": "Primeiro Golpe",
+						"description": "Quando acertar um ataque pela primeira vez na cena, você causa o dobro de dano."
+					},
+					{
+						"name": "Emboscada",
+						"description": "Sua \"Marca da Morte\" usa d6 em vez de d4."
+					}
+				],
+				"specialization": [
+					{
+						"name": "Golpe Mortal",
+						"description": "Ao causar dano grave a uma criatura, você pode **marcar 1 PF** para fazê-la marcar 1 Ponto de Vida adicional."
+					},
+					{
+						"name": "Evasão do Escorpião",
+						"description": "Você recebe um bônus de +2 na Evasão contra ataques feitos por uma criatura _Marcada de Morte_."
+					}
+				],
+				"mastery": [
+					{
+						"name": "Golpe Certeiro",
+						"description": "Uma vez por descanso longo, ao falhar em um ataque, você pode **gastar 1 Ponto de Esperança** para transformar o ataque em um sucesso."
+					},
+					{
+						"name": "Apunhalar",
+						"description": "Sua \"Marca da Morte\" usa d8 em vez de d6."
+					}
+				]
+			},
+			"Poisoners Guild": {
+				"name": "Membro dos Veneficistas",
+				"spellcastTrait": "Conhecimento",
+				"foundation": [
+					{
+						"name": "Compostos Tóxicos",
+						"description": "**Marque 1 PF** para colocar **1d4+1** marcadores nesta carta. Quando acertar um ataque armado, você pode gastar um marcador para envenenar o alvo. Você conhece os seguintes venenos:\n• **Erva Sanguessuga:** Você causa **1d6** pontos de dano adicional neste ataque.\n• **Esporos de Cemitério:** O alvo também marca 1 PF.\n• **Pétala Espectral:** O alvo fica temporariamente _Vulnerável_.\n\nNo seu próximo descanso longo, marcadores não utilizados são perdidos."
+					}
+				],
+				"specialization": [
+					{
+						"name": "Compêndio de Venenos",
+						"description": "Você passa a conhecer estes venenos:\n• **Raiz-górgona:** O alvo fica temporariamente _Imobilizado_.\n• **Vinha da Meia-noite:** o alvo sofre desvantagem em testes de ataque até que ele marque 1 PF para se recuperar deste veneno."
+					},
+					{
+						"name": "Peçonha Dupla",
+						"description": "Ao usar um veneno que você conhece em um alvo _Marcado de Morte_, você pode gastar um marcador adicional para envenenar o alvo com o efeito de um segundo veneno que você conheça."
+					}
+				],
+				"mastery": [
+					{
+						"name": "Venomante",
+						"description": "Você passa a conhecer estes venenos:\n• **Espinha de Cadáver:** O alvo sofre desvantagem em testes de reação até o fim da cena.\n• **Folha do Medo:** Você causa dano adicional igual ao resultado do seu dado de Medo neste ataque.\n• **Semente da Praga:** O alvo sofre –3 em seus limiares de dano até o fim da cena. Este efeito não é cumulativo"
+					},
+					{
+						"name": "Bênção da Víbora",
+						"description": "Você é imune a venenos e outras toxinas."
+					}
+				]
+			}
+		},
+		"backgroundQuestions": [
+			"Você matou alguém com quem tinha proximidade. O que aconteceu e como isso afetou você?",
+			"Qual organização treinou você na arte de matar e como você se tornou um membro?",
+			"Ao longo de sua carreira, um alvo conseguiu escapar. Quem é essa pessoa, e como ela conseguiu escapar de suas garras?"
+		],
+		"connectionQuestions": [
+			"Eu matei alguém por você. Quem foi?",
+			"Como você me salvou quando eu estava à beira da morte? O que eu lhe prometi como pagamento?",
+			"Qual segredo sobre mim eu lhe contei e como isso mudou sua percepção sobre mim?"
+		]
+	},
+	{
+		"id": "class-brawler",
+		"name": "Brigão",
+		"description": [
+			"Especialistas em combate desarmado, lutadores transformam seus corpos em armas letais. Seja por meio de estudo formal, treinamento por um mentor ou desenvolvendo suas habilidades uma luta por vez, o processo é sempre rigoroso, pois lutadores desenvolvem seus corpos e mentes para trabalhar em união. Valorizados por sua força e versatilidade, lutadores em geral se unem a algum grupo ou causa conforme sua necessidade ou vontade. Uma vez que o corpo de um lutador é sua arma mais poderosa, eles costumam buscar novos desafios ou parceiros de treino consistentes, a fim de manter suas habilidades em dia e adicionar novas técnicas ao seu repertório. Embora não pareçam tão impressionantes às pessoas acostumadas com inimigos armados até os dentes, um lutador costuma obter mais resultado com as mãos nuas do que um soldado mediano com uma espada."
+		],
+		"stats": {
+			"domains": "Valor & Falange",
+			"evasion": 10,
+			"hp": 6,
+			"suggestedTraits": "+1, +1, 0, +2, 0, -1",
+			"suggestedPrimary": null,
+			"suggestedSecondary": null,
+			"suggestedArmor": "Brigandine Armor"
+		},
+		"items": "Faixas de mão de um mentor ou um livro sobre seu passatempo secreto",
+		"hopeFeature": "Encarar: **Gaste 3 Pontos de Esperança** para intimidar um alvo próximo, deixando-o temporariamente _Vulnerável_.",
+		"classFeatures": [
+			{
+				"name": "Eu Sou a Arma",
+				"description": "Seus ataques desarmados são tão poderosos quanto qualquer lâmina. Você possui uma arma principal chamada Golpe de Lutador, equipada automaticamente quando você não tiver outras armas ativas. Essa arma usa um atributo à sua escolha, tem alcance corpo a corpo e causa **d8+d6** de dano físico com sua Proficiência (tanto o número de d8 quanto o de d6 escalam com base em sua Proficiência). Enquanto essa arma estiver ativa, sua Evasão aumenta em +1"
+			},
+			{
+				"name": "Sequência de Golpes",
+				"description": "Após acertar um ataque com uma arma corpo a corpo e rolar o dano, você pode **marcar 1 PF** para iniciar uma sequência de golpes. Quando fizer isso, role seu Dado de Sequência e anote o resultado. Em seguida, continue rolando o Dado de Sequência até que o resultado da rolagem mais recente seja menor do que o da rolagem anterior. Você causa dano adicional igual à soma do resultado de todas as rolagens do seu Dado de Sequência feitas para este ataque. Esses resultados não podem ser alterados de nenhuma forma\n\nSeu Dado de Sequência começa como **d4**. Uma vez por patamar, você pode aumentar seu Dado de Sequência em um passo como uma opção de avanço de nível."
+			}
+		],
+		"subclasses": {
+			"Juggernaut": {
+				"name": "Juggernaut",
+				"foundation": [
+					{
+						"name": "Durão",
+						"description": "Você recebe um bônus permanente de +3 em seu limiar de dano grave."
+					},
+					{
+						"name": "Sobrecarga",
+						"description": "Ao acertar um ataque, você pode **gastar 1 Ponto de Esperança** para ou fazer o alvo marcar 1 Ponto de Fadiga ou arremessá-lo para um ponto em alcance próximo."
+					}
+				],
+				"specialization": [
+					{
+						"name": "Cercado",
+						"description": "Quando fizer um ataque armado em alcance corpo a corpo, você pode **gastar uma quantidade qualquer de Pontos de Esperança** para atingir um número de criaturas adicionais em alcance corpo a corpo equivalente aos pontos gastos."
+					},
+					{
+						"name": "Olho por Olho",
+						"description": "Uma vez por descanso, quando um adversário em alcance corpo a corpo fizer você marcar Pontos de Vida, você pode **marcar 1 Ponto de Fadiga** para forçá-lo a marcar a mesma quantidade de PV que você marcou."
+					}
+				],
+				"mastery": [
+					{
+						"name": "Ainda Não Terminei",
+						"description": "Quando sofre dano grave, você recebe 1 Ponto de Esperança ou recupera 1 Ponto de Fadiga."
+					},
+					{
+						"name": "Júbilo do Combate",
+						"description": "Quando rolar um sucesso crítico em um teste de ataque armado em alcance corpo a corpo, você recebe 1 Ponto de Esperança adicional, recupera 1 PF adicional e recebe um bônus de +1 na Proficiência para a rolagem de dano deste ataque."
+					}
+				]
+			},
+			"Martial Artist": {
+				"name": "Artista Marcial",
+				"foundation": [
+					{
+						"name": "Postura Marcial",
+						"description": "Você é capaz de canalizar sua determinação interior para assumir posturas marciais que lhe concedem benefícios especiais em combate.\n\nEscolha duas posturas de 1º patamar na ficha de Posturas Marciais. Sempre que você subir de nível, escolha uma postura adicional de patamar igual ou inferior ao seu."
+					}
+				],
+				"specialization": [
+					{
+						"name": "Canhão Concentrado",
+						"description": "**Gaste 1 Ponto de Concentração** para fazer um teste de Instinto contra um adversário distante. Se atingi-lo, cause **d20+3** pontos de dano mágico com sua Proficiência."
+					},
+					{
+						"name": "Defesa Apurada",
+						"description": "Quando for alvo de um ataque, você pode **gastar 1 Ponto de Concentração** para aumentar sua Evasão contra esse ataque em um valor igual ao seu patamar."
+					}
+				],
+				"mastery": [
+					{
+						"name": "Estado de Fluxo",
+						"description": "Você pode **marcar 1 PF, em vez de gastar 1 Ponto de Concentração, para mudar sua Postura Marcial. Além disso, você pode **gastar 1 Ponto de Concentração**, em vez de marcar 1 PF, para iniciar uma Sequência de Golpes."
+					},
+					{
+						"name": "Superar Limites",
+						"description": "Uma vez por descanso, você pode realizar uma façanha atlética inacreditável, como correr sobre a água, saltar entre telhados distantes ou escalar um prédio, sem precisar fazer testes. Se fizer isso, você recebe 1 Ponto de Esperança e recupera 1 Ponto de Fadiga."
+					}
+				]
+			}
+		},
+		"backgroundQuestions": [
+			"Onde você passou seus anos de formação, durante os quais lhe ensinaram, de forma direta ou indireta, seu estilo de luta?",
+			"Qual organização jurou você de morte e o que você fez para evocar tamanha ira?",
+			"Qual adversário derrotou você recentemente e lhe deixou desesperado por uma revanche?"
+		],
+		"connectionQuestions": [
+			"Do que nós dois temos medo?",
+			"Em quais coisas eu dependo de você durante nossas viagens? Como você se sente a respeito disso?",
+			"Eu ainda não perdoei você por algo que me disse. O que foi e por que você me disse aquilo"
+		]
+	},
+	{
+		"id": "class-warlock",
+		"name": "Ocultista",
+		"description": [
+			"Aqueles que, em troca de imenso poder, venderam suas vidas — ou talvez suas almas — para um patrono de outro mundo são conhecidos como ocultistas. No geral, esses mortais estavam em um pico de desespero quando fizeram tal sacrifício, torcendo que tal ato pudesse proteger a si mesmos ou a um ente querido, ajudar sua comunidade, garantir uma vingança, elevar seu status ou viabilizar outras ambições pessoais. As poderosas entidades com as quais lidam são tão variadas quanto os próprios ocultistas: deuses, espíritos, demônios ou outros seres desconhecidos até mesmo para o mortal que firma o pacto. Cada entidade tem sua própria esfera de influência, que define seu poder sobrenatural, e aquelas que coletam almas raramente são conhecidas por sua benevolência. Portanto, o poder de um ocultista é definido pelo relacionamento mantido entre ele e seu patrono. Mesmo com sua magia aterrorizante, ocultistas podem acabar descobrindo que há algo, ou alguém, por trás de suas ações."
+		],
+		"stats": {
+			"domains": "Pavor & Graça",
+			"evasion": 11,
+			"hp": 5,
+			"suggestedTraits": "+1, -1, 0, +1, +2, 0",
+			"suggestedPrimary": "Scimitar",
+			"suggestedSecondary": "Fighting Cloak",
+			"suggestedArmor": "Mage Robes"
+		},
+		"items": "Uma estatueta que simboliza seu patrono ou um anel que você não pode remover",
+		"hopeFeature": "Dádiva do Patrono: ao falhar em um teste, você pode gastar 3 Pontos de Esperança para rolar novamente com vantagem.",
+		"classFeatures": [
+			{
+				"name": "Pacto do Patrono",
+				"description": "Você firmou um acordo com uma entidade sobrenatural — tal qual um deus, uma fada ou um demônio — em troca de poder. Escreva o nome da entidade em sua ficha de personagem e converse com o mestre para determinar qual é a sua esfera de influência (como natureza, caos, sabedoria, travessura, amor, guerra, justiça, morte etc.). Antes de fazer qualquer teste relacionado à esfera de influência de seu patrono, você pode **gastar 1 Ponto de Benesse** para requisitar sua ajuda, rolando seu Dado de Patrono e somando o resultado ao total do teste. Seu Dado de Patrono começa como **d6**, e aumenta para **d8** no 5º nível."
+			},
+			{
+				"name": "Pontos de Benesse",
+				"description": "Você começa com 3 Pontos de Benesse (PB). Você pode usar um movimento de repouso para prestar tributo ao seu patrono. Descreva como faz isso, e receba uma quantidade de PB igual ao seu atributo de conjuração. Além disso, ao ser bem-sucedido em uma rolagem com Esperança, você pode optar por receber 1 PB em vez de 1 Ponto de Esperança.\n\nNota: O máximo de Favor que você pode ter ao mesmo tempo é 6."
+			}
+		],
+		"subclasses": {
+			"Pact of the Endless": {
+				"name": "Pacto do Eterno",
+				"spellcastTrait": "Presença",
+				"foundation": [
+					{
+						"name": "Manto do Patrono",
+						"description": "**Gaste 1 Ponto de Benesse** para se envolver com o aspecto apavorante do seu patrono, o que dura até você sofrer dano grave ou até o fim da cena. Enquanto este efeito estiver ativo, você recebe um bônus em seus limiares de dano equivalente ao seu patamar e tem vantagem em testes para intimidar um alvo."
+					},
+					{
+						"name": "Abraço Imortal",
+						"description": "Uma vez por descanso, **gaste uma quantidade qualquer de Pontos de Benesse** para rolar um número de Dados de Patrono equivalente aos pontos gastos. Para cada resultado 4 ou maior, recupere 1 Ponto de Vida."
+					}
+				],
+				"specialization": [
+					{
+						"name": "Súplica Pungente",
+						"description": "Quando um adversário fizer um ataque contra você ou contra um aliado muito próximo, você pode **gastar 1 PB** para que o teste seja feito com desvantagem. Em caso de falha, o adversário também marca 1 Ponto de Fadiga."
+					},
+					{
+						"name": "Absorver Dano",
+						"description": "Uma vez por descanso, você pode **gastar 1 PB** para reduzir o dano recebido à metade."
+					}
+				],
+				"mastery": [
+					{
+						"name": "Égide Sombria",
+						"description": "Uma vez por descanso longo, ao sofrer dano, você pode **gastar 1 PB** em vez de marcar Pontos de Vida."
+					},
+					{
+						"name": "Maldição Drenante",
+						"description": "Quando um adversário fizer um ataque contra você ou contra um aliado muito próximo, você pode **gastar 1 PB** para Drenar o atacante. Ao fazer isso, o adversário marca 1 Ponto de Fadiga e você pode recuperar 1 PF. Enquanto estiver Drenado, o alvo usa **d12**, em vez de d20, em seus testes de ataque (inclusive se tiver vantagem ou desvantagem), isso dura até ele falhar em um teste."
+					}
+				]
+			},
+			"Pact of the Wrathful": {
+				"name": "Pacto do Colérico",
+				"spellcastTrait": "Presença",
+				"foundation": [
+					{
+						"name": "Fúria do Patrono",
+						"description": "**Gaste 1 PB** para imbuir seus ataques com o poder do seu Patrono, o que dura até você causar dano grave ou até o fim da cena. Ao rolar dano enquanto este efeito estiver ativo, você também rola um número de Dados de Patrono igual ao seu patamar e soma seus resultados ao dano causado."
+					},
+					{
+						"name": "Vingança Mortal",
+						"description": "Ao marcar qualquer número de PV por conta de um ataque, você pode **gastar 1 Ponto de Benesse** e rolar uma quantidade de Dados de Patrono igual aos PV marcados. Para cada resultado 4 ou maior, o atacante marca 1 PV."
+					}
+				],
+				"specialization": [
+					{
+						"name": "Alcance Ameaçador",
+						"description": "**Gaste 1 Ponto de Benesse** para aumentar o alcance de sua arma principal em um passo (de corpo a corpo para muito próximo, de muito próximo para próximo e assim por diante) até, no máximo, alcance muito distante. Este efeito termina quando você acertar um ataque com essa arma."
+					},
+					{
+						"name": "Enfraquecer Meus Inimigos",
+						"description": "Ao obter sucesso em uma rolagem com Esperança num teste contra um alvo, você pode **gastar uma quantidade qualquer de Pontos de Benesse** para fazer o alvo marcar um número de PF igual aos pontos gastos."
+					}
+				],
+				"mastery": [
+					{
+						"name": "Ataque Apavorante",
+						"description": "**Gaste 1 PB** para rolar novamente quaisquer dados de dano. Você pode gastar mais PB para usar esta habilidade várias vezes numa mesma rolagem de dano."
+					},
+					{
+						"name": "Cólera Transcendental",
+						"description": "Uma vez por descanso, ao sofrer dano, você pode **gastar uma quantidade qualquer de PB** para rolar um número de Dados de Patrono equivalente aos pontos gastos e escolher um número de criaturas próximas igual ao resultado mais alto da rolagem. Cada criatura escolhida marca 1 PV."
+					}
+				]
+			}
+		},
+		"backgroundQuestions": [
+			"Qual membro de sua comunidade decidiu lhe excluir após você ter firmado um pacto com seu patrono?",
+			"Qual evento desesperador levou você a entregar sua vida ao seu patrono?",
+			"Seu patrono lhe incumbiu de uma tarefa para ser priorizada acima de qualquer coisa. Que tarefa é essa e por que ela preocupa você?"
+		],
+		"connectionQuestions": [
+			"Por que você acha que eu lhe confidencio as coisas que meu patrono diz e faz",
+			"Nossa relação mudou desde que você me viu prestando tributo ao meu patrono. O que você viu e como isso lhe afetou?",
+			"Você nunca me deixou esquecer da grande tolice que eu cometi naquela vez. Que tolice foi essa?"
+		]
+	},
+	{
+		"id": "class-witch",
+		"name": "Bruxo",
+		"description": [
+			"Bruxos são praticantes de magia que comungam com forças da natureza e entidades de planos exteriores. Tais conjuradores extraem poder por meio de técnica e sabedoria, combinando o tangível e o efêmero através de seus feitiços, murmurando encantamentos, criando talismãs, tecendo ilusões e desenvolvendo práticas pessoais. São capazes de proteger aliados e enfraquecer inimigos, invocando forças mais poderosas que si mesmos — seres sobrenaturais, como divindades, ancestrais ou aspectos da natureza. Muitas vezes, seu conhecimento mágico é transmitido por essas entidades, ou por meio de incontáveis gerações de praticantes, reunidos em pequenos grupos, os covens. Bruxos costumam ser temidos e incompreendidos, uma vez que seus métodos podem parecer misteriosos, estranhos ou macabros para os não iniciados. Qualquer que seja sua jornada, o bruxo caminha destemido na fronteira entre luz e escuridão."
+		],
+		"stats": {
+			"domains": "Sabedoria & Pavor",
+			"evasion": 10,
+			"hp": 6,
+			"suggestedTraits": "0, -1, 0, +2, +1, +1",
+			"suggestedPrimary": "Casting Dagger",
+			"suggestedSecondary": "Rune Shield",
+			"suggestedArmor": "Mage Robes"
+		},
+		"items": "Um animal de estimação pequeno e inofensivo ou uma pedra de vidência",
+		"hopeFeature": "Amuleto de Bruxaria: quando você ou um aliado distante falhar em um teste, você pode **gastar 3 Pontos de Esperança** para transformar a falha em um sucesso com Medo.",
+		"classFeatures": [
+			{
+				"name": "Praga",
+				"description": "**Marque 1 PF** para Esconjurar temporariamente um alvo distante. Enquanto estiver Esconjurado, você aplica uma penalidade equivalente ao seu patamar na Dificuldade e rolagens de dano do alvo. O número máximo de criaturas que você pode Esconjurar simultaneamente é igual ao seu atributo de conjuração."
+			},
+			{
+				"name": "Comunhão",
+				"description": "Uma vez por descanso longo, em um momento tranquilo, você pode comungar com um ancestral, uma divindade, um espírito ou uma criatura sobrenatural. Faça-lhes uma pergunta e, em seguida, role um número de **d6** igual ao seu atributo de conjuração. Escolha um dos resultados e compare com a tabela abaixo para saber o efeito gerado.\n• 1–3: Você sente um sabor, um aroma ou uma sensação relevante como resposta.\n• 4–5: Você escuta sons ou tem uma visão relevante como resposta.\n• 6: Você tem um vislumbre psíquico de uma cena relevante à resposta, como se participasse dela."
+			}
+		],
+		"subclasses": {
+			"Hedge": {
+				"name": "Sábio Rústico",
+				"spellcastTrait": "Conhecimento",
+				"foundation": [
+					{
+						"name": "Ervas Medicinais",
+						"description": "Quando você ou um aliado presente na cena recuperar 1 ou mais PV ou PF por meio de algum consumível, você ou o aliado recupera 1 ponto adicional."
+					},
+					{
+						"name": "Talismã Encantado",
+						"description": "Uma vez por descanso, você pode imbuir um item pequeno com sua essência protetora. Gaste uma quantidade qualquer de Pontos de Esperança e coloque um número equivalente de marcadores nesta carta. Quando a pessoa que estiver com o talismã sofrer dano, gaste um marcador para reduzir o número de PV a serem marcados em 1. No seu próximo descanso, marcadores não usados são perdidos."
+					}
+				],
+				"specialization": [
+					{
+						"name": "Caminhar Entre Mundos",
+						"description": "Em um momento tranquilo, faça um **teste de conjuração (13)**. Em um sucesso, uma vez por descanso, você pode **marcar 1 PF** para atravessar o véu entre a vida e a morte e conversar com quaisquer espíritos próximos. Coloque um número de marcadores igual ao seu atributo de conjuração nesta carta. Remova um marcador cada vez que um espírito responder a uma pergunta. Quando o último marcador for removido, ou no fim da cena, você retorna ao Plano Mortal no mesmo lugar onde estava antes."
+					},
+					{
+						"name": "Praga Incômoda",
+						"description": "Você tem vantagem em testes de ataque contra criaturas _Esconjuradas_."
+					}
+				],
+				"mastery": [
+					{
+						"name": "Círculo de Poder",
+						"description": "Uma vez por descanso, desenhe um círculo no chão, delineando uma área muito próxima ao seu redor, e coloque um número de marcadores nesta carta igual ao seu atributo de conjuração. Enquanto estiverem dentro desse círculo, você e seus aliados recebem +2 em seus limiares de dano, Evasão e testes de ataque. Remova um marcador cada vez que você ou um aliado dentro do círculo fizer um teste ou evadir um ataque. Esta magia dura até que o último marcador seja removido ou até que você saia do círculo."
+					}
+				]
+			},
+			"Moon": {
+				"name": "Sábio da Lua",
+				"spellcastTrait": "Intinto",
+				"foundation": [
+					{
+						"name": "Glamour Noturno",
+						"description": "Faça um **teste de conjuração (13)** para assumir uma aparência glamorosa e ficar Encantador. Um personagem Encantador tem vantagem em testes que se beneficiam de sua aparência ilusória. Além disso, adversários próximos precisam marcar 1 Ponto de Fadiga para atacá-lo.\n\nA menos que você **marque 1 PF** para continuar Encantador, a condição termina quando você marcar PV ou causar dano."
+					}
+				],
+				"specialization": [
+					{
+						"name": "Raio Lunar",
+						"description": "Uma vez por sessão, você pode conjurar uma coluna de luar, iluminando a área próxima até o fim da cena. Enquanto estiver banhado por este luar, você e seus aliados recebem +1 em testes de conjuração e conseguem enxergar através de ilusões."
+					},
+					{
+						"name": "Ira da Luz Pálida",
+						"description": "Quando uma criatura _Esconjurada_ muito distante falhar em um teste de ataque, ela deve marcar 1 PF."
+					}
+				],
+				"mastery": [
+					{
+						"name": "Fases da Lua",
+						"description": "No início de cada sessão, role 1d6 e o coloque sobre esta carta. Você recebe o efeito correspondente até o fim da sessão.\n\nd6 | Fase lunar | Efeito\n1 | Nova | **Gaste 1 Ponto de Esperança** para negar dano menor\n2–3 | Crescente | +2 em rolagens de dano\n4 | Cheia | +3 nos limiares de dano\n5–6 | Minguante | +1 na Evasão\n\nUma vez por descanso, você pode **gastar 1 Ponto de Esperança** para aumentar o valor da rolagem em um número. Aumentar um resultado 6 o transforma em um resultado 1."
+					}
+				]
+			}
+		},
+		"backgroundQuestions": [
+			"Qual membro de sua comunidade tinha medo de seu ofício? Que boato espalharam a seu respeito e qual parte dele era verdade?",
+			"Uma vez você usou seu poder para ajudar alguém que estava em uma situação terrível. Quem era essa pessoa e por que ela buscou sua ajuda?",
+			"Sua magia, certa vez, abriu uma porta que deveria ser mantida fechada. Quem (ou o que) estava do outro lado?"
+		],
+		"connectionQuestions": [
+			"Qual ritual ou prática única eu ensinei a você e agora realizamos juntos?",
+			"Certa vez eu apareci num de seus sonhos e compartilhei uma visão do futuro. O que eu revelei?",
+			"Sobre quais assuntos você costuma vir até mim em busca de conselhos?"
+		]
+	}
+]

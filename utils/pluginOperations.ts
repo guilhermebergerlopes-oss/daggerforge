@@ -1,0 +1,108 @@
+import { App, MarkdownView, Notice } from "obsidian";
+import { resolveInsertDestination } from "./canvasHelpers";
+import DaggerForgePlugin from "../main";
+
+/**
+ * Retrieves the DaggerForge plugin instance from Obsidian's plugin registry.
+ * Centralises the one unavoidable `as unknown` cast - Obsidian does not
+ * publicly type the plugins map, so there is no fully type-safe alternative.
+ */
+export function getDaggerForgePlugin(app: App): DaggerForgePlugin | null {
+	const plugins = (app as unknown as { plugins: { plugins: Record<string, unknown> } }).plugins;
+	return (plugins?.plugins?.['daggerforge'] as DaggerForgePlugin) ?? null;
+}
+
+import {
+	AdversaryModal,
+	EnvironmentModal,
+	handleCardEditClick,
+} from "../features/index";
+import { Content_Browser_View_Type, ContentBrowserView } from "../features/browser/ContentBrowserView";
+import { DeleteConfirmModal } from "../features/data-management/index";
+import { editEmbeddedCard } from "../features/embeds/editEmbeddedCard";
+
+/**
+ * Opens the adversary or environment creator modal.
+ *
+ * Uses plugin.lastMainLeaf (set by the global active-leaf-change listener in
+ * main.ts) so the correct destination is known even when the ribbon menu or a
+ * command palette entry triggered this call - at that point activeLeaf is the
+ * menu/palette overlay, not the canvas or note the user was working in.
+ */
+export function openCreator(plugin: DaggerForgePlugin, type: "adversary" | "environment"): void {
+	const { kind, leaf } = resolveInsertDestination(plugin.app, plugin.lastMainLeaf);
+
+	if (kind === "canvas") {
+		if (type === "adversary") new AdversaryModal(plugin, null).open();
+		else new EnvironmentModal(plugin, null).open();
+		return;
+	}
+
+	if (kind === "markdown" && leaf) {
+		const view = leaf.view as MarkdownView;
+		if (view.getMode() === "preview") {
+			new Notice("Please switch to edit mode.");
+			return;
+		}
+		if (type === "adversary") new AdversaryModal(plugin, view.editor).open();
+		else new EnvironmentModal(plugin, view.editor).open();
+		return;
+	}
+
+	new Notice("No note or canvas is open. Open one in edit mode first.");
+}
+
+/**
+ * Displays a confirmation modal before deleting the data file
+ * On confirmation, deletes the file and refreshes all browsers
+ */
+export function confirmDeleteDataFile(plugin: DaggerForgePlugin): void {
+	const modal = new DeleteConfirmModal(
+		plugin.app,
+		plugin,
+		async () => {
+			await plugin.dataManager.deleteDataFile();
+			refreshBrowsers(plugin);
+		}
+	);
+	modal.open();
+}
+
+/**
+ * Refreshes all open adversary and environment browser views
+ * Used after data changes to keep UI in sync
+ */
+export function refreshBrowsers(plugin: DaggerForgePlugin): void {
+	plugin.app.workspace.getLeavesOfType(Content_Browser_View_Type).forEach((leaf) => {
+		const view = leaf.view as ContentBrowserView;
+		if (view && typeof view.refresh === "function") view.refresh();
+	});
+}
+
+/**
+ * Handles edit button clicks on adversary and environment cards
+ * Only processes clicks on edit buttons, exits early for other clicks
+ */
+export function listenForEditClicks(evt: MouseEvent, app: App, plugin: DaggerForgePlugin): void {
+	const target = evt.target as HTMLElement;
+
+	if (!target.closest(".df-adv-edit-button") &&
+		!target.closest(".df-env-edit-button")) {
+		return;
+	}
+
+	// ID-based embeds edit their stored record directly - no DOM scraping,
+	// no HTML splicing. Legacy inline HTML cards fall through to the old path.
+	const embedSection = target.closest<HTMLElement>("[data-df-embed-kind]");
+	if (embedSection) {
+		editEmbeddedCard(plugin, embedSection);
+		return;
+	}
+
+	// Remove any open dice result tooltips before scraping the card DOM.
+	// Tooltips are children of their button, so .textContent would include
+	// the result text (e.g. "11 [9, 2]") alongside the dice expression.
+	document.querySelectorAll(".df-inline-dice-result").forEach(el => el.remove());
+
+	void handleCardEditClick(evt, app, plugin, target);
+}
