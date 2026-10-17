@@ -1,4 +1,4 @@
-import { App, PluginSettingTab, Setting, SliderComponent, ToggleComponent } from "obsidian";
+import { App, DropdownComponent, PluginSettingTab, Setting, SliderComponent, ToggleComponent } from "obsidian";
 import type DaggerForgePlugin from "../../main";
 import { DEFAULT_SETTINGS } from "../../types/index";
 import { translate as t } from "../../i18n";
@@ -13,6 +13,7 @@ export class DaggerForgeSettingsTab extends PluginSettingTab {
 	private plugin: DaggerForgePlugin;
 	private keywordToggle: ToggleComponent | null = null;
 	private durationSlider: SliderComponent | null = null;
+	private languageDropdown: DropdownComponent | null = null;
 
 	constructor(app: App, plugin: DaggerForgePlugin) {
 		super(app, plugin);
@@ -22,18 +23,23 @@ export class DaggerForgeSettingsTab extends PluginSettingTab {
 	private entries(): SettingEntry[] {
 		return [
 			{
-				name: "Enable keyword highlighting",
-				desc: "Color game terms (hope, fear, hp, stress) inside rendered cards.",
+				name: t("settings.language.name"),
+				desc: t("settings.language.description"),
+				build: (setting) => this.buildLanguage(setting),
+			},
+			{
+				name: t("settings.keywordHighlighting.name"),
+				desc: t("settings.keywordHighlighting.description"),
 				build: (setting) => this.buildKeywordHighlighting(setting),
 			},
 			{
-				name: "Roll result duration",
-				desc: "How long the roll result stays visible.",
+				name: t("settings.rollDuration.name"),
+				desc: t("settings.rollDuration.description"),
 				build: (setting) => this.buildRollDuration(setting),
 			},
 			{
-				name: "Restore defaults",
-				desc: "Reset all settings to their default values.",
+				name: t("settings.restore.name"),
+				desc: t("settings.restore.description"),
 				build: (setting) => this.buildRestoreDefaults(setting),
 			},
 		];
@@ -55,83 +61,33 @@ export class DaggerForgeSettingsTab extends PluginSettingTab {
 	}
 
 	/** Fallback renderer for Obsidian versions older than 1.13. */
-
 	display(): void {
 		const { containerEl } = this;
 		containerEl.empty();
 
-		for (const entry of this.entries()) {
-			const setting = new Setting(containerEl).setName(entry.name).setDesc(entry.desc);
-			entry.build(setting);
-		}
-
 		containerEl.createEl("h2", { text: "DaggerForge" });
 
-		new Setting(containerEl)
-			.setName(t("settings.language.name"))
-			.setDesc(t("settings.language.description"))
-			.addDropdown((dropdown) =>
-				dropdown
-					.addOption("en", "English")
-					.addOption("de", "Deutsch")
-					.addOption("pt", "Português")
-					.setValue(this.plugin.settings.language)
-					.onChange(async (value) => {
-						this.plugin.settings.language = (value === "de" || value === "pt") ? value : "en";
-						await this.save();
-						this.display();
-					}),
-			);
+		for (const entry of this.entries()) {
+			const setting = new Setting(containerEl);
+			setting.setName(entry.name).setDesc(entry.desc);
+			entry.build(setting);
+		}
+	}
 
-		new Setting(containerEl)
-			.setName(t("settings.keywordHighlighting.name"))
-			.setDesc(t("settings.keywordHighlighting.description"))
-			.addToggle((toggle) =>
-				toggle
-					.setValue(this.plugin.settings.keywordHighlighting)
-					.onChange(async (value) => {
-						this.plugin.settings.keywordHighlighting = value;
-						await this.save();
-					}),
-			);
-
-		new Setting(containerEl)
-			.setName(t("settings.rollDuration.name"))
-			.setDesc(t("settings.rollDuration.description"))
-			.addSlider((slider) =>
-				slider
-					.setLimits(1, 10, 1)
-					.setValue(this.plugin.settings.diceBadgeTooltipMs / 1000)
-					.setDynamicTooltip()
-					.onChange(async (value) => {
-						this.plugin.settings.diceBadgeTooltipMs = value * 1000;
-						await this.save();
-					}),
-			)
-			.addExtraButton((btn) =>
-				btn
-					.setIcon("reset")
-					.setTooltip(t("settings.rollDuration.default", { seconds: DEFAULT_SETTINGS.diceBadgeTooltipMs / 1000 }))
-					.onClick(async () => {
-						this.plugin.settings.diceBadgeTooltipMs = DEFAULT_SETTINGS.diceBadgeTooltipMs;
-						await this.save();
-						this.display();
-					}),
-			);
-
-		new Setting(containerEl)
-			.setName(t("settings.restore.name"))
-			.setDesc(t("settings.restore.description"))
-			.addButton((btn) =>
-				btn
-					.setButtonText(t("settings.restore.button"))
-					.setWarning()
-					.onClick(async () => {
-						this.plugin.settings = { ...DEFAULT_SETTINGS };
-						await this.save();
-						this.display();
-					}),
-			);
+	private buildLanguage(setting: Setting): void {
+		setting.addDropdown((dropdown) => {
+			this.languageDropdown = dropdown;
+			dropdown
+				.addOption("en", "English")
+				.addOption("de", "Deutsch")
+				.addOption("pt", "Português")
+				.setValue(this.plugin.settings.language)
+				.onChange(async (value) => {
+					this.plugin.settings.language = (value === "de" || value === "pt") ? value : "en";
+					await this.save();
+					this.display();
+				});
+		});
 	}
 
 	private buildKeywordHighlighting(setting: Setting): void {
@@ -157,24 +113,24 @@ export class DaggerForgeSettingsTab extends PluginSettingTab {
 					.onChange(async (value) => {
 						this.plugin.settings.diceBadgeTooltipMs = value * 1000;
 						await this.save();
-						});
+					});
 			})
 			.addExtraButton((btn) =>
 				btn
 					.setIcon("reset")
-					.setTooltip(`Default: ${DEFAULT_SETTINGS.diceBadgeTooltipMs / 1000}s`)
+					.setTooltip(t("settings.rollDuration.default", { seconds: DEFAULT_SETTINGS.diceBadgeTooltipMs / 1000 }))
 					.onClick(async () => {
 						this.plugin.settings.diceBadgeTooltipMs = DEFAULT_SETTINGS.diceBadgeTooltipMs;
 						await this.save();
 						this.syncControls();
-						}),
+					}),
 			);
-			}
+	}
 
-			private buildRestoreDefaults(setting: Setting): void {
+	private buildRestoreDefaults(setting: Setting): void {
 		setting.addButton((btn) =>
 			btn
-				.setButtonText("Restore defaults")
+				.setButtonText(t("settings.restore.button"))
 				.setWarning()
 				.onClick(async () => {
 					this.plugin.settings = { ...DEFAULT_SETTINGS };
@@ -188,6 +144,7 @@ export class DaggerForgeSettingsTab extends PluginSettingTab {
 	private syncControls(): void {
 		this.keywordToggle?.setValue(this.plugin.settings.keywordHighlighting);
 		this.durationSlider?.setValue(this.plugin.settings.diceBadgeTooltipMs / 1000);
+		this.languageDropdown?.setValue(this.plugin.settings.language);
 	}
 
 	private async save(): Promise<void> {
