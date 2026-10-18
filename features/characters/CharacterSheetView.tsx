@@ -1,5 +1,6 @@
 import { ItemView, Plugin, WorkspaceLeaf } from "obsidian";
 import { createRoot, Root } from "react-dom/client";
+import { createElement } from "react";
 import { CharacterSheetApp } from "./CharacterSheetApp";
 import { getDaggerForgePlugin } from "../../utils/pluginOperations";
 
@@ -11,7 +12,7 @@ export class CharacterSheetView extends ItemView {
 	constructor(leaf: WorkspaceLeaf) { super(leaf); }
 
 	getViewType()    { return Character_Sheet_View_Type; }
-	getDisplayText() { return "Character sheet"; }
+	getDisplayText() { return "Character Sheet"; }
 	getIcon()        { return "user"; }
 
 	async onOpen() {
@@ -23,7 +24,7 @@ export class CharacterSheetView extends ItemView {
 		if (!plugin) return;
 
 		this.root = createRoot(container);
-		this.root.render(<CharacterSheetApp plugin={plugin} />);
+		this.root.render(createElement(CharacterSheetApp, { plugin }));
 	}
 
 	async onClose() {
@@ -40,5 +41,5 @@ export async function openCharacterSheet(plugin: Plugin) {
 	if (!existing[0]) {
 		await leaf.setViewState({ type: Character_Sheet_View_Type, active: true });
 	}
-	void plugin.app.workspace.revealLeaf(leaf);
+	plugin.app.workspace.revealLeaf(leaf);
 }

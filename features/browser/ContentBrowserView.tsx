@@ -1,6 +1,6 @@
-import { translate } from "../../i18n";
 import { ItemView, WorkspaceLeaf } from "obsidian";
 import { createRoot, Root } from "react-dom/client";
+import { createElement } from "react";
 import { ContentBrowserApp, type BrowserTab } from "./ContentBrowserApp";
 
 export const Content_Browser_View_Type = "daggerforge:content-browser";
@@ -14,17 +14,17 @@ export class ContentBrowserView extends ItemView {
 	constructor(leaf: WorkspaceLeaf) { super(leaf); }
 
 	getViewType()    { return Content_Browser_View_Type; }
-	getDisplayText() { return translate("ui.content.browser"); }
+	getDisplayText() { return "Content Browser"; }
 	getIcon()        { return "layout-grid"; }
 
 	private renderApp(container: HTMLElement) {
 		this.root!.render(
-			<ContentBrowserApp
-				app={this.app}
-				scrollContainer={container}
-				onTabSetter={(fn) => { this.setTab = fn; }}
-				refreshToken={this.refreshToken}
-			/>,
+			createElement(ContentBrowserApp, {
+				app: this.app,
+				scrollContainer: container,
+				onTabSetter: (fn) => { this.setTab = fn; },
+				refreshToken: this.refreshToken,
+			}),
 		);
 	}
 

@@ -1,11 +1,11 @@
 import { EventRef, MarkdownRenderChild } from "obsidian";
 import type DaggerForgePlugin from "../../main";
-import { ALL_GEAR } from "../../data/srd";
+import { getAllGear } from "../../data/srd";
+import { getLanguage, subscribeLanguage } from "../../i18n";
 import { GearData } from "../../types/srd";
 import { buildEmbedBlock, EmbedParams, generateInstanceToken, parseEmbedParams } from "../embeds/blockParams";
 import { decodeGearCode } from "../embeds/embedCode";
 import { renderMissingEmbed } from "../embeds/embedShared";
-import { appendHtml } from "../../utils/richContentTransform";
 import { gearToHtml } from "./ItemToHtml";
 
 /**
@@ -22,7 +22,7 @@ export const Item_Embed_Language = "daggerforge-item";
 export function findGearById(plugin: DaggerForgePlugin, id: string): GearData | null {
 	return (
 		plugin.dataManager.getItems().find((i) => i.id === id) ??
-		ALL_GEAR.find((i) => i.id === id) ??
+		getAllGear(getLanguage()).find((i) => i.id === id) ??
 		null
 	);
 }
@@ -36,6 +36,7 @@ class ItemEmbedChild extends MarkdownRenderChild {
 	// Decoded `code:` snapshot, used only when the id isn't in this vault
 	private snapshot: GearData | null = null;
 	private snapshotTried = false;
+	private unsubscribeLanguage: (() => void) | null = null;
 
 	constructor(
 		containerEl: HTMLElement,
@@ -48,6 +49,7 @@ class ItemEmbedChild extends MarkdownRenderChild {
 	onload() {
 		this.containerEl.addClass("df-embed");
 		this.render();
+		this.unsubscribeLanguage = subscribeLanguage(() => this.render());
 
 		const events = this.plugin.dataManager.events;
 		this.refs = [
@@ -65,6 +67,8 @@ class ItemEmbedChild extends MarkdownRenderChild {
 		const events = this.plugin.dataManager.events;
 		this.refs.forEach((ref) => events.offref(ref));
 		this.refs = [];
+		this.unsubscribeLanguage?.();
+		this.unsubscribeLanguage = null;
 	}
 
 	private render() {
@@ -84,7 +88,7 @@ class ItemEmbedChild extends MarkdownRenderChild {
 			renderMissingEmbed(el, "Item", this.params.id);
 			return;
 		}
-		appendHtml(el, gearToHtml(gear));
+		el.insertAdjacentHTML("beforeend", gearToHtml(gear));
 	}
 }
 

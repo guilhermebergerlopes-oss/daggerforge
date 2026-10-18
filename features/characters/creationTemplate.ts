@@ -42,7 +42,7 @@ export interface CreationChoices {
 export function composeMixedHeritage(
 	primary: SrdHeritage,
 	secondary: SrdHeritage,
-	language: "pt" | "en" | "de" = getLanguage(),
+	language: "en" | "de" | "pt" = getLanguage(),
 ): HeritageCardData {
 	const firstFeature = primary.features[0];
 	const secondFeature = secondary.features[1] ?? secondary.features[0];

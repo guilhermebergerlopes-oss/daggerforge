@@ -1,3 +1,4 @@
+import { translate as dfTranslate } from "../../i18n";
 import { Notice, TFile } from "obsidian";
 import type DaggerForgePlugin from "../../main";
 import { AdvData, EnvironmentData } from "../../types/index";
@@ -48,12 +49,12 @@ async function editEmbeddedAdversary(
 	const code = sectionSnapshotCode(section);
 	const adv = findAdversaryById(plugin, id) ?? (code ? await decodeAdversaryCode(code) : null);
 	if (!adv) {
-		new Notice("This adversary no longer exists.");
+		new Notice(dfTranslate("ui.this.adversary.no.longer.exists"));
 		return;
 	}
 
 	// The section element only signals edit mode to the modal; prefill is data-based
-	const modal = new AdversaryModal(plugin, null, section, structuredClone(adv));
+	const modal = new AdversaryModal(plugin, null, section, structuredClone(adv) as unknown as Record<string, unknown>);
 	modal.onEditUpdate = async (_newHTML: string, newData: AdvData) => {
 		if (isCustomId(id)) {
 			newData.id = id;
@@ -79,7 +80,7 @@ async function editEmbeddedEnvironment(
 	const code = sectionSnapshotCode(section);
 	const env = findEnvironmentById(plugin, id) ?? (code ? await decodeEnvironmentCode(code) : null);
 	if (!env) {
-		new Notice("This environment no longer exists.");
+		new Notice(dfTranslate("ui.this.environment.no.longer.exists"));
 		return;
 	}
 
@@ -126,9 +127,7 @@ async function repointOrExplain(
 	await plugin.app.vault.process(file, (content) => {
 		if (file.extension === "canvas") {
 			try {
-				const canvas = JSON.parse(content || "{}") as {
-					nodes?: Array<{ type?: string; text?: string }>;
-				};
+				const canvas = JSON.parse(content || "{}");
 				for (const node of canvas.nodes ?? []) {
 					if (node.type !== "text" || typeof node.text !== "string") continue;
 					const updated = repointEmbedBlock(node.text, language, oldId, instance, newId);

@@ -1,3 +1,4 @@
+import { translate as dfTranslate } from "../i18n";
 import { App, MarkdownView, Notice } from "obsidian";
 import { resolveInsertDestination } from "./canvasHelpers";
 import DaggerForgePlugin from "../main";
@@ -41,7 +42,7 @@ export function openCreator(plugin: DaggerForgePlugin, type: "adversary" | "envi
 	if (kind === "markdown" && leaf) {
 		const view = leaf.view as MarkdownView;
 		if (view.getMode() === "preview") {
-			new Notice("Please switch to edit mode.");
+			new Notice(dfTranslate("ui.please.switch.to.edit.mode"));
 			return;
 		}
 		if (type === "adversary") new AdversaryModal(plugin, view.editor).open();
@@ -49,7 +50,7 @@ export function openCreator(plugin: DaggerForgePlugin, type: "adversary" | "envi
 		return;
 	}
 
-	new Notice("No note or canvas is open. Open one in edit mode first.");
+	new Notice(dfTranslate("ui.no.note.or.canvas.is.open.open.one.in.edit.mode.first"));
 }
 
 /**
@@ -104,5 +105,5 @@ export function listenForEditClicks(evt: MouseEvent, app: App, plugin: DaggerFor
 	// the result text (e.g. "11 [9, 2]") alongside the dice expression.
 	document.querySelectorAll(".df-inline-dice-result").forEach(el => el.remove());
 
-	void handleCardEditClick(evt, app, plugin, target);
+	handleCardEditClick(evt, app, plugin, target);
 }

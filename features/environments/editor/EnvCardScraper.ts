@@ -1,5 +1,5 @@
+import { Notice } from "obsidian";
 import type { CountdownClock, EnvironmentData, EnvSavedFeatureState } from "../../../types/index";
-import { serializeChildren } from "../../../utils/richContentTransform";
 
 function extractTierAndType(innerCard: Element | null): { tier: string; type: string } {
 	const text = innerCard?.querySelector(".df-env-feat-tier-type")?.textContent?.trim() ?? "";
@@ -40,23 +40,22 @@ function extractSingleFeature(feat: Element): EnvSavedFeatureState {
 	let richContent: string;
 
 	if (richEl) {
-		richContent = serializeChildren(richEl);
+		richContent = richEl.innerHTML;
 	} else {
 		// Backward compat: old cards had separate text / bullets / textAfter fields.
 		// Reassemble them into a single HTML string so the rich editor pre-fills correctly.
 		const parts: string[] = [];
 		const textNodes = Array.from(feat.querySelectorAll(".df-env-feat-text"));
-		const beforeText = textNodes[0] ? serializeChildren(textNodes[0]).trim() : "";
+		const beforeText = textNodes[0]?.innerHTML?.trim();
 		if (beforeText) parts.push(`<p>${beforeText}</p>`);
 
 		const bullets = Array.from(feat.querySelectorAll(".df-env-bullet-item"));
 		if (bullets.length) {
-			const lis = bullets.map((b) => `<li>${serializeChildren(b).trim()}</li>`).join("");
+			const lis = bullets.map((b) => `<li>${b.innerHTML.trim()}</li>`).join("");
 			parts.push(`<ul>${lis}</ul>`);
 		}
 
-		const afterEl = feat.querySelector("#textafter");
-		const afterText = afterEl ? serializeChildren(afterEl).trim() : "";
+		const afterText = feat.querySelector("#textafter")?.innerHTML?.trim();
 		if (afterText) parts.push(`<p>${afterText}</p>`);
 
 		richContent = parts.join("");

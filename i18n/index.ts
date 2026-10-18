@@ -6,7 +6,7 @@ export type Language = "en" | "de" | "pt";
 export type TranslationParams = Record<string, string | number>;
 export type TranslationFunction = (key: TranslationKey, params?: TranslationParams) => string;
 
-const dictionaries: Record<Language, Record<TranslationKey, string>> = { en, de, pt};
+const dictionaries: Record<Language, Record<TranslationKey, string>> = { en, de, pt, };
 const listeners = new Set<() => void>();
 let currentLanguage: Language = "en";
 

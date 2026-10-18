@@ -48,7 +48,7 @@ type EnvironmentTranslation = Partial<Omit<EnvironmentData, "features">> & {
 };
 
 export function getEnvironments(language: Language): EnvironmentData[] {
-	if (language !== "de") return ENVIRONMENTS;
+	if (language !== "de" || "pt") return ENVIRONMENTS;
 	const translations = new Map(
 		(deEnvironments as EnvironmentTranslation[]).map((item) => [item.id, item]),
 	);

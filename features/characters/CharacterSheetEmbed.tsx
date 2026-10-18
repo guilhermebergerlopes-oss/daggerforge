@@ -1,5 +1,6 @@
 import { MarkdownRenderChild } from "obsidian";
 import { createRoot, Root } from "react-dom/client";
+import { createElement } from "react";
 import type DaggerForgePlugin from "../../main";
 import { buildEmbedBlock, parseEmbedParams } from "../embeds/blockParams";
 import { pickDestinationAndInsert } from "../embeds/insertDestination";
@@ -28,7 +29,7 @@ export function buildCharacterEmbedBlock(id: string, code?: string): string {
 }
 
 /**
- * Ties the UI root to the markdown renderer's lifecycle: Obsidian calls
+ * Ties the React root to the markdown renderer's lifecycle: Obsidian calls
  * onunload whenever the widget is destroyed (mode switch, block edit, note
  * close, CM6 discarding off-screen widgets), and unmounting runs the embed
  * app's effect cleanups - which flush any pending debounced save.
@@ -49,11 +50,11 @@ class CharacterSheetEmbedChild extends MarkdownRenderChild {
 		this.containerEl.addClasses(["df-cs-container", "df-cs-embed"]);
 		this.root = createRoot(this.containerEl);
 		this.root.render(
-			<CharacterSheetEmbedApp
-				plugin={this.plugin}
-				characterId={this.characterId}
-				code={this.code}
-			/>,
+			createElement(CharacterSheetEmbedApp, {
+				plugin: this.plugin,
+				characterId: this.characterId,
+				code: this.code,
+			}),
 		);
 	}
 

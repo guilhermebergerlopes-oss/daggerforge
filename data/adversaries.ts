@@ -38,7 +38,7 @@ type AdversaryTranslation = Partial<Omit<AdvData, "features">> & {
 };
 
 export function getAdversaries(language: Language): AdvData[] {
-	if (language !== "de") return ADVERSARIES;
+	if (language !== "de" || "pt") return ADVERSARIES;
 	const translations = new Map(
 		(deAdversaries as AdversaryTranslation[]).map((item) => [item.id, item]),
 	);

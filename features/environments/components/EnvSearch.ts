@@ -1,5 +1,7 @@
+import { translate as dfTranslate } from "../../../i18n";
 import { ItemView, WorkspaceLeaf, MarkdownView, Notice, setIcon } from "obsidian";
-import { ENVIRONMENTS } from "../../../data/index";
+import { getEnvironments } from "../../../data/index";
+import { getLanguage } from "../../../i18n";
 import { EnvironmentData } from "../../../types/index";
 import {
 	resolveInsertDestination,
@@ -15,7 +17,8 @@ import { envToHtml } from "../EnvToHtml";
 
 export const Env_View_Type = "daggerforge:environment-view";
 
-type Environment = EnvironmentData;
+interface Environment extends EnvironmentData {
+}
 
 export class EnvironmentView extends ItemView {
 	private environments: Environment[] = [];
@@ -34,7 +37,7 @@ export class EnvironmentView extends ItemView {
 	}
 
 	getDisplayText(): string {
-		return "Environment browser";
+		return dfTranslate("ui.dynamic.environment.browser");
 	}
 
 	getIcon(): string {
@@ -67,14 +70,14 @@ export class EnvironmentView extends ItemView {
 		container.empty();
 
 		container.createEl("h2", {
-			text: "Environment browser",
+			text: dfTranslate("ui.environment.browser"),
 			cls: "df-env-title",
 		});
 
 		// Create search controls placeholder - will be rebuilt after data loads
 		container.createDiv({ cls: "df-search-controls-container" });
 
-		this.resultsDiv = container.createDiv({
+		this.resultsDiv = container.createEl("div", {
 			cls: "df-environment-results",
 		});
 	}
@@ -87,14 +90,14 @@ export class EnvironmentView extends ItemView {
 		try {
 			const plugin = getDaggerForgePlugin(this.app);
 			if (!plugin || !plugin.dataManager) {
-				new Notice("Daggerforge plugin not found.");
+				new Notice(dfTranslate("ui.daggerforge.plugin.not.found"));
 				return;
 			}
 
 			const envId = env.id;
 
 			if (!envId) {
-				new Notice("Cannot delete environment: missing ID.");
+				new Notice(dfTranslate("ui.cannot.delete.environment.missing.id"));
 				return;
 			}
 
@@ -103,7 +106,7 @@ export class EnvironmentView extends ItemView {
 			this.refresh();
 		} catch (error) {
 			console.error("Error deleting custom environment:", error);
-			new Notice("Failed to delete environment.");
+			new Notice(dfTranslate("ui.failed.to.delete.environment"));
 		}
 	}
 
@@ -117,14 +120,12 @@ export class EnvironmentView extends ItemView {
 
 			const customEnvs = plugin.dataManager.getEnvironments();
 
-			// tier is normalised to a number here (pre-existing behavior, kept
-			// as-is) even though EnvironmentData types it as a string.
-			return customEnvs.map((env) => ({
+			return customEnvs.map((env: any) => ({
 				...env,
 				id: env.id || generateEnvUniqueId(),
 				tier: typeof env.tier === "number" ? env.tier : parseInt(env.tier, 10),
 				source: env.source || "custom",
-			})) as unknown as Environment[];
+			}));
 		} catch (error) {
 			console.error("Error loading custom environments from DataManager:", error);
 			return [];
@@ -133,7 +134,7 @@ export class EnvironmentView extends ItemView {
 
 	private loadEnvironmentData() {
 		try {
-			const builtIn = ENVIRONMENTS.map((e) => ({
+			const builtIn = getEnvironments(getLanguage()).map((e: any) => ({
 				...e,
 				id: e.id || generateEnvUniqueId(),
 				source: e.source ?? "core",
@@ -166,9 +167,9 @@ export class EnvironmentView extends ItemView {
 			this.renderResults(this.environments);
 		} catch (e) {
 			console.error("Error loading environment data:", e);
-			new Notice("Failed to load environment data.");
+			new Notice(dfTranslate("ui.failed.to.load.environment.data"));
 			if (this.resultsDiv) {
-				this.resultsDiv.setText("Error loading environment data.");
+				this.resultsDiv.setText(dfTranslate("ui.error.loading.environment.data"));
 			}
 		}
 	}
@@ -202,11 +203,12 @@ export class EnvironmentView extends ItemView {
 		if (!this.resultsDiv) return;
 		this.resultsDiv.empty();
 		if (filtered.length === 0) {
-			this.resultsDiv.setText("No environments found.");
+			this.resultsDiv.setText(dfTranslate("ui.no.environments.found"));
 			return;
 		}
 		filtered.forEach((env) => {
-			this.createEnvironmentCard(this.resultsDiv!, env);
+			const card = this.createEnvironmentCard(env);
+			this.resultsDiv!.appendChild(card);
 		});
 	}
 
@@ -253,9 +255,21 @@ export class EnvironmentView extends ItemView {
 		});
 	}
 
-	createEnvironmentCard(parent: HTMLElement, env: Environment): HTMLElement {
+	createEnvironmentCard(env: Environment): HTMLElement {
+		const card = document.createElement("div");
+		card.classList.add("df-env-card");
+
 		const source = env.source || "core";
-		const card = parent.createDiv({ cls: ["df-env-card", `df-source-${source.toLowerCase()}`] });
+		card.classList.add(`df-source-${source.toLowerCase()}`);
+
+		const tier = document.createElement("p");
+		tier.classList.add("df-tier-text");
+		tier.textContent = `Tier ${env.tier} ${env.type}`;
+
+		const sourceBadge = document.createElement("span");
+		sourceBadge.classList.add(
+			`df-source-badge-${source.toLowerCase()}`,
+		);
 
 		const badgeTexts: Record<string, string> = {
 			core: "Core",
@@ -265,34 +279,31 @@ export class EnvironmentView extends ItemView {
 			void: "Void",
 		};
 
-		// Delete button is appended first, matching the original DOM order.
 		if (badgeTexts[source] == "Custom") {
-			const deleteBtn = card.createEl("button", { cls: "df-env-delete-btn" });
+			const deleteBtn = document.createElement("button");
+			deleteBtn.classList.add("df-env-delete-btn");
 			setIcon(deleteBtn, "trash");
 			deleteBtn.addEventListener("click", (e: MouseEvent) => {
 				e.stopPropagation();
-				void this.deleteCustomEnvironment(env);
+				this.deleteCustomEnvironment(env);
 			});
+			card.appendChild(deleteBtn);
 		}
 
-		const tier = card.createEl("p", {
-			cls: "df-tier-text",
-			text: `Tier ${env.tier} ${env.type}`,
-		});
-		tier.createSpan({
-			cls: `df-source-badge-${source.toLowerCase()}`,
-			text: badgeTexts[source] || source,
-		});
+		sourceBadge.textContent = badgeTexts[source] || source;
+		tier.appendChild(sourceBadge);
 
-		card.createEl("h3", {
-			cls: "df-title-small-padding",
-			text: env.name || "Unnamed Environment",
-		});
+		card.appendChild(tier);
 
-		card.createEl("p", {
-			cls: "df-desc-small-padding",
-			text: env.desc || "No description available.",
-		});
+		const title = document.createElement("h3");
+		title.classList.add("df-title-small-padding");
+		title.textContent = env.name || dfTranslate("ui.dynamic.unnamed.environment");
+		card.appendChild(title);
+
+		const desc = document.createElement("p");
+		desc.classList.add("df-desc-small-padding");
+		desc.textContent = env.desc || dfTranslate("ui.dynamic.no.description.available");
+		card.appendChild(desc);
 
 		card.addEventListener("click", () => {
 			const wide = this.searchControlsUI?.getWideCard() ?? false;
@@ -311,19 +322,19 @@ export class EnvironmentView extends ItemView {
 				if (success) {
 					new Notice(`Inserted ${env.name}.`);
 				} else {
-					new Notice("Failed to insert environment into canvas.");
+					new Notice(dfTranslate("ui.failed.to.insert.environment.into.canvas"));
 				}
 				return;
 			}
 
 			if (kind === "markdown") {
 				if (!leaf) {
-					new Notice("No note is open in edit mode.");
+					new Notice(dfTranslate("ui.no.note.is.open.in.edit.mode"));
 					return;
 				}
 				const view = leaf.view as MarkdownView;
 				if (view.getMode() === "preview") {
-					new Notice("Please switch to edit mode.");
+					new Notice(dfTranslate("ui.please.switch.to.edit.mode"));
 					return;
 				}
 				view.editor.replaceSelection(injectDiceBadgesIntoHtml(envHTML));
@@ -331,7 +342,7 @@ export class EnvironmentView extends ItemView {
 				return;
 			}
 
-			new Notice("No active editor or canvas. Click on a note or canvas first.");
+			new Notice(dfTranslate("ui.no.active.editor.or.canvas.click.on.a.note.or.canvas.first"));
 		});
 
 		return card;

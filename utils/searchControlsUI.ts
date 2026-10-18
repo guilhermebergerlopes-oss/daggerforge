@@ -1,3 +1,5 @@
+import { translate as dfTranslate } from "../i18n";
+import { gameTerm } from "../i18n/gameTerms";
 /**
  * UI Factory for Search Controls
  *
@@ -17,7 +19,9 @@
  *   - filled array → show cards matching ANY of the chosen values (OR logic)
  */
 
-import { setIcon } from "obsidian";
+const SEARCH_ICON = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>`;
+const CHEVRON_ICON = `<svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>`;
+const CLEAR_ICON = `<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>`;
 
 export interface SearchControlsConfig {
 	placeholderText?: string;
@@ -80,25 +84,25 @@ export class SearchControlsUI {
 		const filterRow = this.container.createDiv({ cls: "df-filter-row" });
 
 		this.createMultiSelectFilter(filterRow, {
-			label: "Tier",
+			label: dfTranslate("ui.tier"),
 			options: this.config.availableTiers ?? [],
-			formatOption: (v) => `Tier ${v}`,
+			formatOption: (v) => `${dfTranslate("ui.tier")} ${v}`,
 			stateKey: "tiers",
 			onChange: (values) => this.config.onTierChange?.(values),
 		});
 
 		this.createMultiSelectFilter(filterRow, {
-			label: "Source",
+			label: dfTranslate("ui.source"),
 			options: this.config.availableSources ?? [],
-			formatOption: (v) => this.capitalize(v),
+			formatOption: (v) => gameTerm(this.capitalize(v)),
 			stateKey: "sources",
 			onChange: (values) => this.config.onSourceChange?.(values),
 		});
 
 		this.createMultiSelectFilter(filterRow, {
-			label: "Type",
+			label: dfTranslate("ui.type"),
 			options: this.config.availableTypes ?? [],
-			formatOption: (v) => v,
+			formatOption: (v) => gameTerm(v),
 			stateKey: "types",
 			onChange: (values) => this.config.onTypeChange?.(values),
 		});
@@ -125,7 +129,7 @@ export class SearchControlsUI {
 		if (!this.container) return;
 
 		if (filters.query !== undefined) {
-			const searchInput = this.container.querySelector<HTMLInputElement>(".df-search-input");
+			const searchInput = this.container.querySelector(".df-search-input") as HTMLInputElement | null;
 			if (searchInput) searchInput.value = filters.query;
 		}
 
@@ -186,12 +190,12 @@ export class SearchControlsUI {
 		const wrap = container.createDiv({ cls: "df-search-input-wrap" });
 
 		const iconEl = wrap.createDiv({ cls: "df-search-input-icon" });
-		setIcon(iconEl, "search");
+		iconEl.innerHTML = SEARCH_ICON;
 
 		const input = wrap.createEl("input", {
 			attr: { type: "text", placeholder: this.config.placeholderText ?? "" },
 			cls: "df-search-input",
-		});
+		}) as HTMLInputElement;
 
 		input.addEventListener("input", () => {
 			this.config.onSearchChange?.(input.value);
@@ -214,39 +218,47 @@ export class SearchControlsUI {
 		const button = wrapper.createEl("button", {
 			cls: "df-multiselect-toggle",
 			attr: { "aria-haspopup": "listbox", "aria-expanded": "false" },
-		});
+		}) as HTMLButtonElement;
 
 		button.createSpan({ cls: "df-multiselect-label", text: opts.label });
 		const badge = button.createSpan({ cls: "df-multiselect-badge df-multiselect-badge--hidden" });
 		const chevron = button.createSpan({ cls: "df-multiselect-chevron" });
-		setIcon(chevron, "chevron-down");
+		chevron.innerHTML = CHEVRON_ICON;
 
-		// Appended straight into document.body (see the file-level note above on
-		// why) - document.body is a real, live HTMLElement, so createDiv works
-		// immediately; populating its children afterward in this same
-		// synchronous call is invisible to the user (no repaint happens mid-way).
-		const panel = document.body.createDiv({ cls: "df-multiselect-panel df-multiselect-panel--hidden" });
+		const panel = document.createElement("div");
+		panel.className = "df-multiselect-panel df-multiselect-panel--hidden";
 		panel.dataset.filterKey = opts.stateKey;
 
 		if (opts.options.length === 0) {
-			panel.createSpan({ cls: "df-multiselect-empty", text: "No options" });
+			const empty = document.createElement("span");
+			empty.className = "df-multiselect-empty";
+			empty.textContent = "No options";
+			panel.appendChild(empty);
 		}
 
 		opts.options.forEach((value) => {
-			const item = panel.createDiv({ cls: "df-multiselect-item" });
+			const item = document.createElement("div");
+			item.className = "df-multiselect-item";
 
-			const checkbox = item.createEl("input", {
-				cls: "df-multiselect-checkbox",
-				attr: { type: "checkbox" },
-				value,
-			});
+			const checkbox = document.createElement("input");
+			checkbox.type = "checkbox";
+			checkbox.value = value;
+			checkbox.className = "df-multiselect-checkbox";
 
-			item.createEl("label", { cls: "df-multiselect-item-label", text: opts.formatOption(value) });
+			const label = document.createElement("label");
+			label.textContent = opts.formatOption(value);
+			label.className = "df-multiselect-item-label";
 
-			const countEl = item.createSpan({ cls: "df-facet-count" });
+			const countEl = document.createElement("span");
+			countEl.className = "df-facet-count";
 
 			if (!this.countEls.has(opts.stateKey)) this.countEls.set(opts.stateKey, new Map());
 			this.countEls.get(opts.stateKey)!.set(value, countEl);
+
+			item.appendChild(checkbox);
+			item.appendChild(label);
+			item.appendChild(countEl);
+			panel.appendChild(item);
 
 			checkbox.addEventListener("change", () => {
 				if (checkbox.checked) {
@@ -265,6 +277,7 @@ export class SearchControlsUI {
 			});
 		});
 
+		document.body.appendChild(panel);
 		this.panels.set(opts.stateKey, panel);
 
 		button.addEventListener("click", (e) => {
@@ -316,10 +329,10 @@ export class SearchControlsUI {
 		const checkbox = wrapper.createEl("input", {
 			attr: { type: "checkbox", id: "df-wide-card-checkbox" },
 			cls: "df-wide-card-checkbox",
-		});
+		}) as HTMLInputElement;
 
 		wrapper.createEl("label", {
-			text: "Wide",
+			text: dfTranslate("ui.wide"),
 			attr: { for: "df-wide-card-checkbox" },
 			cls: "df-wide-card-label",
 		});
@@ -334,10 +347,10 @@ export class SearchControlsUI {
 	private createClearButton(container: HTMLElement): void {
 		const button = container.createEl("button", {
 			cls: "df-clear-filters-btn",
-			attr: { "aria-label": "Clear filters", title: "Clear filters" },
-		});
+			attr: { "aria-label": "Clear filters", title: dfTranslate("ui.clear.filters") },
+		}) as HTMLButtonElement;
 
-		setIcon(button, "x");
+		button.innerHTML = CLEAR_ICON;
 
 		button.addEventListener("click", () => {
 			const searchInput = this.container?.querySelector(".df-search-input") as HTMLInputElement | null;
@@ -345,7 +358,7 @@ export class SearchControlsUI {
 
 			this.panels.forEach((panel) => {
 				panel.querySelectorAll(".df-multiselect-checkbox").forEach((el) => {
-					if (el.instanceOf(HTMLInputElement)) el.checked = false;
+					if (el instanceof HTMLInputElement) el.checked = false;
 				});
 			});
 
@@ -354,7 +367,7 @@ export class SearchControlsUI {
 			this.state.types.clear();
 
 			this.container?.querySelectorAll(".df-multiselect-badge").forEach((el) => {
-				if (el.instanceOf(HTMLElement)) {
+				if (el instanceof HTMLElement) {
 					const btn = el.closest<HTMLButtonElement>(".df-multiselect-toggle");
 					this.updateBadge(el, btn, 0);
 				}
@@ -388,7 +401,7 @@ export class SearchControlsUI {
 		if (!panel) return;
 
 		panel.querySelectorAll(".df-multiselect-checkbox").forEach((el) => {
-			if (el.instanceOf(HTMLInputElement)) {
+			if (el instanceof HTMLInputElement) {
 				el.checked = this.state[stateKey].has(el.value);
 			}
 		});

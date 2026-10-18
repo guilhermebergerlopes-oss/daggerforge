@@ -1,3 +1,4 @@
+import { translate as dfTranslate } from "../../i18n";
 import { Modal, Notice } from "obsidian";
 import type DaggerForgePlugin from "../../main";
 import { GearData } from "../../types/srd";
@@ -38,7 +39,7 @@ export class ItemModal extends Modal {
 	constructor(plugin: DaggerForgePlugin) {
 		super(plugin.app);
 		this.plugin = plugin;
-		this.titleEl.setText("Create an item");
+		this.titleEl.setText(dfTranslate("ui.create.an.item"));
 	}
 
 	onOpen() {
@@ -54,7 +55,7 @@ export class ItemModal extends Modal {
 
 		const nameWrap = field("Name", "What the party will call it.");
 		const nameInput = nameWrap.createEl("input", { type: "text" });
-		nameInput.placeholder = "E.g. Bag of ficklesand";
+		nameInput.placeholder = "e.g. Bag of Ficklesand";
 
 		const kindWrap = field("Kind", KIND_GUIDE.item.hint);
 		const kindHint = kindWrap.querySelector<HTMLElement>(".df-item-field-hint");
@@ -85,7 +86,7 @@ export class ItemModal extends Modal {
 		);
 		const textArea = textWrap.createEl("textarea");
 		textArea.rows = 4;
-		textArea.placeholder = "E.g. During downtime, you automatically clear a stress.";
+		textArea.placeholder = "e.g. During downtime, you automatically clear a Stress.";
 
 		kindSelect.addEventListener("change", () => {
 			const guide = KIND_GUIDE[kindSelect.value as GearData["kind"]];
@@ -94,33 +95,31 @@ export class ItemModal extends Modal {
 		});
 
 		const buttons = contentEl.createDiv({ cls: "df-cs-confirm-buttons" });
-		const create = buttons.createEl("button", { text: "Create & insert", cls: "mod-cta" });
-		create.addEventListener("click", () => {
-			void (async () => {
-				const name = nameInput.value.trim();
-				if (!name) {
-					new Notice("Give the item a name first.");
-					return;
-				}
-				const tier = Number(tierInput.value);
-				const item: GearData = {
-					id: "",
-					kind: kindSelect.value as GearData["kind"],
-					name,
-					tier: Number.isInteger(tier) && tier >= 1 && tier <= 4 ? tier : null,
-					rarity: raritySelect.value || null,
-					meta: statsInput.value.trim(),
-					text: textArea.value.trim(),
-					source: "custom",
-				};
-				await this.plugin.dataManager.upsertItem(item);
-				new Notice(`Created ${name}.`);
-				const code = await encodeGearCode(item);
-				insertAtFocusedTarget(this.plugin, buildItemEmbedBlock(item.id, code), { width: 420, height: 260 }, name);
-				this.close();
-			})();
+		const create = buttons.createEl("button", { text: dfTranslate("ui.create.insert"), cls: "mod-cta" });
+		create.addEventListener("click", async () => {
+			const name = nameInput.value.trim();
+			if (!name) {
+				new Notice(dfTranslate("ui.give.the.item.a.name.first"));
+				return;
+			}
+			const tier = Number(tierInput.value);
+			const item: GearData = {
+				id: "",
+				kind: kindSelect.value as GearData["kind"],
+				name,
+				tier: Number.isInteger(tier) && tier >= 1 && tier <= 4 ? tier : null,
+				rarity: raritySelect.value || null,
+				meta: statsInput.value.trim(),
+				text: textArea.value.trim(),
+				source: "custom",
+			};
+			await this.plugin.dataManager.upsertItem(item);
+			new Notice(`Created ${name}.`);
+			const code = await encodeGearCode(item);
+			insertAtFocusedTarget(this.plugin, buildItemEmbedBlock(item.id, code), { width: 420, height: 260 }, name);
+			this.close();
 		});
-		buttons.createEl("button", { text: "Cancel" }).addEventListener("click", () => this.close());
+		buttons.createEl("button", { text: dfTranslate("ui.cancel") }).addEventListener("click", () => this.close());
 	}
 
 	onClose() {

@@ -318,7 +318,7 @@ export function LevelUpSection({ char, update }: SectionProps) {
 
 // ── Druid Beastform ───────────────────────────────────────────────────────────
 
-function beastMeta(form: SrdBeastform, language: "de" | "en" | "pt"): string {
+function beastMeta(form: SrdBeastform, language: "pt" | "de" | "en"): string {
 	const attack =
 		`${form.attackRange}, ${form.attackTrait}, ${form.attackDamage}` +
 		(form.attackMod ? ` ${fmtMod(form.attackMod)}` : "");
@@ -338,7 +338,8 @@ export function BeastformSection({ char, update }: SectionProps) {
 		: getBeastforms("en").findIndex(
 				(beastform, index) =>
 					beastform.name === char.activeBeastform ||
-					getBeastforms("de")[index]?.name === char.activeBeastform,
+					getBeastforms("de")[index]?.name === char.activeBeastform ||
+					getBeastforms("pt")[index]?.name === char.activeBeastform,
 			);
 	const active = activeIndex >= 0 ? beastforms[activeIndex] : undefined;
 	const feature = classes.find((c) => c.id === "class-druid")

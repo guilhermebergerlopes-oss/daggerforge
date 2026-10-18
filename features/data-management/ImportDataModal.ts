@@ -1,3 +1,4 @@
+import { translate as dfTranslate } from "../../i18n";
 import { Notice, Modal, App, Setting } from "obsidian";
 import type DaggerForgePlugin from "../../main";
 import { refreshBrowsers } from "../../utils/index";
@@ -13,9 +14,9 @@ export class ImportDataModal extends Modal {
 	onOpen() {
 		const { contentEl } = this;
 		contentEl.empty();
-		contentEl.createEl("h2", { text: "Import data" });
+		contentEl.createEl("h2", { text: dfTranslate("ui.import.data") });
 		contentEl.createEl("p", { 
-			text: "Select a JSON file to import adversaries and environments. This will merge with your existing data."
+			text: dfTranslate("ui.select.a.json.file.to.import.adversaries.and.environments.this.will.merge.with.your.existing.data")
 		});
 
 		const fileInputContainer = contentEl.createDiv({ cls: "df-file-input-container" });
@@ -29,12 +30,12 @@ export class ImportDataModal extends Modal {
 		new Setting(contentEl)
 			.addButton((btn) =>
 				btn
-					.setButtonText("Import")
+					.setButtonText(dfTranslate("ui.import"))
 					.setCta()
 					.onClick(async () => {
 						const file = fileInput.files?.[0];
 						if (!file) {
-							new Notice("Please select a file first");
+							new Notice(dfTranslate("ui.please.select.a.file.first"));
 							return;
 						}
 						try {
@@ -42,13 +43,13 @@ export class ImportDataModal extends Modal {
 							this.close();
 						} catch (error) {
 							console.error("Import error:", error);
-							new Notice(`Import failed: ${error instanceof Error ? error.message : String(error)}`);
+							new Notice(`Import failed: ${error.message}`);
 						}
 					})
 			)
 			.addButton((btn) =>
 				btn
-					.setButtonText("Cancel")
+					.setButtonText(dfTranslate("ui.cancel"))
 					.onClick(() => {
 						this.close();
 					})
@@ -62,10 +63,10 @@ export class ImportDataModal extends Modal {
 			reader.onload = async (e) => {
 				try {
 					const text = e.target?.result as string;
-					const data: unknown = JSON.parse(text);
+					const data = JSON.parse(text);
 
 					if (!this.validateImportData(data)) {
-						reject(new Error("Invalid data format. File must contain 'adversaries' or 'environments' arrays."));
+						reject(new Error(dfTranslate("ui.invalid.data.format.file.must.contain.adversaries.or.environments.arrays")));
 						return;
 					}
 
@@ -74,25 +75,24 @@ export class ImportDataModal extends Modal {
 					refreshBrowsers(this.plugin);
 					resolve();
 				} catch (error) {
-					reject(error instanceof Error ? error : new Error(String(error)));
+					reject(error);
 				}
 			};
 
 			reader.onerror = () => {
-				reject(new Error("Failed to read file"));
+				reject(new Error(dfTranslate("ui.failed.to.read.file")));
 			};
 			reader.readAsText(file);
 		});
 	}
 
-	private validateImportData(data: unknown): boolean {
+	private validateImportData(data: any): boolean {
 		if (typeof data !== "object" || data === null) {
 			return false;
 		}
 
-		const record = data as Record<string, unknown>;
-		const hasAdversaries = Array.isArray(record.adversaries);
-		const hasEnvironments = Array.isArray(record.environments);
+		const hasAdversaries = Array.isArray(data.adversaries);
+		const hasEnvironments = Array.isArray(data.environments);
 
 		return hasAdversaries || hasEnvironments;
 	}

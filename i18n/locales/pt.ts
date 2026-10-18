@@ -637,7 +637,7 @@ export const pt: Record<TranslationKey, string> = {
 	"wizard.step.class": "Classe",
 	"wizard.step.subclass": "Subclasse",
 	"wizard.step.ancestry": "Ancestralidade",
-	"wizard.step.community": "Communidade",
+	"wizard.step.community": "Comunidade",
 	"wizard.step.transformation": "Transformação",
 	"wizard.step.experiences": "Experiências",
 	"wizard.step.domainCards": "Cartas de Domínio",

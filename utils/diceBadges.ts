@@ -1,38 +1,12 @@
-import { setIcon } from "obsidian";
 import { rollDice } from "../features/dice/dice";
 import { attachKeywordColors } from "./keywordBadges";
-import { saveCollapseState, restoreCollapseState, restoreTickState, restoreWideState, restoreCountdownState, handleTickChange, getCardId, updateCountdownDisplay, store } from "./collapseState";
-import { serializeChildren } from "./richContentTransform";
+import { saveCollapseState, restoreCollapseState, restoreTickState, restoreWideState, restoreCountdownState, handleTickChange, getCardId, updateCountdownDisplay } from "./collapseState";
 export { handleTickChange };
 
 const COUNTDOWN_PREFIX = "df-env-countdown:";
-
-/** Creates a `<button>` with an icon, appended into `parent`. */
-function makeIconButton(parent: HTMLElement, cls: string, label: string, icon: string): HTMLButtonElement {
-	const btn = parent.createEl("button", { cls, attr: { "aria-label": label } });
-	setIcon(btn, icon);
-	return btn;
-}
-
-/** Builds the minus/name/badge/plus(/reset) header row from real DOM nodes,
- *  so a countdown's name (user-authored, can arrive from an imported or
- *  shared record) is always inserted as text - never as HTML. */
-function buildCountdownHeader(header: HTMLElement, name: string, total: number, isLoop: boolean): void {
-	header.empty();
-
-	makeIconButton(header, "df-env-countdown-minus", "Decrease", "minus");
-	header.createSpan({ cls: "df-env-countdown-name-label", text: name });
-
-	const badge = header.createSpan({ cls: "df-env-countdown-badge" });
-	badge.createSpan({ cls: "df-env-countdown-current", text: "0" });
-	badge.appendText(`/${total}`);
-
-	makeIconButton(header, "df-env-countdown-plus", "Increase", "plus");
-
-	if (isLoop) {
-		makeIconButton(header, "df-env-countdown-reset-btn", "Reset", "undo-2");
-	}
-}
+const MINUS_SVG = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/></svg>`;
+const PLUS_SVG  = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg>`;
+const RESET_SVG = `<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 14 4 9l5-5"/><path d="M4 9h10.5a5.5 5.5 0 0 1 5.5 5.5v0a5.5 5.5 0 0 1-5.5 5.5H11"/></svg>`;
 
 function applyRolledClock(clock: HTMLElement, name: string, total: number, originalDice?: string): void {
 	clock.setAttribute("data-max", String(total));
@@ -41,17 +15,32 @@ function applyRolledClock(clock: HTMLElement, name: string, total: number, origi
 	if (originalDice) clock.setAttribute("data-original-dice", originalDice);
 
 	const isLoop = clock.dataset.loop === "true";
+	const resetBtn = isLoop
+		? `<button class="df-env-countdown-reset-btn" aria-label="Reset">${RESET_SVG}</button>`
+		: "";
 
-	const header = clock.querySelector<HTMLElement>(".df-env-countdown-header");
-	if (header) buildCountdownHeader(header, name, total, isLoop);
+	const header = clock.querySelector(".df-env-countdown-header");
+	if (header) {
+		header.innerHTML =
+			`<button class="df-env-countdown-minus" aria-label="Decrease">${MINUS_SVG}</button>` +
+			`<span class="df-env-countdown-name-label">${name}</span>` +
+			`<span class="df-env-countdown-badge"><span class="df-env-countdown-current">0</span>/${total}</span>` +
+			`<button class="df-env-countdown-plus" aria-label="Increase">${PLUS_SVG}</button>` +
+			resetBtn;
+	}
 
 	clock.querySelector(".df-env-countdown-dice-roll")?.remove();
 
 	if (!clock.querySelector(".df-env-countdown-tickboxes")) {
-		const tickboxes = clock.createDiv({ cls: "df-env-countdown-tickboxes" });
+		const tickboxes = document.createElement("div");
+		tickboxes.className = "df-env-countdown-tickboxes";
 		for (let i = 0; i < total; i++) {
-			tickboxes.createEl("input", { cls: "df-env-countdown-tick", attr: { type: "checkbox" } });
+			const tick = document.createElement("input");
+			tick.type = "checkbox";
+			tick.className = "df-env-countdown-tick";
+			tickboxes.appendChild(tick);
 		}
+		clock.appendChild(tickboxes);
 	}
 }
 
@@ -78,7 +67,7 @@ export function handleCountdownDiceRoll(
 	const id = getCardId(card) ?? "";
 	if (id) {
 		const idx = clock.getAttribute("data-countdown-idx") ?? "0";
-		store.setItem(`${COUNTDOWN_PREFIX}${id}:${idx}`, "0".repeat(total));
+		localStorage.setItem(`${COUNTDOWN_PREFIX}${id}:${idx}`, "0".repeat(total));
 	}
 }
 
@@ -103,22 +92,23 @@ export function handleCountdownReset(
 		clock.removeAttribute("data-original-dice");
 		clock.setAttribute("data-dice-max", originalDice);
 
-		const header = clock.querySelector<HTMLElement>(".df-env-countdown-header");
+		const header = clock.querySelector(".df-env-countdown-header");
 		if (header) {
-			header.empty();
-			header.createSpan({ cls: "df-env-countdown-name-label", text: name });
-			header.createSpan({ cls: "df-env-countdown-badge", text: originalDice });
+			header.innerHTML =
+				`<span class="df-env-countdown-name-label">${name}</span>` +
+				`<span class="df-env-countdown-badge">${originalDice}</span>`;
 		}
 
 		clock.querySelector(".df-env-countdown-tickboxes")?.remove();
 
-		clock.createEl("button", {
-			cls: "df-env-countdown-dice-roll",
-			text: `Roll ${originalDice}`,
-			attr: { "data-dice-expr": originalDice, "aria-label": `Roll ${originalDice}` },
-		});
+		const rollBtn = document.createElement("button");
+		rollBtn.className = "df-env-countdown-dice-roll";
+		rollBtn.dataset.diceExpr = originalDice;
+		rollBtn.setAttribute("aria-label", `Roll ${originalDice}`);
+		rollBtn.textContent = `Roll ${originalDice}`;
+		clock.appendChild(rollBtn);
 
-		if (id) store.removeItem(`${COUNTDOWN_PREFIX}${id}:${idx}`);
+		if (id) localStorage.removeItem(`${COUNTDOWN_PREFIX}${id}:${idx}`);
 	} else {
 		// Loop, no dice: just reset ticks to 0
 		clock.querySelectorAll<HTMLInputElement>(".df-env-countdown-tick")
@@ -126,7 +116,7 @@ export function handleCountdownReset(
 		updateCountdownDisplay(clock);
 
 		const max = Number(clock.getAttribute("data-max") ?? "0");
-		if (id) store.setItem(`${COUNTDOWN_PREFIX}${id}:${idx}`, "0".repeat(max));
+		if (id) localStorage.setItem(`${COUNTDOWN_PREFIX}${id}:${idx}`, "0".repeat(max));
 	}
 
 	notify(`${name}: reset`);
@@ -138,7 +128,7 @@ export function restoreRolledDiceCountdowns(section: HTMLElement): void {
 
 	section.querySelectorAll<HTMLElement>(".df-env-countdown[data-dice-max]").forEach(clock => {
 		const idx   = clock.getAttribute("data-countdown-idx") ?? "0";
-		const stored = store.getItem(`${COUNTDOWN_PREFIX}${id}:${idx}`);
+		const stored = localStorage.getItem(`${COUNTDOWN_PREFIX}${id}:${idx}`);
 		if (!stored) return;
 
 		const name  = clock.getAttribute("data-countdown-name") ?? "Countdown";
@@ -280,13 +270,12 @@ export function attachDiceBadges(section: HTMLElement): void {
  * so nothing is lost when the HTML is serialized into the source file.
  */
 export function injectDiceBadgesIntoHtml(html: string): string {
-	// DOMParser to read, serializeChildren to write back out - no direct
-	// markup-string property is used on either side (see CLAUDE.md).
-	const wrapper = new DOMParser().parseFromString(html, "text/html").body;
+	const wrapper = document.createElement("div");
+	wrapper.innerHTML = html;
 	wrapper
 		.querySelectorAll<HTMLElement>(".df-card-outer, .df-env-card-outer")
 		.forEach((section) => attachDiceBadges(section));
-	return serializeChildren(wrapper);
+	return wrapper.innerHTML;
 }
 
 /**
@@ -326,7 +315,7 @@ function collectDiceTextNodes(root: HTMLElement): Text[] {
 
 	const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
 		acceptNode(node) {
-			const parent = node.parentElement;
+			const parent = node.parentElement as HTMLElement | null;
 			// Skip nodes already inside one of our buttons or countdown sections
 			if (parent?.closest(".df-inline-dice-btn, .df-env-countdown-badge, .df-env-countdown-dice-roll")) {
 				return NodeFilter.FILTER_REJECT;
@@ -347,53 +336,46 @@ function collectDiceTextNodes(root: HTMLElement): Text[] {
 
 // ─── Node splitting ──────────────────────────────────────────────────────────
 
-// node stays in the tree as a positional cursor - every replacement piece is
-// inserted with node.before(...), preserving order, then node itself is
-// removed. This avoids a DocumentFragment (which is not an HTMLElement and
-// so has no createEl of its own) while still doing the whole splice as one
-// pass through the original text.
 function splitNodeIntoBadges(node: Text): void {
-	const parent = node.parentElement;
+	const parent = node.parentNode;
 	if (!parent) return;
 
 	const text = node.nodeValue ?? "";
 	const spans = findDiceSpans(text);
 	if (spans.length === 0) return;
 
+	const fragment = document.createDocumentFragment();
 	let cursor = 0;
 
 	for (const span of spans) {
 		if (span.start > cursor) {
-			node.before(document.createTextNode(text.slice(cursor, span.start)));
+			fragment.appendChild(document.createTextNode(text.slice(cursor, span.start)));
 		}
-		node.before(buildDiceButton(parent, text.slice(span.start, span.end)));
+		fragment.appendChild(buildDiceButton(text.slice(span.start, span.end)));
 		cursor = span.end;
 	}
 
 	if (cursor < text.length) {
-		node.before(document.createTextNode(text.slice(cursor)));
+		fragment.appendChild(document.createTextNode(text.slice(cursor)));
 	}
 
-	node.remove();
+	parent.replaceChild(fragment, node);
 }
 
 // ─── Button factory ──────────────────────────────────────────────────────────
 
 /**
- * Builds a dice button that carries its expression in data-dice, appended
- * (temporarily - the caller repositions it with Node.before()) to `parent`.
+ * Builds a dice button that carries its expression in data-dice.
  * No addEventListener - the delegated handler on document does the work.
  */
-function buildDiceButton(parent: HTMLElement, expression: string): HTMLButtonElement {
-	return parent.createEl("button", {
-		cls: "df-inline-dice-btn",
-		text: expression,
-		attr: {
-			type: "button",
-			"aria-label": `Roll ${expression}`,
-			"data-dice": expression,
-		},
-	});
+function buildDiceButton(expression: string): HTMLButtonElement {
+	const btn = document.createElement("button");
+	btn.className = "df-inline-dice-btn";
+	btn.setAttribute("type", "button");
+	btn.setAttribute("aria-label", `Roll ${expression}`);
+	btn.setAttribute("data-dice", expression);
+	btn.textContent = expression;
+	return btn;
 }
 
 // ─── Roll result tooltip ─────────────────────────────────────────────────────
@@ -403,26 +385,27 @@ function showRollResult(anchor: HTMLButtonElement, expression: string): void {
 
 	const { total, parts } = rollDice(expression);
 
-	const tooltip = anchor.createSpan({ cls: "df-inline-dice-result" });
-	tooltip.appendText(`${total} [`);
-	parts.forEach((p, i) => {
-		if (i > 0) tooltip.appendText(", ");
-		if (!p.isModifier) {
-			tooltip.appendText(String(p.value));
-			return;
-		}
+	const partsHtml = parts.map((p) => {
+		if (!p.isModifier) return String(p.value);
 		const cls = p.value >= 0 ? "df-dice-part-pos" : "df-dice-part-neg";
 		const label = p.value > 0 ? `+${p.value}` : String(p.value);
-		tooltip.createSpan({ cls, text: label });
-	});
-	tooltip.appendText("]");
+		return `<span class="${cls}">${label}</span>`;
+	}).join(", ");
+
+	const tooltip = document.createElement("span");
+	tooltip.className = "df-inline-dice-result";
+	tooltip.innerHTML = `${total} [${partsHtml}]`;
+	anchor.appendChild(tooltip);
 
 	const btnRect = anchor.getBoundingClientRect();
 	const btnCenter = btnRect.left + btnRect.width / 2;
 	if (btnCenter < window.innerWidth / 2) {
-		tooltip.setCssProps({ left: "0", transform: "none" });
+		tooltip.style.left = "0";
+		tooltip.style.transform = "none";
 	} else {
-		tooltip.setCssProps({ left: "auto", right: "0", transform: "none" });
+		tooltip.style.left = "auto";
+		tooltip.style.right = "0";
+		tooltip.style.transform = "none";
 	}
 
 	window.setTimeout(() => tooltip.remove(), _tooltipMs);

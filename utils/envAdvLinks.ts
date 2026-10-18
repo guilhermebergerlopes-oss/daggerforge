@@ -1,7 +1,8 @@
 import { App, MarkdownView } from "obsidian";
 import type DaggerForgePlugin from "../main";
 import type { AdvData } from "../types/adversary";
-import { ADVERSARIES } from "../data/index";
+import { getAdversaries } from "../data/index";
+import { getLanguage } from "../i18n";
 import { buildCardHTML } from "../features/adversaries/AdvToHtml";
 import { injectDiceBadgesIntoHtml } from "./diceBadges";
 
@@ -9,7 +10,7 @@ import { injectDiceBadgesIntoHtml } from "./diceBadges";
 // (same name = custom is the "latest" version).
 function buildNameMap(plugin: DaggerForgePlugin): Map<string, AdvData> {
 	const map = new Map<string, AdvData>();
-	ADVERSARIES.forEach(a => map.set(a.name.toLowerCase().trim(), a));
+	getAdversaries(getLanguage()).forEach(a => map.set(a.name.toLowerCase().trim(), a));
 	plugin.dataManager.getAdversaries().forEach(a => map.set(a.name.toLowerCase().trim(), a));
 	return map;
 }
@@ -86,21 +87,25 @@ export function attachPotentialAdversaryLinks(
 	if (!names.some(n => nameMap.has(n.toLowerCase()))) return;
 
 	// Rebuild the paragraph with linked names
-	advLine.empty();
+	while (advLine.firstChild) advLine.removeChild(advLine.firstChild);
 
-	advLine.createSpan({ cls: "df-bold-title", text: "Potential Adversaries" });
-	advLine.appendText(": ");
+	const label = document.createElement("span");
+	label.className = "df-bold-title";
+	label.textContent = "Potential Adversaries";
+	advLine.appendChild(label);
+	advLine.appendChild(document.createTextNode(": "));
 
 	names.forEach((name, i) => {
-		if (i > 0) advLine.appendText(", ");
+		if (i > 0) advLine.appendChild(document.createTextNode(", "));
 		if (nameMap.has(name.toLowerCase())) {
-			advLine.createEl("button", {
-				cls: "df-adv-link",
-				text: name,
-				attr: { type: "button", "data-adv-name": name },
-			});
+			const btn = document.createElement("button");
+			btn.type = "button";
+			btn.className = "df-adv-link";
+			btn.dataset.advName = name;
+			btn.textContent = name;
+			advLine.appendChild(btn);
 		} else {
-			advLine.appendText(name);
+			advLine.appendChild(document.createTextNode(name));
 		}
 	});
 }
