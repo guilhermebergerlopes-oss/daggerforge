@@ -102,6 +102,10 @@ export const en = {
 	"creation.spellcastTrait": "Spellcast Trait: {trait}",
 	"creation.foundationFeature":
 		"{feature} ({subclass} foundation): {description}",
+	"creation.specializationFeature":
+		"{feature} ({subclass} Specialization): {description}",
+	"creation.masteryFeature":
+		"{feature} ({subclass} Mastery): {description}",
 	"sheet.mixed.next":
 		"1st feature: {name} - now add the ancestry for the 2nd feature.",
 	"sheet.mixed.first": "Add the ancestry whose FIRST feature you take.",
@@ -663,6 +667,8 @@ export const en = {
 	"wizard.subclass.placeholder":
 		"Select a subclass on the left to read its foundation features.",
 	"wizard.subclass.foundation": "foundation",
+	"wizard.subclass.specialization": "Specialization",
+	"wizard.subclass.mastery": "Mastery",
 
 	"wizard.heritage.placeholder":
 		"Select a {kind} on the left to read its features.",

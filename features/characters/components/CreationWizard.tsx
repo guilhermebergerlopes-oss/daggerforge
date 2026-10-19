@@ -424,19 +424,37 @@ function SubclassStep({
 }
 
 function SubclassDetail({ subclass }: { subclass: SrdSubclass }) {
-	const t = useTranslation();
-	return (
-		<>
-			{subclass.foundation.map((f) => (
-				<div key={f.name}>
-					<p className="df-cs-cardtext-p">
-						<strong>{f.name}</strong> ({t("wizard.subclass.foundation")})
-					</p>
-					<CardText text={f.description} />
-				</div>
-			))}
-		</>
-	);
+    const t = useTranslation();
+    return (
+        <>
+            {subclass.foundation?.map((f) => (
+                <div key={f.name}>
+                    <p className="df-cs-cardtext-p">
+                        <strong>{f.name}</strong> ({t("wizard.subclass.foundation")})
+                    </p>
+                    <CardText text={f.description} />
+                </div>
+            ))}
+
+            {subclass.specialization?.map((s) => (
+                <div key={s.name}>
+                    <p className="df-cs-cardtext-p">
+                        <strong>{s.name}</strong> ({t("wizard.subclass.specialization")})
+                    </p>
+                    <CardText text={s.description} />
+                </div>
+            ))}
+
+            {subclass.mastery?.map((m) => (
+                <div key={m.name}>
+                    <p className="df-cs-cardtext-p">
+                        <strong>{m.name}</strong> ({t("wizard.subclass.mastery")})
+                    </p>
+                    <CardText text={m.description} />
+                </div>
+            ))}
+        </>
+    );
 }
 
 function HeritageDetail({ heritage }: { heritage: SrdHeritage }) {

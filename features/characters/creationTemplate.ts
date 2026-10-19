@@ -179,39 +179,70 @@ function applyClass(
 }
 
 export function buildClassFeatureText(
-	srdClass: SrdClass,
-	subclassId: string | undefined,
-	language: "en" | "de" | "pt",
+    srdClass: SrdClass,
+    subclassId: string | undefined,
+    language: "en" | "de" | "pt",
 ): string {
-	const subclass = subclassId
-		? srdClass.subclasses.find((candidate) => candidate.id === subclassId)
-		: undefined;
-	const features = srdClass.classFeatures.map((feature) =>
-		`${feature.name}: ${feature.description}`,
-	);
-	if (subclass?.spellcastTrait) {
-		features.push(
-			translate(
-				"creation.spellcastTrait",
-				{ trait: localizeTrait(subclass.spellcastTrait, language) },
-				language,
-			),
-		);
-	}
-	for (const feature of subclass?.foundation ?? []) {
-		features.push(
-			translate(
-				"creation.foundationFeature",
-				{
-					feature: feature.name,
-					subclass: subclass?.name ?? "",
-					description: feature.description,
-				},
-				language,
-			),
-		);
-	}
-	return features.join("\n\n");
+    const subclass = subclassId
+        ? srdClass.subclasses.find((candidate) => candidate.id === subclassId)
+        : undefined;
+    const features = srdClass.classFeatures.map((feature) =>
+        `${feature.name}: ${feature.description}`,
+    );
+
+    if (subclass?.spellcastTrait) {
+        features.push(
+            translate(
+                "creation.spellcastTrait",
+                { trait: localizeTrait(subclass.spellcastTrait, language) },
+                language,
+            ),
+        );
+    }
+
+    for (const feature of subclass?.foundation ?? []) {
+        features.push(
+            translate(
+                "creation.foundationFeature",
+                {
+                    feature: feature.name,
+                    subclass: subclass?.name ?? "",
+                    description: feature.description,
+                },
+                language,
+            ),
+        );
+    }
+
+    for (const feature of subclass?.specialization ?? []) {
+        features.push(
+            translate(
+                "creation.specializationFeature",
+                {
+                    feature: feature.name,
+                    subclass: subclass?.name ?? "",
+                    description: feature.description,
+                },
+                language,
+            ),
+        );
+    }
+
+    for (const feature of subclass?.mastery ?? []) {
+        features.push(
+            translate(
+                "creation.masteryFeature", 
+                {
+                    feature: feature.name,
+                    subclass: subclass?.name ?? "",
+                    description: feature.description,
+                },
+                language,
+            ),
+        );
+    }
+
+    return features.join("\n\n");
 }
 
 function findWeapon(name: string | null, language: "en" | "de" | "pt"): SrdWeapon | undefined {

@@ -104,6 +104,10 @@ export const pt: Record<TranslationKey, string> = {
 	"creation.spellcastTrait": "Atributo de Conjuração: {trait}",
 	"creation.foundationFeature":
 		"{feature} ({subclass} Fundação): {description}",
+	"creation.specializationFeature":
+		"{feature} ({subclass} Especialização): {description}",
+	"creation.masteryFeature":
+		"{feature} ({subclass} Maestria): {description}",
 	"sheet.mixed.next":
 		"1ª Habilidade: {name} - agora adicione a ancestralidade para a 2ª Habilidade.",
 	"sheet.mixed.first": "Adicone a ancestralidade para a sua PRIMEIRA habilidade.",
@@ -665,6 +669,8 @@ export const pt: Record<TranslationKey, string> = {
 	"wizard.subclass.placeholder":
 		"Selecione uma subclasse à esquerda para ler suas características fundamentais.",
 	"wizard.subclass.foundation": "Fundação",
+	"wizard.subclass.specialization": "Especialização",
+	"wizard.subclass.mastery": "Maestria",
 
 	"wizard.heritage.placeholder":
 		"Selecione uma {kind} à esquerda para ler suas características.",

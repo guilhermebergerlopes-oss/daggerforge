@@ -104,6 +104,10 @@ export const de: Record<TranslationKey, string> = {
 	"creation.classItems": "Klassengegenstände: {items}",
 	"creation.spellcastTrait": "Zauber-Attribut: {trait}",
 	"creation.foundationFeature": "{feature} ({subclass} Basis): {description}",
+	"creation.specializationFeature":
+		"{feature} ({subclass} Especialização): {description}",
+	"creation.masteryFeature":
+		"{feature} ({subclass} Maestria): {description}",
 	"sheet.mixed.next":
 		"Erstes Merkmal: {name} – füge jetzt die Abstammung für das zweite Merkmal hinzu.",
 	"sheet.mixed.first":
@@ -682,6 +686,8 @@ export const de: Record<TranslationKey, string> = {
 	"wizard.subclass.placeholder":
 		"Wähle links eine Subklasse aus, um ihre Grundlagenmerkmale zu lesen.",
 	"wizard.subclass.foundation": "Grundlage",
+	"wizard.subclass.specialization": "Specialization",
+	"wizard.subclass.mastery": "Mastery",
 
 	"wizard.heritage.placeholder":
 		"Wähle links eine {kind} aus, um ihre Merkmale zu lesen.",
