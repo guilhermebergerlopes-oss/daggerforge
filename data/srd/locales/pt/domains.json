@@ -573,7 +573,7 @@
 		"domain": "Códice",
 		"type": "Grimório",
 		"recallCost": 2,
-		"text": "_**Propelir**_: faça um **teste de conjuração** contra um alvo corpo a corpo. Em um sucesso, ele é empurrado para um ponto em alcance distante e sofre **d10+2** de dano mágico com sua Proficiência.\n\n_**Armadura de Tava**_: **gaste 1 Ponto de Esperança** para conceder um bônus de +1 na Armadura a um alvo que você possa tocar. Esse bônus dura até o próximo descanso do alvo ou até que você conjure Armadura de Tava novamente.\n\n_**Estaca de Gelo**_: faça um **teste de conjuração (12)** para invocar um grande espinho de gelo em alcance distante. Se usá-lo como arma, em vez disso, faça o teste de conjuração contra a Dificuldade do alvo. Em um sucesso, você causa **d6** de dano físico usando sua Proficiência"
+		"text": " **Propelir**: faça um **teste de conjuração** contra um alvo corpo a corpo. Em um sucesso, ele é empurrado para um ponto em alcance distante e sofre **d10+2** de dano mágico com sua Proficiência.\n\n**Armadura de Tava**: **gaste 1 Ponto de Esperança** para conceder um bônus de +1 na Armadura a um alvo que você possa tocar. Esse bônus dura até o próximo descanso do alvo ou até que você conjure Armadura de Tava novamente.\n\n**Estaca de Gelo**: faça um **teste de conjuração (12)** para invocar um grande espinho de gelo em alcance distante. Se usá-lo como arma, em vez disso, faça o teste de conjuração contra a Dificuldade do alvo. Em um sucesso, você causa **d6** de dano físico usando sua Proficiência"
 	},
 	{
 		"id": "domain-card-codex-1-book-of-illiat",
@@ -582,7 +582,7 @@
 		"domain": "Códice",
 		"type": "Grimório",
 		"recallCost": 2,
-		"text": "_**Sonolência**_: faça um **teste de conjuração** contra um alvo muito próximo. Em um sucesso, ele fica Adormecido até sofrer dano ou até o mestre gastar 1 Ponto de Medo no turno dele para encerrar a condição.\n\n_**Saraivada Arcana**_: uma vez por descanso, **gaste qualquer quantidade de Pontos de Esperança** para atirar projéteis mágicos que acertam um alvo próximo à sua escolha. Role um número de **d6** igual à quantidade de Pontos de Esperança gasta e cause o resultado deles como dano mágico ao alvo.\n\n_**Telepatia**_: gaste 1 Ponto de Esperança para criar uma linha de comunicação mental com um alvo que você possa ver. Essa conexão dura até seu próximo descanso ou até você conjurar Telepatia novamente."
+		"text": "**Sonolência**: faça um **teste de conjuração** contra um alvo muito próximo. Em um sucesso, ele fica Adormecido até sofrer dano ou até o mestre gastar 1 Ponto de Medo no turno dele para encerrar a condição.\n\n**Saraivada Arcana**: uma vez por descanso, **gaste qualquer quantidade de Pontos de Esperança** para atirar projéteis mágicos que acertam um alvo próximo à sua escolha. Role um número de **d6** igual à quantidade de Pontos de Esperança gasta e cause o resultado deles como dano mágico ao alvo.\n\n**Telepatia**: gaste 1 Ponto de Esperança para criar uma linha de comunicação mental com um alvo que você possa ver. Essa conexão dura até seu próximo descanso ou até você conjurar Telepatia novamente."
 	},
 	{
 		"id": "domain-card-codex-1-book-of-tyfar",
@@ -591,7 +591,7 @@
 		"domain": "Códice",
 		"type": "Grimório",
 		"recallCost": 2,
-		"text": "_**Chama Selvagem**_: faça um **teste de conjuração** contra até três adversários corpo a corpo. Chamas irrompem de sua mão. Alvos atingidos sofrem **2d6** de dano mágico e marcam 1 Ponto de Fadiga.\n\n_**Mão Arcana**_: você conjura uma mão mágica idêntica à sua em força e tamanho num ponto em alcance distante.\n\n_**Névoa Misteriosa**_: faça um **teste de conjuração (13)** para conjurar uma névoa densa que fica em uma área estática dentro do alcance muito próximo. A neblina deixa essa área e tudo o que há nela fortemente obscurecido"
+		"text": "**Chama Selvagem**: faça um **teste de conjuração** contra até três adversários corpo a corpo. Chamas irrompem de sua mão. Alvos atingidos sofrem **2d6** de dano mágico e marcam 1 Ponto de Fadiga.\n\n**Mão Arcana**: você conjura uma mão mágica idêntica à sua em força e tamanho num ponto em alcance distante.\n\n**Névoa Misteriosa**: faça um **teste de conjuração (13)** para conjurar uma névoa densa que fica em uma área estática dentro do alcance muito próximo. A neblina deixa essa área e tudo o que há nela fortemente obscurecido"
 	},
 	{
 		"id": "domain-card-codex-2-book-of-sitil",
@@ -600,7 +600,7 @@
 		"domain": "Códice",
 		"type": "Grimório",
 		"recallCost": 2,
-		"text": "_**Ajustar Aparência**_: você muda magicamente sua aparência e vestimentas para evitar ser reconhecido.\n\n_**Paralelos**_: **gaste 2 Pontos de Esperança** para conjurar este feitiço sobre si mesmo ou sobre um aliado próximo. Na próxima vez que o alvo fizer um ataque, ele pode acertar um alvo adicional dentro do alcance contra o qual seu teste de ataque seria bem-sucedido. Você pode manter este feitiço ativo sobre uma única criatura por vez.\n\n_**Ilusão**_: faça um **teste de conjuração (14)**. Em um sucesso, você cria uma ilusão visual temporária em um ponto em alcance próximo. Ela não pode ultrapassar seu tamanho e dura enquanto você olhar para ela. A ilusão não levanta suspeitas até um observador estar corpo a corpo dela."
+		"text": "**Ajustar Aparência**: você muda magicamente sua aparência e vestimentas para evitar ser reconhecido.\n\n**Paralelos**: **gaste 2 Pontos de Esperança** para conjurar este feitiço sobre si mesmo ou sobre um aliado próximo. Na próxima vez que o alvo fizer um ataque, ele pode acertar um alvo adicional dentro do alcance contra o qual seu teste de ataque seria bem-sucedido. Você pode manter este feitiço ativo sobre uma única criatura por vez.\n\n**Ilusão**: faça um **teste de conjuração (14)**. Em um sucesso, você cria uma ilusão visual temporária em um ponto em alcance próximo. Ela não pode ultrapassar seu tamanho e dura enquanto você olhar para ela. A ilusão não levanta suspeitas até um observador estar corpo a corpo dela."
 	},
 	{
 		"id": "domain-card-codex-2-book-of-vagras",
@@ -609,7 +609,7 @@
 		"domain": "Códice",
 		"type": "Grimório",
 		"recallCost": 2,
-		"text": "_**Tranca Rúnica**_: faça um **teste de conjuração (15)** sobre um objeto que esteja tocando e que possa fechar (como um baú, cadeado, caixa ou fechadura). Uma vez por descanso, em um sucesso, você pode trancar o objeto de modo que ele só possa ser aberto por criaturas designadas por você. Este feitiço pode ser quebrado em uma hora por uma pessoa com acesso à magia.\n\n_**Portal Arcano**_: se não houver adversários corpo a corpo, faça um **teste de conjuração (13)**. Em um sucesso, **gaste 1 Ponto de Esperança** para criar um portal de onde você está para outro ponto que você possa ver em alcance distante. Ele se fecha depois que uma criatura passar por ele.\n\n_**Revelar**_: faça um **teste de conjuração**. Se houver algo escondido por magia em alcance próximo, ela é revelada."
+		"text": "**Tranca Rúnica**: faça um **teste de conjuração (15)** sobre um objeto que esteja tocando e que possa fechar (como um baú, cadeado, caixa ou fechadura). Uma vez por descanso, em um sucesso, você pode trancar o objeto de modo que ele só possa ser aberto por criaturas designadas por você. Este feitiço pode ser quebrado em uma hora por uma pessoa com acesso à magia.\n\n**Portal Arcano**: se não houver adversários corpo a corpo, faça um **teste de conjuração (13)**. Em um sucesso, **gaste 1 Ponto de Esperança** para criar um portal de onde você está para outro ponto que você possa ver em alcance distante. Ele se fecha depois que uma criatura passar por ele.\n\n**Revelar**: faça um **teste de conjuração**. Se houver algo escondido por magia em alcance próximo, ela é revelada."
 	},
 	{
 		"id": "domain-card-codex-3-book-of-korvax",
@@ -618,7 +618,7 @@
 		"domain": "Códice",
 		"type": "Grimório",
 		"recallCost": 2,
-		"text": "_**Levitação**_: faça um **teste de conjuração** para suspender temporariamente no ar um alvo que você possa ver e movê-lo para um ponto em alcance próximo relativo à posição original dele.\n\n_**Lapso**_: **gaste 1 Ponto de Esperança** para forçar um alvo corpo a corpo a fazer um teste de reação (15). Se falhar, ele esquece o último minuto de conversa com você.\n\n_**Círculo Rúnico**_: **marque 1 Ponto de Fadiga** para criar um círculo mágico temporário abaixo de onde você está. Todos os adversários que entrarem ou estiverem em alcance cac sofrem **2d12+4** de dano mágico e são empurrados para um ponto em alcance muito próximo."
+		"text": "**Levitação**: faça um **teste de conjuração** para suspender temporariamente no ar um alvo que você possa ver e movê-lo para um ponto em alcance próximo relativo à posição original dele.\n\n**Lapso**: **gaste 1 Ponto de Esperança** para forçar um alvo corpo a corpo a fazer um teste de reação (15). Se falhar, ele esquece o último minuto de conversa com você.\n\n**Círculo Rúnico**: **marque 1 Ponto de Fadiga** para criar um círculo mágico temporário abaixo de onde você está. Todos os adversários que entrarem ou estiverem em alcance cac sofrem **2d12+4** de dano mágico e são empurrados para um ponto em alcance muito próximo."
 	},
 	{
 		"id": "domain-card-codex-3-book-of-norai",
@@ -627,7 +627,7 @@
 		"domain": "Códice",
 		"type": "Grimório",
 		"recallCost": 2,
-		"text": "_**Amarração Mística**_: faça um **teste de conjuração** contra um alvo distante. Em um sucesso, ele fica temporariamente Imobilizado e deve marcar 1 Ponto de Fadiga. Se tiver uma criatura que esteja voando como alvo, este feitiço faz com que ela aterrisse e fique temporariamente _Imobilizada_.\n\n_**Bola de Fogo**_: faça um **teste de conjuração** contra um alvo muito distante. Em um sucesso, lance uma esfera de fogo que explode ao se chocar contra ele. O alvo e todas as criaturas Muito Próximas dele devem fazer um teste de reação (13). Alvos que falharem sofrem **d20+5** de dano mágico com sua Proficiência. Alvos bem-sucedidos sofrem metade do dano."
+		"text": "**Amarração Mística**: faça um **teste de conjuração** contra um alvo distante. Em um sucesso, ele fica temporariamente Imobilizado e deve marcar 1 Ponto de Fadiga. Se tiver uma criatura que esteja voando como alvo, este feitiço faz com que ela aterrisse e fique temporariamente _Imobilizada_.\n\n**Bola de Fogo**: faça um **teste de conjuração** contra um alvo muito distante. Em um sucesso, lance uma esfera de fogo que explode ao se chocar contra ele. O alvo e todas as criaturas Muito Próximas dele devem fazer um teste de reação (13). Alvos que falharem sofrem **d20+5** de dano mágico com sua Proficiência. Alvos bem-sucedidos sofrem metade do dano."
 	},
 	{
 		"id": "domain-card-codex-4-book-of-exota",
@@ -636,7 +636,7 @@
 		"domain": "Códice",
 		"type": "Grimório",
 		"recallCost": 3,
-		"text": "_**Repudiar**_: você pode interromper um efeito mágico em andamento. Faça um teste de conjuração usando seu atributo de conjuração. Se passar, uma vez por descanso, o efeito cessa e quaisquer consequências são evitadas.\n\n_**Criar Construto**_: **gaste 1 Ponto de Esperança** para escolher um grupo de objetos ao seu redor e, a partir deles, crie um construto animado que obedece comandos básicos. Faça um **teste de conjuração** para mandá-lo agir. Quando necessário, ele compartilha sua Evasão e atributos, e os ataques dele causam **2d10+3** de dano físico. Você pode manter apenas um construto por vez, e ele se desfaz ao sofrer qualquer quantidade de dano."
+		"text": "**Repudiar**: você pode interromper um efeito mágico em andamento. Faça um teste de conjuração usando seu atributo de conjuração. Se passar, uma vez por descanso, o efeito cessa e quaisquer consequências são evitadas.\n\n**Criar Construto**: **gaste 1 Ponto de Esperança** para escolher um grupo de objetos ao seu redor e, a partir deles, crie um construto animado que obedece comandos básicos. Faça um **teste de conjuração** para mandá-lo agir. Quando necessário, ele compartilha sua Evasão e atributos, e os ataques dele causam **2d10+3** de dano físico. Você pode manter apenas um construto por vez, e ele se desfaz ao sofrer qualquer quantidade de dano."
 	},
 	{
 		"id": "domain-card-codex-4-book-of-grynn",
@@ -645,7 +645,7 @@
 		"domain": "Códice",
 		"type": "Grimório",
 		"recallCost": 2,
-		"text": "_**Deflexão**_: uma vez por descanso longo, **gaste 1 Ponto de Esperança** para negar o dano de um ataque que tenha você ou um aliado muito próximo como alvo.\n\n_**Tranca Temporal**_: escolha um objeto distante como alvo. Esse objeto para no tempo e espaço exatamente onde está até o seu próximo descanso. Se uma criatura tentar movê-lo, faça um **teste de conjuração** contra ela para sustentar este feitiço.\n\n_**Muralha de Fogo**_: faça um **teste de conjuração (15)**. Em um sucesso, crie uma muralha de fogo mágico entre dois pontos em alcance distante. Todas as criaturas no caminho dela devem escolher ficar em um dos lados, e tudo o que atravessá-la depois disso sofre 4d10+3 de dano mágico."
+		"text": "**Deflexão**: uma vez por descanso longo, **gaste 1 Ponto de Esperança** para negar o dano de um ataque que tenha você ou um aliado muito próximo como alvo.\n\n**Tranca Temporal**: escolha um objeto distante como alvo. Esse objeto para no tempo e espaço exatamente onde está até o seu próximo descanso. Se uma criatura tentar movê-lo, faça um **teste de conjuração** contra ela para sustentar este feitiço.\n\n**Muralha de Fogo**: faça um **teste de conjuração (15)**. Em um sucesso, crie uma muralha de fogo mágico entre dois pontos em alcance distante. Todas as criaturas no caminho dela devem escolher ficar em um dos lados, e tudo o que atravessá-la depois disso sofre 4d10+3 de dano mágico."
 	},
 	{
 		"id": "domain-card-codex-5-manifest-wall",
@@ -690,7 +690,7 @@
 		"domain": "Códice",
 		"type": "Grimório",
 		"recallCost": 0,
-		"text": "_**Atravessar**_: faça um **teste de conjuração (13)**. Uma vez por descanso, em um sucesso, você e todas as criaturas que o estejam tocando podem atravessar uma parede ou porta Próxima. O efeito termina quando todos estiverem do outro lado.\n\n_**Portal Planar*_: faça um **teste de conjuração (14)**. Uma vez por descanso longo, em um sucesso, abra um portal para uma localidade que você já tenha visitado em outra dimensão ou plano de existência. Esse portal perdura até seu próximo descanso."
+		"text": "**Atravessar**: faça um **teste de conjuração (13)**. Uma vez por descanso, em um sucesso, você e todas as criaturas que o estejam tocando podem atravessar uma parede ou porta Próxima. O efeito termina quando todos estiverem do outro lado.\n\n**Portal Planar*_: faça um **teste de conjuração (14)**. Uma vez por descanso longo, em um sucesso, abra um portal para uma localidade que você já tenha visitado em outra dimensão ou plano de existência. Esse portal perdura até seu próximo descanso."
 	},
 	{
 		"id": "domain-card-codex-7-codex-touched",
@@ -708,7 +708,7 @@
 		"domain": "Códice",
 		"type": "Grimório",
 		"recallCost": 2,
-		"text": "_**Clareza Compartilhada**_: uma vez por descanso longo, **gaste 1 Ponto de Esperança** para escolher duas criaturas voluntárias. Quando uma delas for marcar PF, ela pode escolher qual das duas irá marcar. Este feitiço dura até o próximo descanso dos alvos.\n\n_**Sondar Memórias**_: faça um **teste de conjuração** contra um alvo distante. Em um sucesso, espione a mente do alvo e faça uma pergunta ao mestre. O mestre descreve as memórias do alvo que estejam relacionadas à resposta."
+		"text": "**Clareza Compartilhada**: uma vez por descanso longo, **gaste 1 Ponto de Esperança** para escolher duas criaturas voluntárias. Quando uma delas for marcar PF, ela pode escolher qual das duas irá marcar. Este feitiço dura até o próximo descanso dos alvos.\n\n**Sondar Memórias**: faça um **teste de conjuração** contra um alvo distante. Em um sucesso, espione a mente do alvo e faça uma pergunta ao mestre. O mestre descreve as memórias do alvo que estejam relacionadas à resposta."
 	},
 	{
 		"id": "domain-card-codex-8-safe-haven",
@@ -726,7 +726,7 @@
 		"domain": "Códice",
 		"type": "Grimório",
 		"recallCost": 4,
-		"text": "_**Enervação Eterna**_: uma vez por descanso longo, faça um **teste de conjuração** contra um alvo próximo. Em um sucesso, ele fica permanentemente _Vulnerável_. O alvo não pode se recuperar dessa condição por quaisquer meios.\n\n_**Transformação**_: faça um **teste de conjuração (15)**. Em um sucesso, transforme-se em um objeto inanimado que não exceda o dobro de seu tamanho normal. Você pode permanecer nessa forma até sofrer dano."
+		"text": "**Enervação Eterna**: uma vez por descanso longo, faça um **teste de conjuração** contra um alvo próximo. Em um sucesso, ele fica permanentemente _Vulnerável_. O alvo não pode se recuperar dessa condição por quaisquer meios.\n\n**Transformação**: faça um **teste de conjuração (15)**. Em um sucesso, transforme-se em um objeto inanimado que não exceda o dobro de seu tamanho normal. Você pode permanecer nessa forma até sofrer dano."
 	},
 	{
 		"id": "domain-card-codex-9-disintegration-wave",
@@ -744,7 +744,7 @@
 		"domain": "Códice",
 		"type": "Grimório",
 		"recallCost": 2,
-		"text": "_**Imunidade Mágica**_: **gaste 5 Pontos de Esperança** para ficar imune a dano mágico até seu próximo descanso.\n\n_**Manipulação Temporal**_: faça um **teste de conjuração (18)**. Em um sucesso, o tempo desacelera temporariamente até parar para todos que estiverem em alcance distante, com exceção de você. Ele volta ao normal na próxima vez que você fizer um teste que tenha outra criatura como alvo."
+		"text": "**Imunidade Mágica**: **gaste 5 Pontos de Esperança** para ficar imune a dano mágico até seu próximo descanso.\n\n**Manipulação Temporal**: faça um **teste de conjuração (18)**. Em um sucesso, o tempo desacelera temporariamente até parar para todos que estiverem em alcance distante, com exceção de você. Ele volta ao normal na próxima vez que você fizer um teste que tenha outra criatura como alvo."
 	},
 	{
 		"id": "domain-card-codex-10-transcendent-union",
@@ -1167,7 +1167,7 @@
 		"domain": "Sabedoria",
 		"type": "Feitiço",
 		"recallCost": 1,
-		"text": "_**Besouros Blindados de Tekaira**_: **marque 1 PF** para conjurar um enxame de besouros ao seu redor. Na próxima vez que sofrer dano, reduza a gravidade em um limiar. Você pode **gastar 1 Ponto de Esperança** para manter os besouros conjurados após sofrer dano.\n\n_**Vaga-Lumes**_: faça um **teste de conjuração** contra todos os adversários próximos. **Gaste 1 Ponto de Esperança** para causar **2d8+3** de dano mágico aos alvos atingidos."
+		"text": "**Besouros Blindados de Tekaira**: **marque 1 PF** para conjurar um enxame de besouros ao seu redor. Na próxima vez que sofrer dano, reduza a gravidade em um limiar. Você pode **gastar 1 Ponto de Esperança** para manter os besouros conjurados após sofrer dano.\n\n**Vaga-Lumes**: faça um **teste de conjuração** contra todos os adversários próximos. **Gaste 1 Ponto de Esperança** para causar **2d8+3** de dano mágico aos alvos atingidos."
 	},
 	{
 		"id": "domain-card-sage-2-natural-familiar",
@@ -1320,7 +1320,7 @@
 		"domain": "Sabedoria",
 		"type": "Feitiço",
 		"recallCost": 2,
-		"text": "Escolha um dos tipos de tempestade abaixo e faça um **teste de conjuração** contra todos os alvos distantes. Alvos atingidos sofrem os efeitos até o mestre gastar 1 Ponto de Medo no turno dele para encerrar este feitiço.\n\n- _**Nevasca**_: causa **2d20+8** de dano mágico e deixa os alvos temporariamente _Vulneráveis._\n- _**Furacão**_: causa **3d10+10** de dano mágico. Escolha uma direção para a qual o vento sopra. Alvos não podem se mover contra o vento.\n- _**Tempestade de Areia**_: cause **5d6+9** de dano mágico. Ataques oriundos de um ponto além do alcance corpo a corpo têm desvantagem."
+		"text": "Escolha um dos tipos de tempestade abaixo e faça um **teste de conjuração** contra todos os alvos distantes. Alvos atingidos sofrem os efeitos até o mestre gastar 1 Ponto de Medo no turno dele para encerrar este feitiço.\n\n- **Nevasca**: causa **2d20+8** de dano mágico e deixa os alvos temporariamente _Vulneráveis._\n- **Furacão**: causa **3d10+10** de dano mágico. Escolha uma direção para a qual o vento sopra. Alvos não podem se mover contra o vento.\n- **Tempestade de Areia**: cause **5d6+9** de dano mágico. Ataques oriundos de um ponto além do alcance corpo a corpo têm desvantagem."
 	},
 	{
 		"id": "domain-card-splendor-1-bolt-beacon",
@@ -1518,7 +1518,7 @@
 		"domain": "Valor",
 		"type": "Talento",
 		"recallCost": 0,
-		"text": "Enquanto não equipar uma armadura, você tem Armadura base igual a 3 + sua Força e usa estes limiares de dano base:\n\n- _**1º patamar**_: 9/19;\n- _**2º patamar**_: 11/24;\n- _**3º patamar**_: 13/31;\n- _**4º patamar**_: 15/38."
+		"text": "Enquanto não equipar uma armadura, você tem Armadura base igual a 3 + sua Força e usa estes limiares de dano base:\n\n- **1º patamar**: 9/19;\n- **2º patamar**: 11/24;\n- **3º patamar**: 13/31;\n- **4º patamar**: 15/38."
 	},
 	{
 		"id": "domain-card-valor-1-forceful-push",
