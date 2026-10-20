@@ -1,279 +1,279 @@
 [
   {
-    "source": "core",
-    "name": "Agile Scout",
+    
+    "name": "Explorador Ágil",
     "tier": 1,
-    "examples": "Fox, Mouse, Weasel",
-    "trait": "Agility",
+    "examples": "Camundongo, Doninha, Raposa",
+    "trait": "Agilidade",
     "traitMod": 1,
     "evasionMod": 2,
-    "attackRange": "Melee",
-    "attackTrait": "Agility",
+    "attackRange": "Corpo a corpo",
+    "attackTrait": "Agilidade",
     "attackDamage": "d4",
     "attackMod": 0,
-    "advantages": ["deceive", "locate", "sneak"],
+    "advantages": ["enganar", "localizar", "mover-se furtivamente"],
     "features": [
-      { "name": "Agile", "text": "Your movement is silent, and you can spend a Hope to move up to Far range without rolling." },
-      { "name": "Fragile", "text": "When you take Major or greater damage, you drop out of Beastform." }
+      { "name": "Ágil", "text": "Seu movimento é silencioso e você pode gastar 1 Ponto de Esperança para se mover até um ponto distante sem precisar fazer um teste." },
+      { "name": "Frágil", "text": "Ao sofrer dano maior ou superior, você sai da Forma de Fera." }
     ]
   },
   {
-    "source": "core",
-    "name": "Aquatic Scout",
+    
+    "name": "Explorador Aquático",
     "tier": 1,
-    "examples": "Eel, Fish, Octopus",
-    "trait": "Agility",
+    "examples": "Enguia, Peixe, Polvo",
+    "trait": "Agilidade",
     "traitMod": 1,
     "evasionMod": 2,
-    "attackRange": "Melee",
-    "attackTrait": "Agility",
+    "attackRange": "Corpo a corpo",
+    "attackTrait": "Agilidade",
     "attackDamage": "d4",
     "attackMod": 0,
-    "advantages": ["navigate", "sneak", "swim"],
+    "advantages": ["orientar-se", "mover-se furtivamente", "nadar"],
     "features": [
-      { "name": "Aquatic", "text": "You can breathe and move naturally underwater." },
-      { "name": "Fragile", "text": "When you take Major or greater damage, you drop out of Beastform." }
+      { "name": "Aquático", "text": "Você pode respirar e se movimentar naturalmente embaixo d’água." },
+      { "name": "Frágil", "text": "Ao sofrer dano maior ou superior, você sai da Forma de Fera." }
     ]
   },
   {
-    "source": "core",
-    "name": "Household Friend",
+    
+    "name": "Animal Doméstico",
     "tier": 1,
-    "examples": "Cat, Dog, Rabbit",
-    "trait": "Instinct",
+    "examples": "Gato, Cachorro, Coelho",
+    "trait": "Instinto",
     "traitMod": 1,
     "evasionMod": 2,
-    "attackRange": "Melee",
-    "attackTrait": "Instinct",
+    "attackRange": "Corpo a corpo",
+    "attackTrait": "Instinto",
     "attackDamage": "d6",
     "attackMod": 0,
-    "advantages": ["climb", "locate", "protect"],
+    "advantages": ["escalar", "localizar", "proteger"],
     "features": [
-      { "name": "Companion", "text": "When you Help an Ally, you can roll a d8 as your advantage die." },
-      { "name": "Fragile", "text": "When you take Major or greater damage, you drop out of Beastform." }
+      { "name": "Companhia", "text": "Ao ajudar um aliado, você pode rolar 1d8 como seu dado de vantagem." },
+      { "name": "Frágil", "text": "Ao sofrer dano maior ou superior, você sai da Forma de Fera." }
     ]
   },
   {
-    "source": "core",
-    "name": "Nimble Grazer",
+    
+    "name": "Ruminante Arisco",
     "tier": 1,
-    "examples": "Deer, Gazelle, Goat",
-    "trait": "Agility",
+    "examples": "Cabra, Cervo, Gazela",
+    "trait": "Agilidade",
     "traitMod": 1,
     "evasionMod": 3,
-    "attackRange": "Melee",
-    "attackTrait": "Agility",
+    "attackRange": "Corpo a corpo",
+    "attackTrait": "Agilidade",
     "attackDamage": "d6",
     "attackMod": 0,
-    "advantages": ["leap", "sneak", "sprint"],
+    "advantages": ["saltar", "mover-se furtivamente", "correr"],
     "features": [
-      { "name": "Elusive Prey", "text": "When an attack roll against you would succeed, you can mark a Stress and roll a d4. Add the result to your Evasion against this attack." },
-      { "name": "Fragile", "text": "When you take Major or greater damage, you drop out of Beastform." }
+      { "name": "Presa Arisca", "text": "Quando sofre um ataque, você pode marcar 1 Ponto de Fadiga para rolar 1d4 e somar o resultado à sua Evasão contra esse ataque." },
+      { "name": "Frágil", "text": "Ao sofrer dano maior ou superior, você sai da Forma de Fera." }
     ]
   },
   {
-    "source": "core",
-    "name": "Pack Predator",
+    
+    "name": "Predador de Bando",
     "tier": 1,
-    "examples": "Coyote, Hyena, Wolf",
-    "trait": "Strength",
+    "examples": "Coiote, Hiena, Lobo ",
+    "trait": "Força",
     "traitMod": 2,
     "evasionMod": 1,
-    "attackRange": "Melee",
-    "attackTrait": "Strength",
+    "attackRange": "Corpo a corpo",
+    "attackTrait": "Força",
     "attackDamage": "d8",
     "attackMod": 2,
-    "advantages": ["attack", "sprint", "track"],
+    "advantages": ["atacar", "correr", "rastrear"],
     "features": [
-      { "name": "Hobbling Strike", "text": "When you succeed on an attack against a target within Melee range, you can mark a Stress to make the target temporarily Vulnerable." },
-      { "name": "Pack Hunting", "text": "When you succeed on an attack against the same target as an ally who acts immediately before you, add a d8 to your damage roll." }
+      { "name": "Golpe Debilitante", "text": "Quando você acerta um ataque contra um alvo corpo a corpo, você pode marcar 1 Ponto de Fadiga para torná-lo temporariamente Vulnerável." },
+      { "name": "Caça em Bando", "text": "Quando você acerta um ataque contra um alvo atingido por um aliado imediatamente antes de você, seu dano aumenta em +1d8." }
     ]
   },
   {
-    "source": "core",
-    "name": "Stalking Arachnid",
+    
+    "name": "Aracnídeo Espreitador",
     "tier": 1,
-    "examples": "Tarantula, Wolf Spider",
-    "trait": "Finesse",
+    "examples": "Aranha-lobo, Tarântula",
+    "trait": "Acuidade",
     "traitMod": 1,
     "evasionMod": 2,
-    "attackRange": "Melee",
-    "attackTrait": "Finesse",
+    "attackRange": "Corpo a corpo",
+    "attackTrait": "Acuidade",
     "attackDamage": "d6",
     "attackMod": 1,
-    "advantages": ["attack", "climb", "sneak"],
+    "advantages": ["atacar", "escalar", "mover-se furtivamente"],
     "features": [
-      { "name": "Venomous Bite", "text": "When you succeed on an attack against a target within Melee range, the target becomes temporarily Poisoned. A Poisoned creature takes 1d10 direct physical damage each time they act." },
-      { "name": "Webslinger", "text": "You can create a strong web material useful for both adventuring and battle. The web is resilient enough to support one creature. You can temporarily Restrain a target within Close range by succeeding on a Finesse Roll against them." }
+      { "name": "Picada Peçonhenta", "text": "Você pode criar uma poderosa teia, útil em explorações e em batalhas. Ela é forte o bastante para suportar uma criatura. Você pode Imobilizar temporariamente um alvo próximo se passar em um teste de Acuidade contra ele." },
+      { "name": "Lança-teia", "text": "Quando acerta um ataque contra um alvo corpo a corpo, você o deixa temporariamente Envenenado. Uma criatura Envenenada sofre 1d10 de dano físico direto cada vez que age." }
     ]
   },
   {
-    "source": "core",
-    "name": "Armored Sentry",
+    
+    "name": "Carapaça Vigilante",
     "tier": 2,
-    "examples": "Armadillo, Pangolin, Turtle",
-    "trait": "Strength",
+    "examples": "Pangolim, Tartaruga, Tatu",
+    "trait": "Força",
     "traitMod": 1,
     "evasionMod": 1,
-    "attackRange": "Melee",
-    "attackTrait": "Strength",
+    "attackRange": "Corpo a corpo",
+    "attackTrait": "Força",
     "attackDamage": "d8",
     "attackMod": 2,
-    "advantages": ["dig", "locate", "protect"],
+    "advantages": ["cavar", "localizar", "proteger"],
     "features": [
-      { "name": "Armored Shell", "text": "Your hardened exterior gives you resistance to physical damage. Additionally, mark an Armor Slot to retract into your shell. While in your shell, physical damage is reduced by a number equal to your Armor Score (after applying resistance), but you can't perform other actions without leaving this form." },
-      { "name": "Cannonball", "text": "Mark a Stress to allow an ally to throw or launch you at an adversary. To do so, the ally makes an attack roll using Agility or Strength (their choice) against a target within Close range. On a success, the adversary takes d12+2 physical damage using the thrower's Proficiency. You can spend a Hope to target an additional adversary within Very Close range of the first. The second target takes half the damage dealt to the first target." }
+      { "name": "Carapaça Reforçada", "text": "Seu exterior sólido concede resistência a dano físico. Além disso, você pode marcar 1 Ponto de Armadura para se recolher em sua carapaça. Enquanto estiver dentro dela, o dano físico que você sofre é reduzido em um número igual à sua Armadura (após aplicar a resistência), mas você não pode realizar outras ações.." },
+      { "name": "Canhão Ricochete", "text": "Marque 1 Ponto de Fadiga para que um aliado arremesse você contra um adversário. Para fazer isso, o aliado faz um teste de ataque usando Agilidade ou Força (à escolha dele) contra um alvo próximo. Em um sucesso, o adversário sofre d12+2 de dano físico usando a Proficiência de seu aliado. Você pode gastar 1 Ponto de Esperança para escolher outro adversário muito próximo do primeiro como alvo. O segundo alvo sofre metade do dano causado ao primeiro." }
     ]
   },
   {
-    "source": "core",
-    "name": "Mighty Strider",
+    
+    "name": "Trotador Robusto",
     "tier": 2,
-    "examples": "Camel, Horse, Zebra",
-    "trait": "Agility",
+    "examples": "Camelo, Cavalo, Zebra",
+    "trait": "Agilidade",
     "traitMod": 1,
     "evasionMod": 2,
-    "attackRange": "Melee",
-    "attackTrait": "Agility",
+    "attackRange": "Corpo a corpo",
+    "attackTrait": "Agilidade",
     "attackDamage": "d8",
     "attackMod": 1,
-    "advantages": ["leap", "navigate", "sprint"],
+    "advantages": ["saltar", "orientar-se", "correr"],
     "features": [
-      { "name": "Carrier", "text": "You can carry up to two willing allies with you when you move." },
-      { "name": "Trample", "text": "Mark a Stress to move up to Close range in a straight line and make an attack against all targets within Melee range of the line. Targets you succeed against take d8+1 physical damage using your Proficiency and are temporarily Vulnerable." }
+      { "name": "Besta de Carga", "text": "Você pode carregar até dois aliados voluntários com você enquanto se movimenta." },
+      { "name": "Atropelar", "text": "Marque 1 Ponto de Fadiga para se mover até um ponto em alcance próximo em linha reta e atacar todos os alvos corpo a corpo à linha. Alvos atingidos sofrem d8+1 de dano físico usando sua Proficiência e ficam temporariamente Vulneráveis." }
     ]
   },
   {
-    "source": "core",
-    "name": "Pouncing Predator",
+    
+    "name": "Predador Furtivo",
     "tier": 2,
-    "examples": "Cheetah, Lion, Panther",
-    "trait": "Instinct",
+    "examples": "Guepardo, Leão, Onça ",
+    "trait": "Instinto",
     "traitMod": 1,
     "evasionMod": 3,
-    "attackRange": "Melee",
-    "attackTrait": "Instinct",
+    "attackRange": "Corpo a corpo",
+    "attackTrait": "Instinto",
     "attackDamage": "d8",
     "attackMod": 6,
-    "advantages": ["attack", "climb", "sneak"],
+    "advantages": ["atacar", "escalar", "mover-se furtivamente"],
     "features": [
-      { "name": "Fleet", "text": "Spend a Hope to move up to Far range without rolling." },
-      { "name": "Takedown", "text": "Mark a Stress to move into Melee range of a target and make an attack roll against them. On a success, you gain a +2 bonus to your Proficiency for this attack and the target must mark a Stress." }
+      { "name": "Disparada", "text": "Spend a Hope to move up to Far range without rolling." },
+      { "name": "Abate", "text": "Marque 1 Ponto de Fadiga para se mover até ficar corpo a corpo a um alvo e fazer um teste de ataque contra ele. Em um sucesso, você recebe +2 em sua Proficiência para esse ataque e o alvo deve marcar 1 Ponto de Fadiga." }
     ]
   },
   {
-    "source": "core",
-    "name": "Powerful Beast",
+    
+    "name": "Fera Poderosa",
     "tier": 2,
-    "examples": "Bear, Bull, Moose",
-    "trait": "Strength",
+    "examples": "Alce, Touro, Urso",
+    "trait": "Força",
     "traitMod": 3,
     "evasionMod": 1,
-    "attackRange": "Melee",
-    "attackTrait": "Strength",
+    "attackRange": "Corpo a corpo",
+    "attackTrait": "Força",
     "attackDamage": "d10",
     "attackMod": 4,
-    "advantages": ["navigate", "protect", "scare"],
+    "advantages": ["orientar-se", "proteger", "intimidar"],
     "features": [
-      { "name": "Rampage", "text": "When you roll a 1 on a damage die, you can roll a d10 and add the result to the damage roll. Additionally, before you make an attack roll, you can mark a Stress to gain a +1 bonus to your Proficiency for that attack." },
-      { "name": "Thick Hide", "text": "You gain a +2 bonus to your damage thresholds." }
+      { "name": "Ataque Violento", "text": "Quando tira 1 em um dado de dano, você pode rolar 1d10 e somar o resultado à rolagem de dano. Além disso, antes de fazer um teste de ataque, você pode marcar 1 Ponto de Fadiga para receber um bônus de +1 em sua Proficiência para esse ataque." },
+      { "name": "Couro Espesso", "text": "Você recebe +2 de bônus nos seus limiares de dano." }
     ]
   },
   {
-    "source": "core",
-    "name": "Striking Serpent",
+    
+    "name": "Serpente Traiçoeira",
     "tier": 2,
-    "examples": "Cobra, Rattlesnake, Viper",
-    "trait": "Finesse",
+    "examples": "Cascavel, Naja, Víbora",
+    "trait": "Acuidade",
     "traitMod": 1,
     "evasionMod": 2,
-    "attackRange": "Very Close",
-    "attackTrait": "Finesse",
+    "attackRange": "Muito Próximo",
+    "attackTrait": "Acuidade",
     "attackDamage": "d8",
     "attackMod": 4,
-    "advantages": ["climb", "deceive", "sprint"],
+    "advantages": ["escalar", "enganar", "correr"],
     "features": [
-      { "name": "Venomous Strike", "text": "Make an attack against any number of targets within Very Close range. On a success, a target is temporarily Poisoned. A Poisoned creature takes 1d10 direct physical damage each time they act." },
-      { "name": "Warning Hiss", "text": "Mark a Stress to force any number of targets within Melee range to move back to Very Close range." }
+      { "name": "Bote Peçonhento", "text": "Faça um ataque contra qualquer número de alvos muito próximos. Em um sucesso, o alvo fica temporariamente Envenenado. Uma criatura Envenenada sofre 1d10 de dano físico direto a cada vez que age." },
+      { "name": "Silvo de alerta", "text": "Marque 1 Ponto de Fadiga para forçar qualquer número de alvos corpo a corpo a se afastarem até ficarem muito próximos." }
     ]
   },
   {
-    "source": "core",
-    "name": "Winged Beast",
+    
+    "name": "Fera Alada",
     "tier": 2,
-    "examples": "Hawk, Owl, Raven",
-    "trait": "Finesse",
+    "examples": "Coruja, Corvo, Gavião",
+    "trait": "Acuidade",
     "traitMod": 1,
     "evasionMod": 3,
-    "attackRange": "Melee",
-    "attackTrait": "Finesse",
+    "attackRange": "Corpo a corpo",
+    "attackTrait": "Acuidade",
     "attackDamage": "d4",
     "attackMod": 2,
-    "advantages": ["deceive", "locate", "scare"],
+    "advantages": ["enganar", "localizar", "intimidar"],
     "features": [
-      { "name": "Bird's-Eye View", "text": "You can fly at will. Once per rest while you are airborne, you can ask the GM a question about the scene below you without needing to roll. The first time a character makes a roll to act on this information, they gain advantage on the roll." },
-      { "name": "Hollow Bones", "text": "You gain a -2 penalty to your damage thresholds." }
+      { "name": "Visão Aérea", "text": "Você pode voar à vontade. Uma vez por descanso, e enquanto estiver no ar, você pode perguntar ao mestre algo sobre a paisagem abaixo sem precisar de teste. Na primeira vez em que um personagem fizer um teste para agir em relação a essa informação, ele o faz com vantagem." },
+      { "name": "Ossos Ocos", "text": "Você sofre uma penalidade de –2 nos seus limiares de dano." }
     ]
   },
   {
-    "source": "core",
-    "name": "Aquatic Predator",
+    
+    "name": "Predador Aquático",
     "tier": 3,
-    "examples": "Dolphin, Orca, Shark",
-    "trait": "Agility",
+    "examples": "Golfinho, Orca, Tubarão ",
+    "trait": "Agilidade",
     "traitMod": 2,
     "evasionMod": 4,
-    "attackRange": "Melee",
-    "attackTrait": "Agility",
+    "attackRange": "Corpo a corpo",
+    "attackTrait": "Agilidade",
     "attackDamage": "d10",
     "attackMod": 6,
-    "advantages": ["attack", "swim", "track"],
+    "advantages": ["atacar", "nadar", "rastrear"],
     "features": [
-      { "name": "Aquatic", "text": "You can breathe and move naturally underwater." },
-      { "name": "Vicious Maul", "text": "When you succeed on an attack against a target, you can spend a Hope to make them Vulnerable and gain a +1 bonus to your Proficiency for this attack." }
+      { "name": "Aquático", "text": "Você pode respirar e se movimentar naturalmente embaixo d’água." },
+      { "name": "Ataque Voraz", "text": "Quando acerta um ataque em um alvo, você pode gastar 1 Ponto de Esperança para deixá-lo temporariamente Vulnerável e receber um bônus de +1 em Proficiência nesse ataque." }
     ]
   },
   {
-    "source": "core",
-    "name": "Great Predator",
+    
+    "name": "Grande Predador",
     "tier": 3,
-    "examples": "Dire Wolf, Velociraptor, Sabertooth Tiger",
-    "trait": "Strength",
+    "examples": "(Lobo-atroz, Tigre-dentes-de-sabre, Velociraptor",
+    "trait": "Força",
     "traitMod": 2,
     "evasionMod": 2,
-    "attackRange": "Melee",
-    "attackTrait": "Strength",
+    "attackRange": "Corpo a corpo",
+    "attackTrait": "Força",
     "attackDamage": "d12",
     "attackMod": 8,
-    "advantages": ["attack", "sneak", "sprint"],
+    "advantages": ["atacar", "mover-se furtivamente", "correr"],
     "features": [
-      { "name": "Carrier", "text": "You can carry up to two willing allies with you when you move." },
-      { "name": "Vicious Maul", "text": "When you succeed on an attack against a target, you can spend a Hope to make them temporarily Vulnerable and gain a +1 bonus to your Proficiency for this attack." }
+      { "name": "Besta de Carga", "text": "Você pode carregar até dois aliados voluntários com você enquanto se movimenta." },
+      { "name": "Ataque Voraz", "text": "Quando acerta um ataque em um alvo, você pode gastar 1 Ponto de Esperança para deixá-lo temporariamente Vulnerável e receber um bônus de +1 em Proficiência nesse ataque." }
     ]
   },
   {
-    "source": "core",
-    "name": "Great Winged Beast",
+    
+    "name": "Grande Fera Alada",
     "tier": 3,
-    "examples": "Giant Eagle, Falcon",
-    "trait": "Finesse",
+    "examples": "Águia-gigante, Falcão",
+    "trait": "Acuidade",
     "traitMod": 2,
     "evasionMod": 3,
-    "attackRange": "Melee",
-    "attackTrait": "Finesse",
+    "attackRange": "Corpo a corpo",
+    "attackTrait": "Acuidade",
     "attackDamage": "d8",
     "attackMod": 6,
-    "advantages": ["deceive", "distract", "locate"],
+    "advantages": ["enganar", "enganar", "localizar"],
     "features": [
-      { "name": "Bird's-Eye View", "text": "You can fly at will. Once per rest while you are airborne, you can ask the GM a question about the scene below you without needing to roll. The first time a character makes a roll to act on this information, they gain advantage on the roll." },
-      { "name": "Carrier", "text": "You can carry up to two willing allies with you when you move." }
+      { "name": "Bird's-Eye View", "text": "Você pode voar à vontade. Uma vez por descanso, e enquanto estiver no ar, você pode perguntar ao mestre algo sobre a paisagem abaixo sem precisar de teste. Na primeira vez em que um personagem fizer um teste para agir em relação a essa informação, ele o faz com vantagem." },
+      { "name": "Besta de Carga", "text": "Você pode carregar até dois aliados voluntários com você enquanto se movimenta." }
     ]
   },
   {
-    "source": "core",
-    "name": "Legendary Beast",
+    
+    "name": "Fera Lendária",
     "tier": 3,
-    "examples": "Upgraded Tier 1 Options",
+    "examples": "Aprimoramento de 1º Patamar",
     "trait": null,
     "traitMod": null,
     "evasionMod": null,
@@ -283,104 +283,104 @@
     "attackMod": null,
     "advantages": [],
     "features": [
-      { "name": "Evolved", "text": "Pick a Tier 1 Beastform option and become a larger, more powerful version of that creature. While you're in this form, you retain all traits and features from the original form and gain the following bonuses: +6 bonus to damage rolls, +1 bonus to the trait used by this form, +2 bonus to Evasion." }
+      { "name": "Evoluído", "text": "Escolha uma Forma de Fera de 1º patamar e torne-se uma versão maior e mais poderosa dela. Enquanto estiver nessa forma, você mantém todos os atributos e habilidades da forma original e recebe os seguintes bônus: • Bônus de +6 em rolagens de dano; • Bônus de +1 no atributo da forma; • Bônus de +2 na Evasão." }
     ]
   },
   {
-    "source": "core",
-    "name": "Legendary Hybrid",
+    
+    "name": "Híbrido Lendário",
     "tier": 3,
-    "examples": "Griffon, Sphinx",
-    "trait": "Strength",
+    "examples": "Esfinge, Grifo",
+    "trait": "Força",
     "traitMod": 2,
     "evasionMod": 3,
-    "attackRange": "Melee",
-    "attackTrait": "Strength",
+    "attackRange": "Corpo a corpo",
+    "attackTrait": "Força",
     "attackDamage": "d10",
     "attackMod": 8,
     "advantages": [],
     "features": [
-      { "name": "Hybrid Features", "text": "To transform into this creature, mark an additional Stress. Choose any two Beastform options from Tiers 1-2. Choose a total of four advantages and two features from those options." }
+      { "name": "Habilidades Híbridas", "text": "Marque 1 Ponto de Fadiga adicional para se transformar nesta criatura. Escolha duas opções quaisquer de Forma de Fera de 1º a 2º patamar. Escolha um total de quatro vantagens e duas habilidades dessas opções." }
     ]
   },
   {
-    "source": "core",
-    "name": "Mighty Lizard",
+    
+    "name": "Lagarto Poderoso",
     "tier": 3,
-    "examples": "Alligator, Crocodile, Gila Monster",
-    "trait": "Instinct",
+    "examples": "Crocodilo, Jacaré, Monstro-de-gila",
+    "trait": "Instinto",
     "traitMod": 2,
     "evasionMod": 1,
-    "attackRange": "Melee",
-    "attackTrait": "Instinct",
+    "attackRange": "Corpo a corpo",
+    "attackTrait": "Instinto",
     "attackDamage": "d10",
     "attackMod": 7,
-    "advantages": ["attack", "sneak", "track"],
+    "advantages": ["atacar", "mover-se furtivamente", "rastrear"],
     "features": [
-      { "name": "Physical Defense", "text": "You gain a +3 bonus to your damage thresholds." },
-      { "name": "Snapping Strike", "text": "When you succeed on an attack against a target within Melee range, you can spend a Hope to clamp that opponent in your jaws, making them temporarily Restrained and Vulnerable." }
+      { "name": "Armadura Física", "text": "Você recebe um bônus de +3 em seus limiares de dano." },
+      { "name": "Golpe Súbito", "text": "Quando acerta um ataque contra um alvo corpo a corpo, você pode gastar 1 Ponto de Esperança para segurá-lo com a mandíbula, deixando-o temporariamente Imobilizado e Vulnerável." }
     ]
   },
   {
-    "source": "core",
-    "name": "Epic Aquatic Beast",
+    
+    "name": "Fera Aquática Épica",
     "tier": 4,
-    "examples": "Giant Squid, Whale",
-    "trait": "Agility",
+    "examples": "Baleia, Lula-gigante",
+    "trait": "Agilidade",
     "traitMod": 3,
     "evasionMod": 3,
-    "attackRange": "Melee",
-    "attackTrait": "Agility",
+    "attackRange": "Corpo a corpo",
+    "attackTrait": "Agilidade",
     "attackDamage": "d10",
     "attackMod": 10,
-    "advantages": ["locate", "protect", "scare", "track"],
+    "advantages": ["localizar", "proteger", "intimidar", "rastrear"],
     "features": [
-      { "name": "Ocean Master", "text": "You can breathe and move naturally underwater. When you succeed on an attack against a target within Melee range, you can temporarily Restrain them." },
-      { "name": "Unyielding", "text": "When you would mark an Armor Slot, roll a d6. On a result of 5 or higher, reduce the severity by one threshold without marking an Armor Slot." }
+      { "name": "Mestre do Oceano", "text": "Você pode respirar e se movimentar naturalmente embaixo d’água. Quando acerta um ataque contra um alvo corpo a corpo, você pode deixá-lo temporariamente Imobilizado." },
+      { "name": "Robusto", "text": "Quando for marcar Ponto de Armadura, role 1d6. Em um resultado 5 ou mais, reduza a gravidade em um limiar sem marcar PA." }
     ]
   },
   {
-    "source": "core",
-    "name": "Massive Behemoth",
+    
+    "name": "FERA MASSIVA",
     "tier": 4,
-    "examples": "Elephant, Mammoth, Rhinoceros",
-    "trait": "Strength",
+    "examples": "Elefante, Mamute, Rinoceronte ",
+    "trait": "Força",
     "traitMod": 3,
     "evasionMod": 1,
-    "attackRange": "Melee",
-    "attackTrait": "Strength",
+    "attackRange": "Corpo a corpo",
+    "attackTrait": "Força",
     "attackDamage": "d12",
     "attackMod": 12,
-    "advantages": ["locate", "protect", "scare", "sprint"],
+    "advantages": ["localizar", "proteger", "intimidar", "correr"],
     "features": [
-      { "name": "Carrier", "text": "You can carry up to four willing allies with you when you move." },
-      { "name": "Demolish", "text": "Spend a Hope to move up to Far range in a straight line and make an attack against all targets within Melee range of the line. Targets you succeed against take d8+10 physical damage using your Proficiency and are temporarily Vulnerable." },
-      { "name": "Undaunted", "text": "You gain a +2 bonus to all your damage thresholds." }
+      { "name": "Besta de Carga", "text": "Você pode carregar até quatro aliados voluntários com você enquanto se movimenta." },
+      { "name": "Demolir", "text": "Gaste 1 Ponto de Esperança para se mover até um ponto distante em linha reta e atacar todos os alvos corpo a corpo à linha. Alvos atingidos sofrem d8+10 de dano físico usando sua Proficiência e ficam temporariamente Vulneráveis." },
+      { "name": "Impávido", "text": "Você recebe um bônus de +2 em seus limiares de dano." }
     ]
   },
   {
-    "source": "core",
-    "name": "Mythic Aerial Hunter",
+    
+    "name": "Caçador Aéreo Mítico",
     "tier": 4,
-    "examples": "Dragon, Pterodactyl, Roc, Wyvern",
-    "trait": "Finesse",
+    "examples": "Dragão, Pterodáctilo, Roca, Serpe",
+    "trait": "Acuidade",
     "traitMod": 3,
     "evasionMod": 4,
-    "attackRange": "Melee",
-    "attackTrait": "Finesse",
+    "attackRange": "Corpo a corpo",
+    "attackTrait": "Acuidade",
     "attackDamage": "d10",
     "attackMod": 11,
-    "advantages": ["attack", "deceive", "locate", "navigate"],
+    "advantages": ["atacar", "enganar", "localizar", "orientar-se"],
     "features": [
-      { "name": "Carrier", "text": "You can carry up to three willing allies with you when you move." },
-      { "name": "Deadly Raptor", "text": "You can fly at will and move up to Far range as part of your action. When you move in a straight line into Melee range of a target from at least Close range and make an attack against that target in the same action, you can reroll all damage dice that rolled a result lower than your Proficiency." }
+      { "name": "Besta de Carga", "text": "Você pode carregar até três aliados voluntários com você enquanto se movimenta." },
+      { "name": "Ave de Rapina Mortal", "text": "Você pode voar à vontade e se mover até um ponto em alcance distante como parte da sua ação. Quando ataca um alvo após se mover em linha reta até ficar corpo a corpo a ele a partir de próximo ou maior, você pode rolar novamente todos os dados de dano com um resultado menor que sua Proficiência." }
     ]
   },
   {
-    "source": "core",
-    "name": "Mythic Beast",
+    
+    "name": "Fera Mítica",
     "tier": 4,
-    "examples": "Upgraded Tier 1 or Tier 2 Options",
+    "examples": "Aprimoramento de 1º ou 2º patamar",
     "trait": null,
     "traitMod": null,
     "evasionMod": null,
@@ -390,42 +390,42 @@
     "attackMod": null,
     "advantages": [],
     "features": [
-      { "name": "Evolved", "text": "Pick a Tier 1 or Tier 2 Beastform option and become a larger, more powerful version of that creature. While in this form, you retain all traits and features from the original form and gain: +9 bonus to damage rolls, +2 bonus to the trait used by this form, +3 bonus to Evasion, and your damage die increases by one size (d6 becomes d8, d8 becomes d10, etc.)." }
+      { "name": "Evoluído", "text": "Escolha uma Forma de Fera de 1º ou 2° patamar e torne-se uma versão maior e mais poderosa dela. Enquanto estiver nessa forma, você mantém os atributos e habilidades da forma original e recebe os seguintes bônus: • Bônus de +9 rolagens de dano; • Bônus de +2 no atributo da forma; • Bônus de +3 na Evasão; • Seu dado de dano aumenta em um passo (d6 para d8, d8 para d10 etc.).." }
     ]
   },
   {
-    "source": "core",
-    "name": "Mythic Hybrid",
+    
+    "name": "Híbrido Mítico",
     "tier": 4,
-    "examples": "Chimera, Cockatrice, Manticore",
-    "trait": "Strength",
+    "examples": "Cocatriz, Mantícora, Quimera",
+    "trait": "Força",
     "traitMod": 3,
     "evasionMod": 2,
-    "attackRange": "Melee",
-    "attackTrait": "Strength",
+    "attackRange": "Corpo a corpo",
+    "attackTrait": "Força",
     "attackDamage": "d12",
     "attackMod": 10,
     "advantages": [],
     "features": [
-      { "name": "Hybrid Features", "text": "To transform into this creature, mark 2 additional Stress. Choose any three Beastform options from Tiers 1-3. Choose a total of five advantages and three features from those options." }
+      { "name": "Habilidades Híbridas", "text": "Marque 2 Ponto de Fadiga adicionais para se transformar nesta criatura. Escolha duas opções quaisquer de Forma de Fera de 1º a 3º patamar. Escolha um total de cinco vantagens e três habilidades dessas opções." }
     ]
   },
   {
-    "source": "core",
-    "name": "Terrible Lizard",
+    
+    "name": "Lagarto Terrível",
     "tier": 4,
-    "examples": "Brachiosaurus, Tyrannosaurus",
-    "trait": "Strength",
+    "examples": "Braquiossauro, Tiranossauro",
+    "trait": "Força",
     "traitMod": 3,
     "evasionMod": 2,
-    "attackRange": "Melee",
-    "attackTrait": "Strength",
+    "attackRange": "Corpo a corpo",
+    "attackTrait": "Força",
     "attackDamage": "d12",
     "attackMod": 10,
-    "advantages": ["attack", "deceive", "scare", "track"],
+    "advantages": ["atacar", "enganar", "intimidar", "rastrear"],
     "features": [
-      { "name": "Devastating Strikes", "text": "When you deal Severe damage to a target within Melee range, you can mark a Stress to force them to mark an additional Hit Point." },
-      { "name": "Massive Stride", "text": "You can move up to Far range without rolling. You ignore rough terrain (at the GM's discretion) due to your size." }
+      { "name": "Golpes Devastadores", "text": "Quando causa dano grave em um alvo corpo a corpo, você pode marcar 1 Ponto de Fadiga para forçá-lo a marcar 1 PV adicional." },
+      { "name": "Disparada Massiva", "text": "Você pode se mover até um ponto em alcance distante sem precisar fazer uma teste. Você ignora terreno difícil (a critério do mestre) devido ao seu tamanho." }
     ]
   }
 ]
