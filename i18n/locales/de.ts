@@ -183,6 +183,7 @@ export const de: Record<TranslationKey, string> = {
 	"ui.dynamic.added": "Hinzugefügt ✓",
 	"ui.dynamic.adversary.browser": "Gegnerübersicht",
 	"ui.dynamic.all.kinds": "Alle Kategorien",
+	"ui.dynamic.all.categories": "Alle Kategorien",
 	"ui.dynamic.change.picture": "Bild ändern",
 	"ui.dynamic.character.imported.from.code": "Charakter aus Code importiert.",
 	"ui.dynamic.character.updated.from.code":

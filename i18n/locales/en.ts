@@ -180,6 +180,7 @@ export const en = {
 	"ui.dynamic.added": "Added ✓",
 	"ui.dynamic.adversary.browser": "Adversary Browser",
 	"ui.dynamic.all.kinds": "All kinds",
+	"ui.dynamic.all.categories": "All categories",
 	"ui.dynamic.change.picture": "Change picture",
 	"ui.dynamic.character.imported.from.code": "Character imported from code.",
 	"ui.dynamic.character.updated.from.code": "Character updated from code.",

@@ -57,6 +57,7 @@ export function CardPicker({ char, update, tab, onTabChange, onClose, customItem
 	const [domains, setDomains] = useState<Set<string>>(new Set());
 	const [level, setLevel] = useState("All");
 	const [type, setType] = useState("All");
+	const [weaponCategory, setWeaponCategory] = useState("All");
 	const [expanded, setExpanded] = useState<string | null>(null);
 	// Mixed ancestry: first pick supplies the 1st feature, second pick the 2nd
 	const [mixedMode, setMixedMode] = useState(false);
@@ -130,17 +131,31 @@ export function CardPicker({ char, update, tab, onTabChange, onClose, customItem
 
 	// Equipment tab: weapons/wheelchairs slot into primary/secondary, armor equips
 	const equipment = useMemo(() => {
-		if (tab !== "equipment") return [];
-		return [
-			...srdEquipment.weapons.map((w) => ({ kind: "weapon" as const, gear: w })),
-			...srdEquipment.wheelchairs.map((w) => ({ kind: "wheelchair" as const, gear: w })),
-			...srdEquipment.armor.map((a) => ({ kind: "armor" as const, gear: a })),
-		].filter(({ gear }) => {
-			if (level !== "All" && gear.tier !== Number(level)) return false;
-			if (query && !gear.name.toLowerCase().includes(query)) return false;
-			return true;
-		});
-	}, [tab, level, query, srdEquipment]);
+        if (tab !== "equipment") return [];
+        return [
+            ...srdEquipment.weapons.map((w) => ({ kind: "weapon" as const, gear: w })),
+            ...srdEquipment.wheelchairs.map((w) => ({ kind: "wheelchair" as const, gear: w })),
+            ...srdEquipment.armor.map((a) => ({ kind: "armor" as const, gear: a })),
+        ].filter(({ kind, gear }) => {
+            if (level !== "All" && gear.tier !== Number(level)) return false;
+            if (query && !gear.name.toLowerCase().includes(query)) return false;
+
+            // Filtro por categoria (Primária/Cadeira de rodas, Secundária ou Armadura)
+            if (weaponCategory !== "All") {
+                if (weaponCategory === "Primary") {
+                    const isPrimary = kind === "wheelchair" || (kind === "weapon" && ["primary", "primária", "primaria", "primär"].includes((gear as SrdWeapon).category?.toLowerCase()));
+                    if (!isPrimary) return false;
+                } else if (weaponCategory === "Secondary") {
+                    const isSecondary = kind === "weapon" && ["secondary", "secundária", "secundaria", "sekundär"].includes((gear as SrdWeapon).category?.toLowerCase());
+                    if (!isSecondary) return false;
+                } else if (weaponCategory === "Armor") {
+                    if (kind !== "armor") return false;
+                }
+            }
+
+            return true;
+        });
+    }, [tab, level, weaponCategory, query, srdEquipment]);
 
 	// Items tab: SRD items/consumables + the vault's custom gear
 	const looseItems = useMemo(() => {
@@ -220,15 +235,26 @@ export function CardPicker({ char, update, tab, onTabChange, onClose, customItem
 					</div>
 				)}
 				{tab === "equipment" && (
-					<div className="df-cs-picker-selects">
-						<select className="dropdown" value={level} onChange={(e) => setLevel(e.target.value)} aria-label={dfTranslate("ui.tier.filter")}>
-							<option value="All">{dfTranslate("ui.all.tiers")}</option>
-							{[1, 2, 3, 4].map((t) => (
-								<option key={t} value={String(t)}>{dfTranslate("ui.tier")} {t}</option>
-							))}
+                    <div className="df-cs-picker-selects">
+                        <select className="dropdown" value={level} onChange={(e) => setLevel(e.target.value)} aria-label={dfTranslate("ui.tier.filter")}>
+                            <option value="All">{dfTranslate("ui.all.tiers")}</option>
+                            {[1, 2, 3, 4].map((t) => (
+                                <option key={t} value={String(t)}>{dfTranslate("ui.tier")} {t}</option>
+                            ))}
+                        </select>
+
+						<select 
+							className="dropdown" 
+							value={weaponCategory} 
+							onChange={(e) => setWeaponCategory(e.target.value)}
+						>
+							<option value="All">{dfTranslate("ui.dynamic.all.categories")}</option>
+							<option value="Primary">{dfTranslate("ui.primary")}</option>
+							<option value="Secondary">{dfTranslate("ui.secondary")}</option>
+							<option value="Armor">{dfTranslate("ui.armor")}</option>
 						</select>
-					</div>
-				)}
+                    </div>
+                )}
 				{tab === "domain" && (
 					<>
 						<div className="df-cs-picker-domains">
@@ -339,25 +365,38 @@ export function CardPicker({ char, update, tab, onTabChange, onClose, customItem
 										className="df-cs-pick-add"
 										onClick={() => update(armorToPatch(gear as SrdArmor))}
 									>
-										{dfTranslate("ui.equip")}</button>
+										{dfTranslate("ui.equip")}
+									</button>
 								) : (
 									<>
-										<button
-											type="button"
-											className="df-cs-pick-add"
-											onClick={() =>
-												update({ primaryWeapon: toCharacterWeapon(gear as SrdWeapon, language) })
-											}
-										>
-											{dfTranslate("ui.primary")}</button>
-										<button
-											type="button"
-											className="df-cs-pick-add df-cs-pick-add--secondary"
-											onClick={() =>
-												update({ secondaryWeapon: toCharacterWeapon(gear as SrdWeapon, language) })
-											}
-										>
-											{dfTranslate("ui.secondary")}</button>
+										{(kind === "wheelchair" ||
+											["primary", "primária", "primaria", "primär"].includes(
+												(gear as SrdWeapon).category?.toLowerCase()
+											)) && (
+											<button
+												type="button"
+												className="df-cs-pick-add"
+												onClick={() =>
+													update({ primaryWeapon: toCharacterWeapon(gear as SrdWeapon, language) })
+												}
+											>
+												{dfTranslate("ui.primary")}
+											</button>
+										)}
+										{kind === "weapon" &&
+											["secondary", "secundária", "secundaria", "sekundär"].includes(
+												(gear as SrdWeapon).category?.toLowerCase()
+											) && (
+											<button
+												type="button"
+												className="df-cs-pick-add df-cs-pick-add--secondary"
+												onClick={() =>
+													update({ secondaryWeapon: toCharacterWeapon(gear as SrdWeapon, language) })
+												}
+											>
+												{dfTranslate("ui.secondary")}
+											</button>
+										)}
 									</>
 								)}
 							</div>
